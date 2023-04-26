@@ -1,0 +1,94 @@
+@keyframes translateHeroInfos {
+  0% {
+    transform: translateX(0);
+  }
+    50% {
+        transform: translateX(40px);
+    }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animated {
+  animation-name: translateHeroInfos;
+  animation-duration: 20s;
+  animation-timing-function: ease-in-out;
+}
+
+.animated:hover {
+  animation-play-state: paused;  
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 1.6s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInTwo {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in-two {
+  animation-name: fadeInTwo;
+  animation-duration: 1.9s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInThree {
+  0% {
+    opacity: 0;
+    transform: translateX(-77px);
+
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in-three {
+  animation-name: fadeInThree;
+  animation-duration: 2.3s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}
+
+.fade-out {
+  animation-name: fadeOut;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  /* transform-origin: center; */
+}
