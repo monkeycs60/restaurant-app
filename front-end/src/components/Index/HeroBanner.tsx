@@ -1,5 +1,5 @@
-import blindfold from '../../assets/blindfold2.png';
-import logo from '../../assets/logo4.png';
+import blindfold from '../../assets/blindfold3.png';
+import logo from '../../assets/logo5.png';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 const HeroBanner = () => {
@@ -20,7 +20,7 @@ const HeroBanner = () => {
 					<img src={logo} alt='logo' className='w-40 cursor-pointer' />
 				</button>
 			</div>
-			<div className='-mt-12 flex items-center justify-around xl:-mt-24 2xl:-mt-4'>
+			<div className='-mt-12 flex h-[60vh] items-center justify-around xl:-mt-24 2xl:-mt-4'>
 				<div className='flex w-1/3 flex-col items-center justify-center gap-12 p-4'>
 					<motion.p
 						className={clsx(
@@ -67,17 +67,16 @@ const HeroBanner = () => {
 						<span className='fade-in-span mx-6 text-6xl'>darkness</span>
 					</motion.p>
 				</div>
-				<div className='relative flex h-auto  w-1/3 flex-col'>
+				<div className='relative flex h-auto w-1/3 flex-col'>
 					<img
 						src={blindfold}
 						alt='femme yeux bandés'
-						className='z-0 w-[100%]'
+						className='z-0 aspect-square w-[100%]'
 					/>
-					<div className='font-handwriting  relative -mt-20 flex w-full rounded-lg  border-yellow-50 text-4xl'>
-						<button className='boxShadow custom-animated-button z-20 w-full cursor-pointer rounded-lg px-[2vw] py-[2vh] font-bold  uppercase text-black shadow-md transition-all duration-300 ease-in-out hover:scale-110 hover:bg-black hover:text-white hover:shadow-lg '>
-							Embark on a sensory journey
-						</button>
-					</div>
+
+					<button className='custom-animated-button font-handwriting z-20 -mt-20 w-full cursor-pointer rounded-lg  border-transparent px-[2vw] py-[2vh] text-4xl font-bold uppercase text-black shadow-md transition-all duration-300 ease-in-out hover:scale-105  hover:text-white hover:shadow-lg'>
+						Embark on a sensory journey
+					</button>
 				</div>
 			</div>
 		</div>
