@@ -4,66 +4,6 @@ import { useEffect, useState, useRef } from 'react';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 const HeroBanner = () => {
-	const [opacity, setOpacity] = useState(false);
-	const [fadeIn, setFadeIn] = useState(false);
-	const initialMousePosition = useRef({ x: 0, y: 0 });
-
-	const distance = (point1: any, point2: any) => {
-		return Math.sqrt(
-			Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2),
-		);
-	};
-
-	const handleMouseMove = (event: MouseEvent) => {
-		const currentMousePosition = { x: event.clientX, y: event.clientY };
-		let threshold = 700; // Seuil de distance en pixels
-		if (window.innerWidth > 1700) {
-			threshold = 1200;
-		}
-		console.log(
-			'différence: ' +
-				distance(initialMousePosition.current, currentMousePosition),
-		);
-
-		if (
-			distance(initialMousePosition.current, currentMousePosition) >
-			threshold
-		) {
-			setOpacity(true);
-			setFadeIn(true);
-		}
-	};
-
-	const handleMouseHover = () => {
-		setOpacity(true);
-		setFadeIn(true);
-	};
-	const handleScroll = () => {
-		if (window.scrollY > 0) {
-			setOpacity(true);
-			setFadeIn(true);
-		}
-	};
-
-	useEffect(() => {
-		const setInitialPosition = (event: MouseEvent) => {
-			initialMousePosition.current = {
-				x: event.clientX,
-				y: event.clientY,
-			};
-		};
-
-		window.addEventListener('mousemove', setInitialPosition, {
-			once: true,
-		});
-		window.addEventListener('mousemove', handleMouseMove);
-		window.addEventListener('scroll', handleScroll);
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-			window.removeEventListener('mousemove', handleMouseMove);
-			window.removeEventListener('mousemove', setInitialPosition);
-		};
-	}, []);
 	return (
 		<div className='banner-bg relative h-[100vh] w-full p-4'>
 			<div className='m-8 flex items-center justify-between'>
@@ -72,7 +12,7 @@ const HeroBanner = () => {
 						chiaroscuro
 					</h1>
 					<div className='flex justify-end'>
-						<h2 className='font-classic text-lg text-amber-400'>
+						<h2 className='font-classic text-xl text-amber-400'>
 							Taste the experience, not just the food.
 						</h2>
 					</div>
@@ -83,59 +23,50 @@ const HeroBanner = () => {
 			</div>
 			<div className='-mt-12 flex items-center justify-around xl:-mt-24 2xl:-mt-4'>
 				<div className='flex w-1/3 flex-col items-center justify-center gap-8 p-4'>
-					<p
-						onMouseEnter={handleMouseHover}
+					<motion.p
 						className={clsx(
 							'firstElement border-hero-text font-classic rounded-lg bg-amber-500/30 p-8 text-2xl leading-relaxed tracking-wide text-white',
-							{
-								// 'opacity-100': !opacity,
-								// 'opacity-0': opacity,
-								'fade-out': opacity,
-							},
 						)}
+						initial={{ opacity: 0, x: -100 }}
+						animate={{ opacity: 1, x: 5 }}
+						transition={{ duration: 2.3 }}
 					>
 						Une expérience unique à vivre au moins une fois dans sa vie,
 						êtes-vous prêts à sauter à l'aventure ?
-					</p>
-					<p
+					</motion.p>
+					<motion.p
 						className={clsx(
-							'border-hero-text font-classic translate-x-2 rounded-lg bg-amber-500/30 p-8 text-2xl leading-relaxed tracking-wide text-white',
-							{
-								'opacity-100': opacity,
-								'opacity-0': !opacity,
-								'fade-in': fadeIn,
-							},
+							'border-hero-text font-classic translate-x-2 rounded-lg p-8 text-2xl leading-relaxed tracking-wide text-white',
 						)}
+						initial={{ opacity: 0, x: 100 }}
+						animate={{ opacity: 1, x: -15 }}
+						transition={{ duration: 1.7 }}
 					>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
 						Adipisci a vitae, excepturi soluta sed esse?
-					</p>
-					<p
+					</motion.p>
+					<motion.p
 						className={clsx(
-							'border-hero-text font-classic translate-x-8 rounded-lg bg-amber-500/30 p-8 text-2xl leading-relaxed tracking-wide text-white',
-							{
-								'opacity-100': opacity,
-								'opacity-0': !opacity,
-								'fade-in-two': fadeIn,
-							},
+							'border-hero-text font-classic translate-x-8 rounded-lg p-8 text-2xl leading-relaxed tracking-wide text-white',
 						)}
+						initial={{ opacity: 0, x: -100 }}
+						animate={{ opacity: 1, x: 35 }}
+						transition={{ duration: 2.1 }}
 					>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
 						Adipisci a vitae, excepturi soluta sed esse?
-					</p>
-					<p
+					</motion.p>
+					<motion.p
 						className={clsx(
-							'border-hero-text font-classic -translate-x-8 rounded-lg bg-amber-500/30 p-8 text-2xl leading-relaxed tracking-wide text-white hover:opacity-100',
-							{
-								'opacity-100': opacity,
-								'opacity-0': !opacity,
-								'fade-in-three': fadeIn,
-							},
+							'border-hero-text font-classic -translate-x-8 rounded-lg  p-8 text-2xl leading-relaxed tracking-wide text-white hover:opacity-100',
 						)}
+						initial={{ opacity: 0, x: 100 }}
+						animate={{ opacity: 1, x: 5 }}
+						transition={{ duration: 1.8 }}
 					>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
 						Adipisci a vitae, excepturi soluta sed esse?
-					</p>
+					</motion.p>
 				</div>
 				<div className='relative flex h-auto  w-1/3 flex-col'>
 					<img
