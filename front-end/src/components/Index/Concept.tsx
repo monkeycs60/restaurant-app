@@ -3,8 +3,7 @@ import { useRef } from 'react';
 
 const Concept = () => {
 	const ref = useRef(null);
-	const isInView = useInView(ref);
-	console.log(isInView);
+	const isInView = useInView(ref, { once: true });
 
 	return (
 		<motion.div className='concept-bg relative flex h-[100vh] w-[100vw] justify-end'>

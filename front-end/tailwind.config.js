@@ -6,7 +6,12 @@ export default {
 			handwriting: ['Kaushan Script', 'cursive'],
 			classic: ['Playfair Display', 'serif'],
 		},
-		extend: {},
+
+		extend: {
+			screens: {
+				'3xl': '1700px',
+			},
+		},
 	},
 	plugins: [],
 };
