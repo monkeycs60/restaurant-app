@@ -1,94 +1,82 @@
-@keyframes translateHeroInfos {
-  0% {
-    transform: translateX(0);
-  }
-    50% {
-        transform: translateX(40px);
-    }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.animated {
-  animation-name: translateHeroInfos;
-  animation-duration: 20s;
-  animation-timing-function: ease-in-out;
-}
-
-.animated:hover {
-  animation-play-state: paused;  
-}
-
-@keyframes fadeIn {
+@keyframes fadeInThenSudden {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
-
+  }
+  94% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInThenSuddenTwo {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
   }
   100% {
     opacity: 1;
   }
 }
 
-.fade-in {
-  animation-name: fadeIn;
-  animation-duration: 1.6s;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
+.fade-in-text {
+  animation: fadeInThenSudden 1.5s ease-in-out;
 }
 
-@keyframes fadeInTwo {
+.fade-in-span {
+  animation: fadeInThenSudden 2s ease-in-out;
+}
+
+.fade-in-button {
+  animation: fadeInThenSuddenTwo 2.5s ease-in-out;
+}
+
+@keyframes fadeInThenSuddenThree {
   0% {
-    opacity: 0;
-    transform: translateX(100px);
-
+    background: rgb(245 158 11 / 0.1);
+  }
+  50% {
+    background: rgb(245 158 11 / 0.1);
+  }
+  99% {
+    background: rgb(245 158 11 / 0.1);
   }
   100% {
-    opacity: 1;
+    background: rgb(245 158 11 / 0.5);
   }
 }
-
-.fade-in-two {
-  animation-name: fadeInTwo;
-  animation-duration: 1.9s;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
+.switch-button-opacity {
+  animation: fadeInThenSuddenThree 2.5s ease-in-out;
 }
 
-@keyframes fadeInThree {
+@keyframes gradientBackground {
+           
+         0% {
+             background-position: 0% 50%;
+         }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+
+@keyframes backgroundColorChange {
   0% {
-    opacity: 0;
-    transform: translateX(-77px);
-
+    background-image: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.5) 50%, rgba(245, 158, 11, 0.9) 100%);
   }
   100% {
-    opacity: 1;
+    background-image: none;
+    background-color: rgba(245, 158, 11, 0.8);
+    outline: 2px solid white;
   }
 }
 
-.fade-in-three {
-  animation-name: fadeInThree;
-  animation-duration: 2.3s;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-}
-
-@keyframes fadeOut {
-    0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-}
-
-.fade-out {
-  animation-name: fadeOut;
-  animation-duration: 2s;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-  /* transform-origin: center; */
+.custom-animated-button {
+  background-image: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.5) 50%, rgba(245, 158, 11, 0.9) 100%);
+  background-size: 200% 100%;
+  animation: gradientBackground 5s ease reverse forwards, backgroundColorChange 0.1s 2.5s forwards; /* Add the new animation here */
 }

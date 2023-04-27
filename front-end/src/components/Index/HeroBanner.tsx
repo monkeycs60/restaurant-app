@@ -7,7 +7,7 @@ const HeroBanner = () => {
 		<div className='banner-bg relative h-[100vh] w-full p-4'>
 			<div className='m-8 flex items-center justify-between'>
 				<div className='mt-8 flex flex-col'>
-					<h1 className='font-secondary font-handwriting text-9xl text-gray-300'>
+					<h1 className='font-handwriting text-9xl text-gray-300'>
 						chiaroscuro
 					</h1>
 					<div className='flex justify-end'>
@@ -16,7 +16,7 @@ const HeroBanner = () => {
 						</h2>
 					</div>
 				</div>
-				<button className='fixed right-12 mr-8'>
+				<button className='fixed right-12 z-50 mr-8'>
 					<img src={logo} alt='logo' className='w-40 cursor-pointer' />
 				</button>
 			</div>
@@ -71,7 +71,7 @@ const HeroBanner = () => {
 					<img
 						src={blindfold}
 						alt='femme yeux bandés'
-						className='z-0 aspect-square w-[100%]'
+						className='z-0 aspect-square'
 					/>
 
 					<button className='custom-animated-button font-handwriting z-20 -mt-20 w-full cursor-pointer rounded-lg  border-transparent px-[2vw] py-[2vh] text-4xl font-bold uppercase text-black shadow-md transition-all duration-300 ease-in-out hover:scale-105  hover:text-white hover:shadow-lg'>
