@@ -108,7 +108,7 @@ const HeroBanner = () => {
 
 					<motion.p
 						className={clsx(
-							'font-handwriting fade-in-text translate-x-8 rounded-lg  p-6 text-3xl font-bold uppercase leading-relaxed tracking-widest text-white',
+							'font-handwriting fade-in-text translate-x-8 rounded-lg  p-6 text-3xl font-bold uppercase leading-relaxed tracking-widest text-gray-300',
 							'xl:p-10 xl:text-4xl',
 							'3xl:p-16 3xl:text-5xl',
 						)}
@@ -116,7 +116,7 @@ const HeroBanner = () => {
 						total
 						<span
 							className={clsx(
-								'fade-in-span mx-6 text-6xl',
+								'fade-in-span mx-6 text-6xl ',
 								'xl:text-5xl',
 								'3xl:text-6xl',
 							)}
