@@ -243,7 +243,9 @@ const QuestionMarkGrid = ({ isInView }: isInViewProps) => {
 				<img
 					src={darkPeople}
 					alt='Concept Mystère'
-					className={clsx('absolute inset-0 h-full w-full object-cover')}
+					className={clsx(
+						'absolute inset-0 h-full w-full rounded-full object-cover',
+					)}
 				/>
 			</motion.div>
 		</div>
