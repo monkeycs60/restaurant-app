@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { motion } from 'framer-motion';
 const HeroBanner = () => {
 	return (
-		<div className='banner-bg relative h-[100vh] w-full p-4'>
+		<div className='relative h-[100vh] w-full p-4'>
 			<div
 				className={clsx(
 					'm-2 flex items-center justify-between',
