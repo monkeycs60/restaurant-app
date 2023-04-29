@@ -13,11 +13,12 @@ const Pitch = ({ isInView }: isInViewProps) => {
 					}
 					transition={{ duration: 1 }}
 				>
-					Researchers have found that the majority of our sensory
-					experience comes from sight, which accounts for a staggering 83%,
-					while taste only makes up a mere 1%. In a world where the
-					appearance of food is emphasized, the true essence of taste can
-					sometimes be overlooked.
+					1% of our sensory experience comes from taste. Researchers have
+					found that sight, however, accounts for a staggering 83%,
+					highlighting the significant influence of visual perception in
+					our experiences. In a world where the appearance of food is
+					emphasized, the true essence of taste can sometimes be
+					overlooked.
 				</motion.p>
 				<motion.p
 					className='first-letter:font-handwriting text-gray-100 first-letter:mr-1 first-letter:text-4xl first-letter:text-amber-400'
@@ -27,7 +28,7 @@ const Pitch = ({ isInView }: isInViewProps) => {
 					}
 					transition={{ duration: 1.5 }}
 				>
-					At Chiaroscuro, we flip the script by immersing you in complete
+					Chiaroscuro flips the script by immersing you in complete
 					darkness throughout your dining experience. This innovative
 					approach heightens your other senses, allowing you to truly savor
 					the flavors and textures of each dish. Our skilled staff, trained

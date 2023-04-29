@@ -48,7 +48,7 @@ const MainCourse = () => {
 			<h3 className='font-classic w-full text-center text-xl text-amber-400'>
 				Hungry for more?
 			</h3>
-			<div className='mt-[20vh] flex h-full w-full'>
+			<div className='mt-[20vh] flex h-full w-full flex-row-reverse'>
 				<div className='relative h-full w-1/2' ref={setRef}>
 					<motion.img
 						src={hat}
@@ -84,7 +84,7 @@ const MainCourse = () => {
 									opacity: showText,
 								}}
 							>
-								Starter
+								Main course
 							</motion.h3>
 							<motion.h4
 								className='font-classic absolute top-[400px] text-xl text-white'

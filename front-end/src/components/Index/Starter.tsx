@@ -107,7 +107,7 @@ const Starter = () => {
 								transition={{ duration: 2 }}
 							>
 								Naivety, innocence, wonder, nostalgia, laughter,
-								cherished memories and Brussels sprouts.
+								cherished memories and no Brussels sprouts.
 							</motion.p>
 						</motion.div>
 					)}
