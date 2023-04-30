@@ -6,6 +6,7 @@ import TransitionTitle from '../components/TransitionTitle';
 import Dessert from '../components/Index/Dessert';
 import BookNow from '../components/Index/BookNow';
 import MainCourse from '../components/Index/MainCourse';
+import Team from '../components/Index/Team';
 const Index = () => {
 	return (
 		<motion.div className='banner-bg'>
@@ -17,6 +18,8 @@ const Index = () => {
 			<MainCourse />
 			<Dessert />
 			<BookNow />
+			<TransitionTitle title='Meet the team' position='right' />
+			<Team />
 		</motion.div>
 	);
 };
