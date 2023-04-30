@@ -88,8 +88,14 @@ const HeroBanner = () => {
 					>
 						An unprecedented culinary adventure in{' '}
 					</motion.p>
-					<div className='font-handwriting text-5xl font-bold uppercase'>
-						{animateLetters('total darkness')}
+					<div
+						className='font-handwriting text-5xl font-bold uppercase'
+						style={{
+							textShadow: '1px 1px 4px rgba(255, 255, 255, 0.5)',
+						}}
+					>
+						{/* {animateLetters('total darkness')} */}
+						total darkness
 					</div>
 				</div>
 				<div className='relative flex h-auto w-1/3 flex-col'>
