@@ -11,7 +11,7 @@ import PracticalInformations from '../components/Index/PracticalInformations';
 import FeaturedIn from '../components/Index/FeaturedIn';
 const Index = () => {
 	return (
-		<motion.div className='banner-bg'>
+		<motion.div className='banner-bg fade-in-home'>
 			<HeroBanner />
 			<TransitionTitle title='Concept' position='right' />
 			<Concept />
