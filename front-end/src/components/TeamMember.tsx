@@ -21,7 +21,7 @@ const TeamMember = ({
 }: TeamMemberProps) => {
 	return (
 		<motion.div
-			className='banner-bg flex items-center justify-center gap-8 p-4 brightness-50 grayscale hover:brightness-100 hover:grayscale-0'
+			className='banner-bg flex flex-col items-center justify-center gap-8 p-4 brightness-50 grayscale hover:brightness-100 hover:grayscale-0 xl:flex-row'
 			initial={{ opacity: 0, y: 30 }}
 			animate={
 				isInView

@@ -16,7 +16,7 @@ const Concept = () => {
 				className='relative flex h-[100vh] w-[100vw] flex-col p-8 '
 				ref={ref}
 			>
-				<div className='flex h-full w-full justify-between'>
+				<div className='flex h-full w-full flex-col items-center justify-between xl:flex-row'>
 					<QuestionMarkGrid isInView={isInView} />
 					<Pitch isInView={isInView} />
 				</div>

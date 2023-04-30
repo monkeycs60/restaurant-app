@@ -54,13 +54,13 @@ const MainCourse = () => {
 						src={hat}
 						alt='cloche'
 						width={200}
-						className='absolute left-[200px] top-[60px] z-30'
+						className='absolute left-[200px] top-[60px] z-30 hidden xl:block'
 					/>
 					<motion.img
 						src={teddy}
 						alt='chef'
 						width={130}
-						className='absolute left-[240px] top-[200px] z-10'
+						className='absolute top-[240px] xl:left-[240px] xl:top-[200px] z-10'
 						style={{
 							translateY: translateYTeddy,
 						}}
@@ -69,7 +69,7 @@ const MainCourse = () => {
 						src={childrenPlate}
 						alt='plate'
 						width={300}
-						className='absolute left-[150px] top-[200px] z-20'
+						className='absolute left-[150px] top-[200px] z-20 hidden xl:block'
 						style={{
 							translateY: translateYChildrenPlate,
 						}}
@@ -98,7 +98,7 @@ const MainCourse = () => {
 								Linear Regression
 							</motion.h4>
 							<motion.p
-								className='font-classic absolute top-[430px] text-sm text-white'
+								className='font-classic absolute top-[500px] xl:top-[430px] text-sm text-white'
 								style={{
 									opacity: showText,
 								}}

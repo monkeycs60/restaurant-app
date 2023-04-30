@@ -1,11 +1,7 @@
 import { useCallback, useRef, useEffect } from 'react';
 import { motion, useTransform, useMotionValue, useInView } from 'framer-motion';
-import hat from '../../assets/hat-party.png';
-import teddy from '../../assets/teddy.png';
-import childrenPlate from '../../assets/children-plate.png';
 import plane from '../../assets/plane.png';
 import globe from '../../assets/globe.png';
-import runway from '../../assets/runway.png';
 
 const MainCourse = () => {
 	const viewRef = useRef(null);
@@ -52,7 +48,7 @@ const MainCourse = () => {
 						src={plane}
 						alt='chef'
 						width={250}
-						className='absolute left-[175px] top-[0px] z-10'
+						className='absolute left-[175px] top-[0px] z-10 hidden xl:block'
 						style={{
 							translateY: translateYTeddy,
 						}}
@@ -61,7 +57,7 @@ const MainCourse = () => {
 						src={globe}
 						alt='cloche'
 						width={200}
-						className='absolute left-[200px] top-[380px] z-30'
+						className='absolute xl:left-[200px] top-[380px] z-30 w-[100px] xl:w-[200px]'
 						style={{
 							rotateZ: rotateZ,
 						}}
@@ -90,7 +86,7 @@ const MainCourse = () => {
 								Epicurean expedition to distant destinations
 							</motion.h4>
 							<motion.p
-								className='font-classic absolute top-[430px] text-sm text-white'
+								className='font-classic absolute top-[540px] text-sm text-white xl:top-[430px]'
 								style={{
 									opacity: showText,
 								}}

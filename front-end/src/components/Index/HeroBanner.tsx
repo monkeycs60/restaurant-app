@@ -19,7 +19,7 @@ const HeroBanner = () => {
 				<div className={clsx('mt-2 flex flex-col', 'xl:mt-4', '3xl:mt-8')}>
 					<h1
 						className={clsx(
-							'font-handwriting text-5xl text-gray-300',
+							'font-handwriting text-6xl text-gray-300',
 							'xl:text-8xl',
 							'3xl:text-9xl',
 						)}
@@ -29,7 +29,8 @@ const HeroBanner = () => {
 					<div className='flex justify-end'>
 						<h2
 							className={clsx(
-								'font-classic text-lg text-amber-400',
+								'font-classic text-base text-amber-400',
+								'xl:text-lg',
 								'3xl:text-xl',
 							)}
 						>
@@ -47,21 +48,21 @@ const HeroBanner = () => {
 			</div>
 			<div
 				className={clsx(
-					'-mt-12 flex items-center justify-around',
-					'xl:-mt-4',
+					'mt-16 flex flex-col-reverse items-center justify-around gap-8 xl:flex-row',
+					'xl:-mt-4 xl:gap-0',
 					'3xl:-mt-4 3xl:w-[90%]',
 				)}
 			>
 				<div
 					className={clsx(
-						'flex w-[40%] flex-col items-center justify-center  bg-amber-500/30 p-5',
+						'flex w-[80%] flex-col items-center justify-center bg-amber-500/30  p-5 xl:w-[40%]',
 						'xl:mt-12 xl:gap-2',
 						'3xl:gap-6 3xl:py-8',
 					)}
 				>
 					<motion.p
 						className={clsx(
-							'font-classic translate-x-2 rounded-lg text-2xl leading-10 tracking-wide text-white',
+							'font-classic translate-x-2 rounded-lg text-xl leading-10 tracking-wide text-white',
 							'xl:text-2xl',
 							'3xl:text-3xl 3xl:p-8',
 						)}
@@ -69,7 +70,7 @@ const HeroBanner = () => {
 						An unprecedented culinary adventure in{' '}
 					</motion.p>
 					<div
-						className='font-handwriting text-5xl font-bold uppercase'
+						className='font-handwriting text-center text-3xl font-bold uppercase xl:text-left xl:text-5xl'
 						style={{
 							textShadow: '1px 1px 4px rgba(255, 255, 255, 0.5)',
 						}}
@@ -77,15 +78,15 @@ const HeroBanner = () => {
 						total darkness
 					</div>
 				</div>
-				<div className='3xl:mr-12 relative flex h-auto w-1/3  flex-col'>
+				<div className='3xl:mr-12 relative flex h-auto w-[90%] flex-col items-center gap-6 xl:w-1/3 xl:items-start  xl:gap-0'>
 					<img
 						src={blindfold}
 						alt='femme yeux bandés'
-						className={clsx('z-0 aspect-square w-[70%]', 'xl:w-full')}
+						className={clsx('z-0 aspect-square w-[80%]', 'xl:w-full')}
 					/>
 					<button
 						className={clsx(
-							'custom-animated-button font-classic z-20 -mt-20 w-full cursor-pointer rounded-lg  border-transparent px-[2vw] py-[2vh] text-4xl font-bold uppercase text-black shadow-md',
+							'custom-animated-button font-classic z-20 -mt-20 w-full cursor-pointer rounded-lg  border-transparent p-4 text-xl font-bold uppercase text-black shadow-md xl:px-[2vw] xl:py-[2vh]',
 							'xl:text-2xl',
 							'3xl:text-4xl',
 							'transition-all duration-300 ease-in-out',

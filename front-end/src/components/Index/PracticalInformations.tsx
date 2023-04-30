@@ -2,9 +2,9 @@ import OpeningHours from '../OpeningHours';
 
 const PracticalInformations = () => {
 	return (
-		<div className='flex flex-col gap-[6vh] p-8 text-white'>
+		<div className='flex flex-col gap-4 p-2 text-white xl:gap-[6vh] xl:p-8'>
 			<div className='flex justify-between'>
-				<div className='flex w-1/2 flex-col gap-4 p-8'>
+				<div className='flex w-1/2 flex-col gap-4 p-8 text-sm xl:text-base'>
 					<h3 className='font-classic text-2xl font-bold text-amber-400'>
 						Address
 					</h3>
@@ -25,7 +25,7 @@ const PracticalInformations = () => {
 			</div>
 			<div className='flex w-full justify-between gap-4 p-8'>
 				<div className='flex w-1/3 flex-col gap-4'>
-					<h3 className='font-classic w- text-2xl font-bold text-amber-400'>
+					<h3 className='font-classic font-bold text-amber-400 xl:text-2xl'>
 						Prices
 					</h3>
 					<div>
@@ -34,7 +34,7 @@ const PracticalInformations = () => {
 					</div>
 				</div>
 				<div className='flex w-1/3 flex-col gap-4'>
-					<h3 className='font-classic text-2xl font-bold text-amber-400'>
+					<h3 className='font-classic xl:text-2xl font-bold text-amber-400'>
 						Reservations
 					</h3>
 					<p>
@@ -48,7 +48,7 @@ const PracticalInformations = () => {
 					</p>
 				</div>
 				<div className='flex w-1/3 flex-col gap-4'>
-					<h3 className='font-classic text-2xl font-bold text-amber-400'>
+					<h3 className='font-classic xl:text-2xl font-bold text-amber-400'>
 						Payment Methods
 					</h3>
 					<p>

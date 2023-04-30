@@ -20,7 +20,7 @@ const Index = () => {
 			<MainCourse />
 			<Dessert />
 			<BookNow />
-			<TransitionTitle title='Meet the team' position='right' />
+			<TransitionTitle title='The team' position='right' />
 			<Team />
 			<TransitionTitle title='Informations' position='left' />
 			<PracticalInformations />

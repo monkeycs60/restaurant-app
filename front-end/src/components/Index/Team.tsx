@@ -12,7 +12,7 @@ const Team = () => {
 	const isInView = useInView(viewRef, { once: true });
 	return (
 		<div
-			className='m-[10vh] grid grid-cols-2 gap-6 bg-amber-500/40 p-12'
+			className='grid grid-cols-1 gap-6 bg-amber-500/40 p-12 xl:m-[10vh] xl:grid-cols-2'
 			ref={viewRef}
 		>
 			<TeamMember

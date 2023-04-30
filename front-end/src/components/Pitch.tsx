@@ -3,8 +3,8 @@ import { isInViewProps } from './Index/Concept';
 
 const Pitch = ({ isInView }: isInViewProps) => {
 	return (
-		<div className='concept-bordure-bg mr-8 flex w-[60%] flex-col items-center bg-amber-500/20 p-8'>
-			<div className='font-classic 3xl:text-2xl flex h-full w-full flex-col justify-around text-xl'>
+		<div className='concept-bordure-bg flex w-full flex-col items-center bg-amber-500/20 p-8 xl:mr-8 xl:w-[60%]  xl:p-16'>
+			<div className='font-classic 3xl:text-2xl flex h-full w-full flex-col justify-around text-s xl:gap-8 xl:text-xl'>
 				<motion.p
 					className='first-letter:font-handwriting text-gray-100 first-letter:mr-1 first-letter:text-4xl first-letter:text-amber-500'
 					initial={{ opacity: 0, x: 100 }}

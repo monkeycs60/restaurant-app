@@ -27,7 +27,7 @@ const Loader = () => {
 	};
 	return (
 		<div className='loader-bg flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-red-500 text-3xl text-white'>
-			<h1 className='font-handwriting text-8xl'>
+			<h1 className='font-handwriting text-6xl xl:text-8xl'>
 				{animateLetters('chiaroscuro')}
 			</h1>
 		</div>

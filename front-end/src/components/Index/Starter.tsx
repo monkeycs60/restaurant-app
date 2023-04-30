@@ -50,7 +50,7 @@ const Starter = () => {
 						src={hammer}
 						alt='chef'
 						width={90}
-						className='absolute left-[40px] top-[100px] z-10'
+						className='absolute left-[40px] top-[100px] z-10 hidden xl:block'
 						style={{
 							translateX: translateX,
 							translateY: translateYTeddy,
@@ -61,14 +61,14 @@ const Starter = () => {
 						src={snorkel}
 						alt='cloche'
 						width={200}
-						className='absolute left-[200px] top-[340px] z-30'
+						className='absolute left-[0px] top-[420px] z-30 xl:left-[200px] xl:top-[340px] w-[140px] xl:w-[200px]'
 					/>
 				</div>
 				<div className='relative h-full w-1/2' ref={viewRef}>
 					{showText && (
 						<motion.div className=''>
 							<motion.h3
-								className='font-handwriting absolute top-[240px] text-4xl text-amber-500'
+								className='font-handwriting absolute -left-1/2 top-[240px] text-4xl text-amber-500 xl:left-0'
 								style={{
 									opacity: showText,
 								}}
@@ -87,7 +87,7 @@ const Starter = () => {
 								Philosophizing with a snorkel
 							</motion.h4>
 							<motion.p
-								className='font-classic absolute top-[430px] text-sm text-white'
+								className='font-classic absolute top-[540px] text-sm text-white xl:top-[430px]'
 								style={{
 									opacity: showText,
 								}}
