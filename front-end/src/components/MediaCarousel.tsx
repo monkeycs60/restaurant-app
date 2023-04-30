@@ -35,8 +35,8 @@ const MediaCarousel = () => {
 		const timer = setTimeout(() => {
 			setCurrentIndex((prevIndex) => {
 				if (
-					prevIndex + direction >= logos.length - 2 ||
-					prevIndex + direction < 0
+					(prevIndex + direction >= logos.length - 3 && direction === 1) ||
+					(prevIndex + direction < 1 && direction === -1)
 				) {
 					setDirection(-direction);
 				}
@@ -50,7 +50,7 @@ const MediaCarousel = () => {
 	return (
 		<div className='carousel-container flex items-center justify-center'>
 			<div
-				className='carousel-wrapper '
+				className='carousel-wrapper'
 				style={{ transform: `translateX(-${currentIndex * 33.33}%)` }}
 			>
 				{logos.map((logo, index) => (
