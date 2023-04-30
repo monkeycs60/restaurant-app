@@ -8,6 +8,7 @@ import BookNow from '../components/Index/BookNow';
 import MainCourse from '../components/Index/MainCourse';
 import Team from '../components/Index/Team';
 import PracticalInformations from '../components/Index/PracticalInformations';
+import FeaturedIn from '../components/Index/FeaturedIn';
 const Index = () => {
 	return (
 		<motion.div className='banner-bg'>
@@ -23,6 +24,8 @@ const Index = () => {
 			<Team />
 			<TransitionTitle title='Practical informations' position='left' />
 			<PracticalInformations />
+			<TransitionTitle title='As featured in' position='right' />
+			<FeaturedIn />
 		</motion.div>
 	);
 };

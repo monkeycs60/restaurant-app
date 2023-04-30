@@ -1,7 +1,7 @@
 const BookNow = () => {
 	return (
 		<div className='font-classic m-auto mb-[5vh] mt-[2vh] flex w-2/3 flex-col items-center gap-[4vh] bg-amber-500/30 p-8 text-center text-gray-100'>
-			<p className='text-base'>Intrigued? Eager to learn more?</p>
+			<p className='text-base'>Curious? Eager to taste more?</p>
 			<p className='text-lg'>
 				Yearning to unravel these mysteries? Longing to embark on this
 				culinary adventure?
