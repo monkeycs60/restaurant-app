@@ -3,6 +3,9 @@ import { motion, useTransform, useMotionValue, useInView } from 'framer-motion';
 import hat from '../../assets/hat-party.png';
 import teddy from '../../assets/teddy.png';
 import childrenPlate from '../../assets/children-plate.png';
+import plane from '../../assets/plane.png';
+import globe from '../../assets/globe.png';
+import runway from '../../assets/runway.png';
 
 const MainCourse = () => {
 	const viewRef = useRef(null);
@@ -10,13 +13,8 @@ const MainCourse = () => {
 
 	const containerRef = useRef<HTMLElement | null>(null);
 	const scrollYProgress = useMotionValue(0);
-	const translateYTeddy = useTransform(scrollYProgress, [0.5, 1], [0, 180]);
-	const translateYChildrenPlate = useTransform(
-		scrollYProgress,
-		[0.5, 1],
-		[0, 380],
-	);
-
+	const translateYTeddy = useTransform(scrollYProgress, [0.5, 1], [0, 290]);
+	const rotateZ = useTransform(scrollYProgress, [0.5, 1], [0, 160]);
 	const showText = useTransform(scrollYProgress, [0.6, 0.8, 1], [0, 0.3, 1]);
 
 	const setRef = useCallback((node: any) => {
@@ -51,27 +49,21 @@ const MainCourse = () => {
 			<div className='mt-[20vh] flex h-full w-full flex-row-reverse'>
 				<div className='relative h-full w-1/2' ref={setRef}>
 					<motion.img
-						src={hat}
-						alt='cloche'
-						width={200}
-						className='absolute left-[200px] top-[10px] z-30'
-					/>
-					<motion.img
-						src={teddy}
+						src={plane}
 						alt='chef'
-						width={130}
-						className='absolute left-[240px] top-[150px] z-10'
+						width={250}
+						className='absolute left-[175px] top-[0px] z-10'
 						style={{
 							translateY: translateYTeddy,
 						}}
 					/>
 					<motion.img
-						src={childrenPlate}
-						alt='plate'
-						width={300}
-						className='absolute left-[150px] top-[150px] z-20'
+						src={globe}
+						alt='cloche'
+						width={200}
+						className='absolute left-[200px] top-[380px] z-30'
 						style={{
-							translateY: translateYChildrenPlate,
+							rotateZ: rotateZ,
 						}}
 					/>
 				</div>
@@ -95,7 +87,7 @@ const MainCourse = () => {
 								animate={isInView ? { x: 0 } : { x: 100 }}
 								transition={{ duration: 2 }}
 							>
-								Linear Regression
+								Epicurean expedition to distant destinations
 							</motion.h4>
 							<motion.p
 								className='font-classic absolute top-[430px] text-sm text-white'
@@ -106,8 +98,8 @@ const MainCourse = () => {
 								animate={isInView ? { x: 0 } : { x: 100 }}
 								transition={{ duration: 2 }}
 							>
-								Naivety, innocence, wonder, nostalgia, laughter,
-								cherished memories and Brussels sprouts.
+								A touch of spice, a zest of adventure, a hint of thrill,
+								and an immense change of scenery.
 							</motion.p>
 						</motion.div>
 					)}

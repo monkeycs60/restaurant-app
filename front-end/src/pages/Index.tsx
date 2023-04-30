@@ -3,8 +3,9 @@ import Starter from '../components/Index/Starter';
 import HeroBanner from '../components/Index/HeroBanner';
 import Concept from '../components/Index/Concept';
 import TransitionTitle from '../components/TransitionTitle';
-import Dish from '../components/Index/MainCourse';
 import Dessert from '../components/Index/Dessert';
+import BookNow from '../components/Index/BookNow';
+import MainCourse from '../components/Index/MainCourse';
 const Index = () => {
 	return (
 		<motion.div className='banner-bg'>
@@ -13,8 +14,9 @@ const Index = () => {
 			<Concept />
 			<TransitionTitle title='Menu' position='left' />
 			<Starter />
-			<Dish />
+			<MainCourse />
 			<Dessert />
+			<BookNow />
 		</motion.div>
 	);
 };

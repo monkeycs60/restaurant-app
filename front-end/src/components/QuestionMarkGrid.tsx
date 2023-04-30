@@ -5,7 +5,7 @@ import { isInViewProps } from './Index/Concept';
 
 const QuestionMarkGrid = ({ isInView }: isInViewProps) => {
 	return (
-		<div className='grid-container h-full w-[40%] p-[6vw]'>
+		<div className='grid-container h-full w-[40%] p-[8vw]'>
 			<motion.div
 				initial={{
 					opacity: 0,

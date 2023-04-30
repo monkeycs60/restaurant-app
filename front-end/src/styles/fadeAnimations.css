@@ -78,5 +78,5 @@
 .custom-animated-button {
   background-image: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.5) 50%, rgba(245, 158, 11, 0.9) 100%);
   background-size: 200% 100%;
-  animation: gradientBackground 5s ease reverse forwards, backgroundColorChange 0.1s 2.5s forwards; /* Add the new animation here */
+  animation: gradientBackground 3s ease reverse forwards, backgroundColorChange 0.1s 1.5s forwards; /* Add the new animation here */
 }

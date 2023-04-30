@@ -3,6 +3,30 @@ import logo from '../../assets/logo5.png';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 const HeroBanner = () => {
+	const animateLetters = (text: string) => {
+		const duration = 0.3; // Durée de l'animation en secondes
+		const delay = 0.11; // Délai entre les animations en secondes
+		const colorVariants = {
+			initial: { color: 'white' },
+			animate: (i: number) => ({
+				color: 'black',
+				textShadow: '1px 1px 4px rgba(255, 255, 255, 0.5)',
+				transition: { duration, delay: i * delay },
+			}),
+		};
+
+		return text.split('').map((letter, i) => (
+			<motion.span
+				key={i}
+				variants={colorVariants}
+				initial='initial'
+				animate={`animate`}
+				custom={i}
+			>
+				{letter}
+			</motion.span>
+		));
+	};
 	return (
 		<div className='relative h-[100vh] w-full p-4'>
 			<div
@@ -50,80 +74,23 @@ const HeroBanner = () => {
 			>
 				<div
 					className={clsx(
-						'flex w-1/3 flex-col items-center justify-center gap-4 p-4',
-						'xl:mt-12 xl:gap-8',
-						'3xl:gap-12 3xl:mt-6',
+						'flex w-[40%] flex-col items-center justify-center  bg-amber-500/30 p-5',
+						'xl:mt-12 xl:gap-2',
+						'3xl:gap-6',
 					)}
 				>
 					<motion.p
 						className={clsx(
-							'font-classic rounded-lg bg-amber-500/40 p-4 text-2xl leading-relaxed tracking-wide text-white',
-							'xl:text-3xl',
-							'3xl:p-8 3xl:text-4xl',
-						)}
-						initial={{ opacity: 0, x: -100 }}
-						animate={{ opacity: 1, x: 160 }}
-						transition={{ duration: 1.7 }}
-					>
-						Ready for the{' '}
-						<span
-							className={clsx(
-								'font-handwriting text-3xl',
-								'3xl:text-5xl',
-							)}
-						>
-							extraordinary?
-						</span>
-					</motion.p>
-					<motion.p
-						className={clsx(
-							'font-classic translate-x-2 rounded-lg bg-amber-500/30 p-6 text-2xl leading-relaxed tracking-wide text-white',
-							'xl:text-xl',
+							'font-classic translate-x-2 rounded-lg text-2xl leading-10 tracking-wide text-white',
+							'xl:text-2xl',
 							'3xl:text-2xl 3xl:p-8',
 						)}
-						initial={{
-							opacity: 0,
-							x: 100,
-							backgroundColor: 'rgb(245 158 11 / 0.0)',
-						}}
-						animate={{
-							opacity: 1,
-							x: -15,
-							backgroundColor: 'rgb(245 158 11 / 0.4)',
-						}}
-						transition={{ duration: 1.3 }}
 					>
-						Embark on an unprecedented{' '}
-						<span
-							className={clsx(
-								'font-classic text-4xl underline underline-offset-0',
-								'xl:text-2xl xl:underline-offset-2',
-								'3xl:text-4xl 3xl:underline-offset-4',
-							)}
-						>
-							culinary adventure
-						</span>{' '}
-						as you savor a meal in the captivating embrace of
+						An unprecedented culinary adventure in{' '}
 					</motion.p>
-
-					<motion.p
-						className={clsx(
-							'font-handwriting fade-in-text translate-x-8 rounded-lg  p-6 text-3xl font-bold uppercase leading-relaxed tracking-widest text-gray-300',
-							'xl:p-10 xl:text-4xl',
-							'3xl:p-16 3xl:text-5xl',
-						)}
-					>
-						total
-						<span
-							className={clsx(
-								'fade-in-span mx-6 text-6xl ',
-								'xl:text-5xl',
-								'3xl:text-6xl',
-							)}
-						>
-							darkness
-						</span>
-					</motion.p>
+					<div className='font-handwriting text-5xl font-bold uppercase'>
+						{animateLetters('total darkness')}
+					</div>
 				</div>
 				<div className='relative flex h-auto w-1/3 flex-col'>
 					<img
