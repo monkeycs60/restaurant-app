@@ -49,21 +49,21 @@ const HeroBanner = () => {
 				className={clsx(
 					'-mt-12 flex items-center justify-around',
 					'xl:-mt-4',
-					'3xl:-mt-4',
+					'3xl:-mt-4 3xl:w-[90%]',
 				)}
 			>
 				<div
 					className={clsx(
 						'flex w-[40%] flex-col items-center justify-center  bg-amber-500/30 p-5',
 						'xl:mt-12 xl:gap-2',
-						'3xl:gap-6',
+						'3xl:gap-6 3xl:py-8',
 					)}
 				>
 					<motion.p
 						className={clsx(
 							'font-classic translate-x-2 rounded-lg text-2xl leading-10 tracking-wide text-white',
 							'xl:text-2xl',
-							'3xl:text-2xl 3xl:p-8',
+							'3xl:text-3xl 3xl:p-8',
 						)}
 					>
 						An unprecedented culinary adventure in{' '}
@@ -77,7 +77,7 @@ const HeroBanner = () => {
 						total darkness
 					</div>
 				</div>
-				<div className='relative flex h-auto w-1/3 flex-col'>
+				<div className='3xl:mr-12 relative flex h-auto w-1/3  flex-col'>
 					<img
 						src={blindfold}
 						alt='femme yeux bandés'

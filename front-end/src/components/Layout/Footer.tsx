@@ -5,7 +5,7 @@ import { SiTripadvisor } from 'react-icons/si';
 
 const Footer = () => {
 	return (
-		<footer className='flex h-[10vh] bg-amber-700/70 p-2'>
+		<footer className='flex  bg-amber-700/70 p-2'>
 			<div className='flex w-1/2 flex-col items-end'>
 				<p>
 					{' '}
