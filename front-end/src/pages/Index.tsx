@@ -22,7 +22,7 @@ const Index = () => {
 			<BookNow />
 			<TransitionTitle title='Meet the team' position='right' />
 			<Team />
-			<TransitionTitle title='Practical informations' position='left' />
+			<TransitionTitle title='Informations' position='left' />
 			<PracticalInformations />
 			<TransitionTitle title='As featured in' position='right' />
 			<FeaturedIn />

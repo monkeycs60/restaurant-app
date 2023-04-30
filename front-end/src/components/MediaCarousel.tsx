@@ -42,7 +42,7 @@ const MediaCarousel = () => {
 				}
 				return prevIndex + direction;
 			});
-		}, 3000);
+		}, 2000);
 
 		return () => clearTimeout(timer);
 	}, [currentIndex, direction, logos.length]);
