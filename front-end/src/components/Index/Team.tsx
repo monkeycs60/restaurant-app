@@ -1,5 +1,5 @@
 import HeadChef from '../../assets/HeadChef.png';
-import Second from '../../assets/Second.png';
+import Second from '../../assets/second.png';
 import LineParty from '../../assets/LineCook.png';
 import Junior from '../../assets/junior.png';
 import Waitress1 from '../../assets/waitress1.png';

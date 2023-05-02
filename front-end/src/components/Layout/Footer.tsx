@@ -15,7 +15,7 @@ const Footer = () => {
 				</p>
 				<p className='text-sm italic'>+44 20 1234 5678</p>
 			</div>
-			<div className='flex w-1/3 items-center justify-end gap-2 '>
+			<div className='flex w-full xl:w-1/3 items-center justify-end gap-2 '>
 				<a
 					href='
 				https://www.instagram.com/chiaroscuro_restaurant/

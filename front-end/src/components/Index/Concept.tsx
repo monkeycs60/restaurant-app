@@ -13,7 +13,7 @@ const Concept = () => {
 	return (
 		<>
 			<motion.div
-				className='relative flex h-[100vh] w-[100vw] flex-col p-8 '
+				className='relative flex xl:h-[100vh] w-[100vw] flex-col p-8 '
 				ref={ref}
 			>
 				<div className='flex h-full w-full flex-col items-center justify-between xl:flex-row'>
