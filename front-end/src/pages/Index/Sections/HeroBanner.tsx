@@ -8,7 +8,7 @@ const HeroBanner = () => {
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 
 	return (
-		<div className='relative h-[100vh] w-full p-4'>
+		<div className='relative h-[100vh] w-full p-4 xl:h-[100vh]'>
 			<div
 				className={clsx(
 					'm-2 flex items-center justify-between',
@@ -16,7 +16,13 @@ const HeroBanner = () => {
 					'3xl:m-8',
 				)}
 			>
-				<div className={clsx('mt-2 flex flex-col', 'xl:mt-4', '3xl:mt-8')}>
+				<div
+					className={clsx(
+						'mb-[10vh] mt-2 flex flex-col',
+						'xl:mb-0 xl:mt-4',
+						'3xl:mt-8',
+					)}
+				>
 					<h1
 						className={clsx(
 							'font-handwriting text-6xl text-gray-300',
@@ -48,29 +54,37 @@ const HeroBanner = () => {
 			</div>
 			<div
 				className={clsx(
-					'mt-16 flex flex-col-reverse items-center justify-around gap-8 xl:flex-row',
-					'xl:-mt-4 xl:gap-0',
+					'mt-16 flex flex-col items-center justify-around gap-14',
+					'xl:-mt-4 xl:flex-row xl:gap-0',
 					'3xl:-mt-4 3xl:w-[90%]',
 				)}
 			>
 				<div
 					className={clsx(
-						'flex w-[80%] flex-col items-center justify-center bg-amber-500/30  p-5 xl:w-[40%]',
-						'xl:mt-12 xl:gap-2',
+						' w-[90%] items-center justify-center bg-amber-500/30  p-3 xl:w-[40%]',
+						'xl:mt-12 xl:flex xl:flex-col xl:gap-2 xl:p-5',
 						'3xl:gap-6 3xl:py-8',
 					)}
 				>
 					<motion.p
 						className={clsx(
-							'font-classic translate-x-2 rounded-lg text-xl leading-10 tracking-wide text-white',
+							'font-classic translate-x-2 rounded-lg text-lg leading-10 tracking-wide text-white',
 							'xl:text-2xl',
 							'3xl:text-3xl 3xl:p-8',
 						)}
 					>
 						An unprecedented culinary adventure in{' '}
+						<span
+							className={clsx(
+								'font-handwriting text-3xl font-bold text-black',
+								'xl:hidden',
+							)}
+						>
+							total darkness
+						</span>
 					</motion.p>
 					<div
-						className='font-handwriting text-center text-3xl font-bold uppercase xl:text-left xl:text-5xl'
+						className='font-handwriting hidden text-center text-2xl font-bold uppercase xl:block xl:text-left xl:text-5xl'
 						style={{
 							textShadow: '1px 1px 4px rgba(255, 255, 255, 0.5)',
 						}}
@@ -78,7 +92,13 @@ const HeroBanner = () => {
 						total darkness
 					</div>
 				</div>
-				<div className='3xl:mr-12 relative flex h-auto w-[90%] flex-col items-center gap-6 xl:w-1/3 xl:items-start  xl:gap-0'>
+				<div
+					className={clsx(
+						'relative flex h-auto w-[90%] flex-col items-center gap-6 ',
+						'xl:h-auto  xl:w-1/3 xl:items-start xl:gap-0',
+						'3xl:mr-12',
+					)}
+				>
 					<img
 						src={blindfold}
 						alt='femme yeux bandés'
