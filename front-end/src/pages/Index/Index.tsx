@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
-import Starter from '../components/Index/Starter';
-import HeroBanner from '../components/Index/HeroBanner';
-import Concept from '../components/Index/Concept';
-import TransitionTitle from '../components/TransitionTitle';
-import Dessert from '../components/Index/Dessert';
-import BookNow from '../components/Index/BookNow';
-import MainCourse from '../components/Index/MainCourse';
-import Team from '../components/Index/Team';
-import PracticalInformations from '../components/Index/PracticalInformations';
-import FeaturedIn from '../components/Index/FeaturedIn';
+import Starter from './Sections/Starter';
+import HeroBanner from './Sections/HeroBanner';
+import Concept from './Sections/Concept';
+import TransitionTitle from '../../components/TransitionTitle';
+import Dessert from './Sections/Dessert';
+import BookNow from './Sections/BookNow';
+import MainCourse from './Sections/MainCourse';
+import Team from './Sections/Team';
+import PracticalInformations from './Sections/PracticalInformations';
+import FeaturedIn from './Sections/FeaturedIn';
 const Index = () => {
 	return (
 		<motion.div className='banner-bg fade-in-home'>

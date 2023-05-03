@@ -1,5 +1,5 @@
-import blindfold from '../../assets/blindfold3.png';
-import logo from '../../assets/logo5.png';
+import blindfold from '../../../assets/blindfold3.png';
+import logo from '../../../assets/logo5.png';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useState } from 'react';

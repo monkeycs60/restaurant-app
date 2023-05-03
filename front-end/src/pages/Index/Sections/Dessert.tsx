@@ -1,17 +1,21 @@
 import { useCallback, useRef, useEffect } from 'react';
 import { motion, useTransform, useMotionValue, useInView } from 'framer-motion';
-import hammer from '../../assets/hammer.png';
-import snorkel from '../../assets/snorkel.png';
+import hat from '../../../assets/hat-party.png';
+import teddy from '../../../assets/teddy.png';
+import childrenPlate from '../../../assets/children-plate.png';
 
-const Starter = () => {
+const MainCourse = () => {
 	const viewRef = useRef(null);
 	const isInView = useInView(viewRef, { once: true });
 
 	const containerRef = useRef<HTMLElement | null>(null);
 	const scrollYProgress = useMotionValue(0);
-	const translateYTeddy = useTransform(scrollYProgress, [0.5, 1], [0, 170]);
-	const rotateY = useTransform(scrollYProgress, [0.5, 1], [0, 60]);
-	const translateX = useTransform(scrollYProgress, [0.5, 1], [0, 100]);
+	const translateYTeddy = useTransform(scrollYProgress, [0.5, 1], [0, 180]);
+	const translateYChildrenPlate = useTransform(
+		scrollYProgress,
+		[0.5, 1],
+		[0, 350],
+	);
 
 	const showText = useTransform(scrollYProgress, [0.6, 0.8, 1], [0, 0.3, 1]);
 
@@ -40,40 +44,47 @@ const Starter = () => {
 	}, [containerRef, scrollYProgress]);
 
 	return (
-		<motion.div className='relative h-[135vh] w-full p-8'>
+		<motion.div className='relative h-[150vh] w-full p-8'>
 			<h3 className='font-classic w-full text-center text-xl text-amber-400'>
-				Our clients are unique, and so is our menu.
+				And what about the sweet side of things?
 			</h3>
-			<div className='mt-[20vh] flex h-full w-full'>
+			<div className='mt-[20vh] flex h-full w-full flex-row'>
 				<div className='relative h-full w-1/2' ref={setRef}>
 					<motion.img
-						src={hammer}
+						src={hat}
+						alt='cloche'
+						width={200}
+						className='absolute left-[200px] top-[60px] z-30 hidden xl:block'
+					/>
+					<motion.img
+						src={teddy}
 						alt='chef'
-						width={90}
-						className='absolute left-[40px] top-[100px] z-10 hidden xl:block'
+						width={130}
+						className='absolute top-[240px] z-10 xl:left-[240px] xl:top-[200px]'
 						style={{
-							translateX: translateX,
 							translateY: translateYTeddy,
-							rotateZ: rotateY,
 						}}
 					/>
 					<motion.img
-						src={snorkel}
-						alt='cloche'
-						width={200}
-						className='absolute left-[0px] top-[420px] z-30 xl:left-[200px] xl:top-[340px] w-[140px] xl:w-[200px]'
+						src={childrenPlate}
+						alt='plate'
+						width={300}
+						className='absolute left-[150px] top-[200px] z-20 hidden xl:block'
+						style={{
+							translateY: translateYChildrenPlate,
+						}}
 					/>
 				</div>
 				<div className='relative h-full w-1/2' ref={viewRef}>
 					{showText && (
 						<motion.div className=''>
 							<motion.h3
-								className='font-handwriting absolute -left-1/2 top-[240px] text-4xl text-amber-500 xl:left-0'
+								className='font-handwriting absolute top-[240px] text-4xl text-amber-500'
 								style={{
 									opacity: showText,
 								}}
 							>
-								Starter
+								Dessert
 							</motion.h3>
 							<motion.h4
 								className='font-classic absolute top-[400px] text-xl text-white'
@@ -84,10 +95,10 @@ const Starter = () => {
 								animate={isInView ? { x: 0 } : { x: 100 }}
 								transition={{ duration: 2 }}
 							>
-								Philosophizing with a snorkel
+								Linear Regression
 							</motion.h4>
 							<motion.p
-								className='font-classic absolute top-[540px] text-sm text-white xl:top-[430px]'
+								className='font-classic absolute top-[500px] text-sm text-white xl:top-[430px]'
 								style={{
 									opacity: showText,
 								}}
@@ -95,8 +106,8 @@ const Starter = () => {
 								animate={isInView ? { x: 0 } : { x: 100 }}
 								transition={{ duration: 2 }}
 							>
-								Deconstructed exploration of a marine ecosystem. Snorkel
-								included.
+								Naivety, innocence, wonder, nostalgia, laughter,
+								cherished memories and no Brussels sprouts.
 							</motion.p>
 						</motion.div>
 					)}
@@ -106,4 +117,4 @@ const Starter = () => {
 	);
 };
 
-export default Starter;
+export default MainCourse;

@@ -1,4 +1,4 @@
-import OpeningHours from '../OpeningHours';
+import OpeningHours from '../../../components/OpeningHours';
 
 const PracticalInformations = () => {
 	return (
@@ -34,7 +34,7 @@ const PracticalInformations = () => {
 					</div>
 				</div>
 				<div className='flex w-1/3 flex-col gap-4'>
-					<h3 className='font-classic xl:text-2xl font-bold text-amber-400'>
+					<h3 className='font-classic font-bold text-amber-400 xl:text-2xl'>
 						Reservations
 					</h3>
 					<p>
@@ -48,7 +48,7 @@ const PracticalInformations = () => {
 					</p>
 				</div>
 				<div className='flex w-1/3 flex-col gap-4'>
-					<h3 className='font-classic xl:text-2xl font-bold text-amber-400'>
+					<h3 className='font-classic font-bold text-amber-400 xl:text-2xl'>
 						Payment Methods
 					</h3>
 					<p>

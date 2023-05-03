@@ -1,10 +1,10 @@
-import HeadChef from '../../assets/HeadChef.png';
-import Second from '../../assets/second.png';
-import LineParty from '../../assets/LineCook.png';
-import Junior from '../../assets/junior.png';
-import Waitress1 from '../../assets/waitress1.png';
-import Waitress2 from '../../assets/waitress2.png';
-import TeamMember from '../TeamMember';
+import HeadChef from '../../../assets/HeadChef.png';
+import Second from '../../../assets/second.png';
+import LineParty from '../../../assets/LineCook.png';
+import Junior from '../../../assets/junior.png';
+import Waitress1 from '../../../assets/waitress1.png';
+import Waitress2 from '../../../assets/waitress2.png';
+import TeamMember from '../../../components/TeamMember';
 import { useRef } from 'react';
 import { useInView } from 'framer-motion';
 const Team = () => {

@@ -1,4 +1,4 @@
-import MediaCarousel from '../MediaCarousel';
+import MediaCarousel from '../../../components/MediaCarousel';
 
 const FeaturedIn = () => {
 	return (

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import darkPeople from '../assets/people-dark.png';
 import { motion } from 'framer-motion';
-import { isInViewProps } from './Index/Concept';
+import { isInViewProps } from '../pages/Index/Sections/Concept';
 
 const QuestionMarkGrid = ({ isInView }: isInViewProps) => {
 	return (

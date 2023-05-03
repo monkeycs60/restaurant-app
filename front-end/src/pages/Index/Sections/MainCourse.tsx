@@ -1,7 +1,7 @@
 import { useCallback, useRef, useEffect } from 'react';
 import { motion, useTransform, useMotionValue, useInView } from 'framer-motion';
-import plane from '../../assets/plane.png';
-import globe from '../../assets/globe.png';
+import plane from '../../../assets/plane.png';
+import globe from '../../../assets/globe.png';
 
 const MainCourse = () => {
 	const viewRef = useRef(null);
@@ -57,7 +57,7 @@ const MainCourse = () => {
 						src={globe}
 						alt='cloche'
 						width={200}
-						className='absolute xl:left-[200px] top-[380px] z-30 w-[100px] xl:w-[200px]'
+						className='absolute top-[380px] z-30 w-[100px] xl:left-[200px] xl:w-[200px]'
 						style={{
 							rotateZ: rotateZ,
 						}}
