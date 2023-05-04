@@ -71,6 +71,40 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   }
 }
 
+
+dialog {
+  width: 80%;
+  height: 80%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  display: none;
+
+}
+
+dialog[open] {
+  display: flex;
+}
+ 
+dialog::backdrop {
+  background: rgba(13, 13, 13, 0.25);
+  filter: blur(10px) grayscale(30%);
+}
+
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 .banner-bg {
     background-color: #0c0b0c;
     background-color: rgb(37,31,33);

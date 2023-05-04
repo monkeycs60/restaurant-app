@@ -3,10 +3,17 @@ import logo from '../../../assets/logo5.png';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import Modal from 'react-modal';
+import ModalBooking from '../../../components/ModalBooking';
 const HeroBanner = () => {
-	const [modalIsOpen, setModalIsOpen] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
+	const openModalClick = () => {
+		setIsModalOpen(true);
+	};
+
+	const closeModal = () => {
+		setIsModalOpen(false);
+	};
 	return (
 		<div className='relative h-[100vh] w-full p-4 xl:h-[100vh]'>
 			<div
@@ -112,66 +119,14 @@ const HeroBanner = () => {
 							'transition-all duration-300 ease-in-out',
 							'hover:scale-105  hover:text-white hover:shadow-lg',
 						)}
-						onClick={() => setModalIsOpen(true)}
+						onClick={openModalClick}
 					>
 						Embark on a sensory journey
 					</button>
-					<Modal
-						isOpen={modalIsOpen}
-						onRequestClose={() => setModalIsOpen(false)}
-						className='modal'
-						overlayClassName='modal-overlay'
-						ariaHideApp={false}
-					>
-						<h2 className='font-handwriting px-4 text-3xl xl:px-0'>
-							Book your table
-						</h2>
-						<form className='font-classic mt-[5vh] flex w-[80%] flex-col gap-8 px-4 text-sm xl:w-auto xl:px-0 xl:text-sm'>
-							<label className='flex  justify-between'>
-								<span>Number of guests:</span>
-								<input type='number' min='1' className='w-1/2' />
-							</label>
-
-							<label className='flex  justify-between'>
-								<span>Date and time:</span>
-								<input type='datetime-local' className='w-1/2' />
-							</label>
-
-							<label className='flex flex-col justify-between gap-4'>
-								<span> Food allergies:</span>
-								<textarea className='p-2' />
-							</label>
-
-							<fieldset className='flex flex-col'>
-								<legend className='mb-2'>Pick your experience:</legend>
-								<label>
-									<input
-										type='radio'
-										name='experience'
-										value='penumbra'
-										className='mr-2'
-									/>
-									Penumbra Path: £55 per person (blindfold)
-								</label>
-								<label>
-									<input
-										type='radio'
-										name='experience'
-										value='pitch_black'
-										className='mr-2'
-									/>
-									Pitch Black Experience: £70 per person (dark room)
-								</label>
-							</fieldset>
-
-							<button
-								className=' bg-gray-800 p-3 text-xl uppercase hover:bg-gray-400 hover:text-gray-900'
-								type='submit'
-							>
-								Book
-							</button>
-						</form>
-					</Modal>
+					<ModalBooking
+						isModalOpen={isModalOpen}
+						closeModal={closeModal}
+					/>
 					;
 				</div>
 			</div>

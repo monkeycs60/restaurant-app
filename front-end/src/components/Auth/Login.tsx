@@ -40,8 +40,8 @@ const Login = () => {
 				setCookie('token', data.token);
 				window.localStorage.setItem('userName', response.username);
 				window.localStorage.setItem('userID', data.userID);
-				navigate('/homepage');
-				window.location.reload();
+				// navigate('/homepage');
+				// window.location.reload();
 			},
 			onError: (error) => {
 				console.log(error);

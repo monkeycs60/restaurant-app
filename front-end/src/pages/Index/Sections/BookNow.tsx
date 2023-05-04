@@ -1,8 +1,16 @@
 import { useState } from 'react';
-import Modal from 'react-modal';
+import ModalBooking from '../../../components/ModalBooking';
 
 const BookNow = () => {
-	const [modalIsOpen, setModalIsOpen] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	const openModalClick = () => {
+		setIsModalOpen(true);
+	};
+
+	const closeModal = () => {
+		setIsModalOpen(false);
+	};
 	return (
 		<div className='font-classic m-auto mb-[5vh] mt-[2vh] flex flex-col items-center gap-[4vh] bg-amber-500/30 p-8 text-center text-gray-100 xl:w-2/3'>
 			<p className='text-base'>Curious? Eager to taste more?</p>
@@ -16,64 +24,11 @@ const BookNow = () => {
 				style={{
 					boxShadow: '2px 2px 2px 2px rgba(0, 0, 0, 0.5)',
 				}}
-				onClick={() => setModalIsOpen(true)}
+				onClick={() => openModalClick()}
 			>
 				Book Now
 			</button>
-			<Modal
-				isOpen={modalIsOpen}
-				onRequestClose={() => setModalIsOpen(false)}
-				className='modal'
-				overlayClassName='modal-overlay'
-				ariaHideApp={false}
-			>
-				<h2 className='font-handwriting text-3xl'>Book your table</h2>
-				<form className='font-classic mt-[5vh] flex flex-col gap-8'>
-					<label className='flex  justify-between'>
-						<span>Number of guests:</span>
-						<input type='number' min='1' className='w-1/2' />
-					</label>
-
-					<label className='flex  justify-between'>
-						<span>Date and time:</span>
-						<input type='datetime-local' className='w-1/2' />
-					</label>
-
-					<label className='flex flex-col justify-between gap-4'>
-						<span> Food allergies:</span>
-						<textarea className='p-2' />
-					</label>
-
-					<fieldset className='flex flex-col'>
-						<legend className='mb-2'>Pick your experience:</legend>
-						<label>
-							<input
-								type='radio'
-								name='experience'
-								value='penumbra'
-								className='mr-2'
-							/>
-							Penumbra Path: £55 per person (blindfold)
-						</label>
-						<label>
-							<input
-								type='radio'
-								name='experience'
-								value='pitch_black'
-								className='mr-2'
-							/>
-							Pitch Black Experience: £70 per person (dark room)
-						</label>
-					</fieldset>
-
-					<button
-						className=' bg-gray-800 p-3 text-xl uppercase hover:bg-gray-400 hover:text-gray-900'
-						type='submit'
-					>
-						Book
-					</button>
-				</form>
-			</Modal>
+			<ModalBooking isModalOpen={isModalOpen} closeModal={closeModal} />
 		</div>
 	);
 };
