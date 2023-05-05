@@ -18,7 +18,11 @@ const schema = z.object({
 
 type RegisterFormData = z.infer<typeof schema>;
 
-const Register = () => {
+export interface RegisterProps {
+	idPrefix?: string;
+}
+
+const Register = ({ idPrefix }: RegisterProps) => {
 	const {
 		register,
 		handleSubmit,
@@ -59,8 +63,12 @@ const Register = () => {
 						'mt-6 flex flex-col items-center justify-center gap-2',
 					)}
 				>
-					<label htmlFor='register-email'>Email</label>
-					<input type='email' id='register-email' {...register('email')} />
+					<label htmlFor={idPrefix + 'register-email'}>Email</label>
+					<input
+						type='email'
+						id={idPrefix + 'register-email'}
+						{...register('email')}
+					/>
 					{typeof errors.email?.message === 'string' && (
 						<p>{errors.email.message}</p>
 					)}
@@ -70,10 +78,10 @@ const Register = () => {
 						'mt-6 flex flex-col items-center justify-center gap-2',
 					)}
 				>
-					<label htmlFor='register-username'>Username</label>
+					<label htmlFor={idPrefix + 'register-username'}>Username</label>
 					<input
 						type='text'
-						id='register-username'
+						id={idPrefix + 'register-username'}
 						{...register('username')}
 					/>
 					{typeof errors.username?.message === 'string' && (
@@ -85,10 +93,10 @@ const Register = () => {
 						'mt-6 flex flex-col items-center justify-center gap-2',
 					)}
 				>
-					<label htmlFor='register-password'>Password</label>
+					<label htmlFor={idPrefix + 'register-password'}>Password</label>
 					<input
 						type='password'
-						id='register-password'
+						id={idPrefix + 'register-password'}
 						{...register('password')}
 					/>
 					{typeof errors.password?.message === 'string' && (

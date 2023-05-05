@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import { UserModel } from '../models/Users.js';
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 
 dotenv.config();
 const JWTSecret: string | undefined = process.env.JWT_SECRET;
@@ -65,6 +66,8 @@ router.post('/login', async (req, res) => {
 	res.status(200).json({
 		message: 'User logged in successfully',
 		userID: user._id,
+		userName: user.username,
+		userMail: user.email,
 		token,
 	});
 });

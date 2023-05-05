@@ -4,7 +4,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
 import useAuth from '../../hooks/useAuth';
 import { useCookies } from 'react-cookie';
-import { useNavigate } from 'react-router-dom';
 
 const schema = z.object({
 	username: z
@@ -19,7 +18,11 @@ const schema = z.object({
 
 export type LoginFormData = z.infer<typeof schema>;
 
-const Login = () => {
+export interface LoginProps {
+	idPrefix?: string;
+}
+
+const Login = ({ idPrefix }: LoginProps) => {
 	const {
 		register,
 		handleSubmit,
@@ -28,20 +31,19 @@ const Login = () => {
 		resolver: zodResolver(schema),
 	});
 
-	const navigate = useNavigate();
 	const loginMutation = useAuth<LoginFormData>('login');
-	const [_, setCookie] = useCookies(['token']);
+	const [_, setCookieOne] = useCookies(['token']);
+	const [__, setCookieTwo] = useCookies(['userID']);
 
 	const onSubmit = (data: LoginFormData) => {
 		loginMutation.mutate(data, {
 			onSuccess: (data, response) => {
-				console.log(data);
-				console.log(response);
-				setCookie('token', data.token);
+				console.log(data, 'data from login');
+				console.log(response, 'response from login');
+				setCookieOne('token', data.token);
+				setCookieTwo('userID', data.userID);
 				window.localStorage.setItem('userName', response.username);
-				window.localStorage.setItem('userID', data.userID);
-				// navigate('/homepage');
-				// window.location.reload();
+				window.localStorage.setItem('userMail', data.userMail);
 			},
 			onError: (error) => {
 				console.log(error);
@@ -65,10 +67,10 @@ const Login = () => {
 						'mt-6 flex flex-col items-center justify-center gap-2',
 					)}
 				>
-					<label htmlFor='login-username'>Username</label>
+					<label htmlFor={idPrefix + 'login-username'}>Username</label>
 					<input
 						type='text'
-						id='login-username'
+						id={idPrefix + 'login-username'}
 						{...register('username')}
 					/>
 					{typeof errors.username?.message === 'string' && (
@@ -80,10 +82,10 @@ const Login = () => {
 						'flex flex-col items-center justify-center gap-2',
 					)}
 				>
-					<label htmlFor='login-password'>Password</label>
+					<label htmlFor={idPrefix + 'login-password'}>Password</label>
 					<input
 						type='password'
-						id='login-password'
+						id={idPrefix + 'login-password'}
 						{...register('password')}
 					/>
 					{typeof errors.password?.message === 'string' && (

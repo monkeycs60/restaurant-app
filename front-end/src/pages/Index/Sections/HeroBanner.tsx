@@ -126,6 +126,7 @@ const HeroBanner = () => {
 					<ModalBooking
 						isModalOpen={isModalOpen}
 						closeModal={closeModal}
+						IdPrefix='instance1'
 					/>
 					;
 				</div>

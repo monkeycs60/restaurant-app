@@ -28,7 +28,11 @@ const BookNow = () => {
 			>
 				Book Now
 			</button>
-			<ModalBooking isModalOpen={isModalOpen} closeModal={closeModal} />
+			<ModalBooking
+				isModalOpen={isModalOpen}
+				closeModal={closeModal}
+				IdPrefix='instance2'
+			/>
 		</div>
 	);
 };

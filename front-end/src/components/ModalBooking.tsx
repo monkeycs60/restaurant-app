@@ -2,12 +2,16 @@ import { useRef, useEffect } from 'react';
 import Login from './Auth/Login';
 import Register from './Auth/Register';
 import { useCookies } from 'react-cookie';
+import FormBooking from './FormBooking';
+import { LoginProps } from './Auth/Login';
+import { RegisterProps } from './Auth/Register';
 
 interface ModalProps {
 	isModalOpen: boolean;
 	closeModal: () => void;
-	Login?: React.ComponentType;
-	Register?: React.ComponentType;
+	Login?: React.ComponentType<LoginProps>;
+	Register?: React.ComponentType<RegisterProps>;
+	IdPrefix?: string;
 }
 
 const ModalBooking = ({
@@ -15,6 +19,7 @@ const ModalBooking = ({
 	closeModal,
 	Login: LoginComponent = Login,
 	Register: RegisterComponent = Register,
+	IdPrefix: idPrefix = '',
 }: ModalProps) => {
 	const [cookies] = useCookies(['token']);
 	const dialogRef = useRef<HTMLDialogElement>(null);
@@ -38,16 +43,12 @@ const ModalBooking = ({
 
 			{!cookies.token ? (
 				<>
-					<LoginComponent />
-					<RegisterComponent />
+					<LoginComponent idPrefix={idPrefix} />
+					<RegisterComponent idPrefix={idPrefix} />
 				</>
 			) : (
 				<>
-					<div className='flex flex-col items-center justify-center'>
-						<h1 className='text-3xl font-bold text-white'>
-							Hello and book a table
-						</h1>
-					</div>
+					<FormBooking />
 				</>
 			)}
 		</dialog>

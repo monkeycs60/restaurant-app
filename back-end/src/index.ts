@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 
 import { usersRouter } from './routes/users.js';
 import { recipesRouter } from './routes/recipes.js';
+import { bookingRouter } from './routes/booking.js';
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.use(cors());
 
 app.use('/auth', usersRouter);
 app.use('/recipes', recipesRouter);
+app.use('/booking', bookingRouter);
 
 const mongoDBUser: string | undefined = process.env.MONGO_DB_USER;
 const mongoDBPassword: string | undefined = process.env.MONGO_DB_PASSWORD;
