@@ -1,6 +1,20 @@
 import express from 'express';
 import { BookingModel } from '../models/Booking.js';
 const router = express.Router();
+router.get('/', async (req, res) => {
+    try {
+        const bookings = await BookingModel.find();
+        res.status(200).json(bookings);
+    }
+    catch (error) {
+        if (error instanceof Error) {
+            res.status(400).json({
+                message: 'Error fetching bookings',
+                error: error.message,
+            });
+        }
+    }
+});
 router.post('/', async (req, res) => {
     try {
         const booking = new BookingModel(req.body);

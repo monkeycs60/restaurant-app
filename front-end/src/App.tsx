@@ -23,6 +23,16 @@ function App() {
 					<Layout>
 						<Routes>
 							<Route path='/' element={<Index />} />
+							<Route
+								path='/michel'
+								element={
+									<div className='new-banner flex h-screen w-screen items-center justify-center'>
+										<h1 className='font-handwriting text-6xl'>
+											
+										</h1>
+									</div>
+								}
+							/>
 						</Routes>
 					</Layout>
 				</div>

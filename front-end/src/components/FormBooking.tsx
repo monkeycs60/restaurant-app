@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import { add } from 'date-fns';
+import { useQuery } from '@tanstack/react-query';
 
 interface DateType {
 	justDate: Date | null;
@@ -40,6 +41,7 @@ const FormBooking = () => {
 	const {
 		register,
 		handleSubmit,
+		setValue,
 		formState: { errors },
 	} = useForm<BookingFormData>({
 		resolver: zodResolver(schema),
@@ -62,17 +64,29 @@ const FormBooking = () => {
 		}
 	};
 
+	async function fetchBookedDates() {
+		try {
+			const response = await axios.get('http://localhost:3001/booking');
+			return response.data.map(
+				(booking: BookingFormData) => new Date(booking.date),
+			);
+		} catch (error) {
+			throw new Error('Error fetching booked dates');
+		}
+	}
+
+	const {
+		data: bookedDates,
+		error,
+		isLoading,
+	} = useQuery<Date[], Error>(['bookedDates'], fetchBookedDates);
+
+	console.log('booked', bookedDates);
+
 	const [date, setDate] = useState<DateType>({
 		justDate: null,
 		dateTime: null,
 	});
-
-	const hours = [
-		{ day: 'Tuesday - Friday', time: '6:00 PM - 11:00 PM' },
-		{ day: 'Saturday', time: '5:00 PM - 11:00 PM' },
-		{ day: 'Sunday', time: '11:45 AM - 2:00 PM' },
-	];
-
 	const getTimes = () => {
 		if (!date.justDate) return;
 
@@ -109,7 +123,20 @@ const FormBooking = () => {
 			}
 		}
 
-		return times;
+		console.warn(times);
+
+		const availableTimes = times.filter(
+			(time) =>
+				!bookedDates?.some(
+					(bookedDate) =>
+						bookedDate.getHours() === time.getHours() &&
+						bookedDate.getMinutes() === time.getMinutes() &&
+						bookedDate.getDate() === time.getDate() &&
+						bookedDate.getMonth() === time.getMonth() &&
+						bookedDate.getFullYear() === time.getFullYear(),
+				),
+		);
+		return availableTimes;
 	};
 
 	const times = getTimes();
@@ -171,6 +198,8 @@ const FormBooking = () => {
 										type='button'
 										onClick={() => {
 											setDate({ ...date, dateTime: time });
+
+											setValue('date', time.toISOString());
 										}}
 									>
 										{time.toLocaleTimeString('en-US', {
@@ -194,7 +223,7 @@ const FormBooking = () => {
 						<Calendar
 							className='REACT-CALENDAR w-1/2'
 							view='month'
-							minDate={new Date()}
+							minDate={add(new Date(), { hours: 2 })}
 							onClickDay={(date) => {
 								setDate({ ...date, justDate: date, dateTime: date });
 							}}
