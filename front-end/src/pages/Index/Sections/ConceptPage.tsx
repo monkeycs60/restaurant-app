@@ -18,7 +18,7 @@ const ConceptPage = () => {
 					<img
 						src={girlBlindfold}
 						alt='girl blindfolded'
-						className={clsx('z-10 h-[80%] translate-x-[6%]')}
+						className={clsx('z-10 h-[80%] translate-x-[6%] rounded-lg')}
 					/>
 				</div>
 				<div
