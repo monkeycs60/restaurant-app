@@ -5,6 +5,9 @@ export default {
 		fontFamily: {
 			handwriting: ['Kaushan Script', 'cursive'],
 			classic: ['Playfair Display', 'serif'],
+			roboto: ['Roboto', 'sans-serif'],
+			dancing: ['Dancing Script', 'cursive'],
+			playfair: ['Playfair Display', 'serif'],
 		},
 
 		extend: {

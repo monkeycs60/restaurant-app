@@ -9,22 +9,19 @@ import MainCourse from './Sections/MainCourse';
 import Team from './Sections/Team';
 import PracticalInformations from './Sections/PracticalInformations';
 import FeaturedIn from './Sections/FeaturedIn';
+import HeroPage from './Sections/HeroPage';
+import ConceptPage from './Sections/ConceptPage';
 const Index = () => {
 	return (
 		<motion.div className='banner-bg fade-in-home'>
-			<HeroBanner />
-			<TransitionTitle title='Concept' position='right' />
-			<Concept />
-			<TransitionTitle title='Menu' position='left' />
+			<HeroPage />
+			<ConceptPage />
 			<Starter />
 			<MainCourse />
 			<Dessert />
 			<BookNow />
-			<TransitionTitle title='The team' position='right' />
 			<Team />
-			<TransitionTitle title='Informations' position='left' />
 			<PracticalInformations />
-			<TransitionTitle title='As featured in' position='right' />
 			<FeaturedIn />
 		</motion.div>
 	);

@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
 import useAuth from '../../hooks/useAuth';
+import { useCookies } from 'react-cookie';
 
 const schema = z.object({
 	email: z.string().email(),
@@ -31,11 +32,20 @@ const Register = ({ idPrefix }: RegisterProps) => {
 		resolver: zodResolver(schema),
 	});
 
+	const [_, setCookieOne] = useCookies(['token']);
+	const [__, setCookieTwo] = useCookies(['userID']);
+
 	const registerMutation = useAuth<RegisterFormData>('register');
 	const onSubmit = (data: RegisterFormData) => {
 		registerMutation.mutate(data, {
 			onSuccess: (data) => {
 				console.log(data);
+
+				// infos du login
+				setCookieOne('token', data.token);
+				setCookieTwo('userID', data.newUser._id);
+				window.localStorage.setItem('userName', data.newUser.username);
+				window.localStorage.setItem('userMail', data.newUser.email);
 			},
 			onError: (error) => {
 				console.log(error);

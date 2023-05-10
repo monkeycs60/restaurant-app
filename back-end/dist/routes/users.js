@@ -20,9 +20,18 @@ router.post('/register', async (req, res) => {
             password: hashedPassword,
         });
         await newUser.save();
+        if (!JWTSecret) {
+            return res
+                .status(500)
+                .json({ auth: false, message: 'JWT Secret not configured.' });
+        }
+        const token = jwt.sign({ id: newUser._id }, JWTSecret, {
+            expiresIn: '24h',
+        });
         res.status(201).json({
             message: 'User created successfully',
             newUser,
+            token,
         });
     }
     catch (error) {
