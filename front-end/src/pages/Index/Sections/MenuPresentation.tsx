@@ -27,12 +27,12 @@ const MenuPresentation = () => {
 			<MenuCard />
 			<div className='carousel-container flex items-center justify-center'>
 				<div
-					className='carousel-wrapper'
+					className='carousel-wrapper flex items-center justify-between'
 					style={{ transform: `translateX(-${currentIndex * 33.33}%)` }}
 				>
 					{logos.map((logo, index) => (
 						<div
-							className={`carousel-slide ${
+							className={`carousel-slide flex items-center justify-center ${
 								index >= currentIndex && index < currentIndex + 3
 									? 'visible'
 									: ''
@@ -49,7 +49,7 @@ const MenuPresentation = () => {
 						>
 							<img
 								src={logo.src}
-								className='h-[250px] w-[200px] object-contain'
+								className='w-1/3 object-cover'
 								alt={logo.alt}
 							/>
 						</div>

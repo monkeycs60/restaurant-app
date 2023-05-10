@@ -151,26 +151,6 @@ background-repeat: no-repeat;
   animation: move-concept-texts 1.3s ease-in-out;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(11, 1fr);
-}
-
-.grid-third-last-position {
-  grid-column: 2 / 3;
-  grid-row: 7 / 8;
-}
-
-.grid-pre-last-position {
-  grid-column: 2 / 3;
-  grid-row: 8 / 9;
-}
-
-.grid-last-position {
-  grid-column: 2 / 3;
-  grid-row: 11 / 12;
-}
 
 .carousel-container {
   position: relative;
@@ -189,7 +169,7 @@ background-repeat: no-repeat;
 .carousel-slide {
   flex-shrink: 0;
   opacity: 0;
-  width: 33.33%;
+  width: 33%;
   height: 100%;
   transition: all 1s ease-in-out;
 }
