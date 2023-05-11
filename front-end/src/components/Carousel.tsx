@@ -1,52 +1,70 @@
 import { useState, useEffect } from 'react';
+import { RxDot, RxDotFilled } from 'react-icons/rx';
+import { platePhotos } from '../utils/platePhotos';
+import blackBackground from '../assets/black-background.jpg';
+import { BsCircleFill, BsCircle } from 'react-icons/bs';
 
-interface LogoProps {
-	key: number;
-	src: string;
-	alt: string;
-}
-
-interface CarouselProps {
-	logos: LogoProps[];
-	interval?: number;
-}
-
-export const Carousel = ({ logos, interval = 2000 }: CarouselProps) => {
-	const [current, setCurrent] = useState(0);
-	const [direction, setDirection] = useState(1);
+const Carousel = () => {
+	const [current, setCurrent] = useState<number>(3);
+	const [loading, setLoading] = useState<boolean>(true);
 
 	useEffect(() => {
-		const timer = setTimeout(() => {
-			setCurrent((prevCurrent) => {
-				if (prevCurrent === 0) {
-					setDirection(1);
-					return prevCurrent + 1;
-				} else if (prevCurrent === logos.length - 1) {
-					setDirection(-1);
-					return prevCurrent - 1;
-				} else {
-					return prevCurrent + direction;
-				}
-			});
-		}, interval);
+		const img = new Image();
+		img.src = platePhotos[current].src;
+		img.onload = () => setLoading(false);
+	}, [current]);
 
-		return () => {
-			clearTimeout(timer);
-		};
-	}, [current, logos.length, interval, direction]);
+	const handleDotClick = (index: number) => {
+		setLoading(true);
+		setCurrent(index);
+	};
 
 	return (
-		<div className='carousel'>
-			<div
-				className='carousel-inner'
-				style={{
-					transform: `translateX(-${(100 / logos.length) * current}%)`,
-					transition: `transform ${interval / 1000}s`,
-				}}
-			>
-				{logos.map((logo) => (
-					<img key={logo.key} src={logo.src} alt={logo.alt} />
-				))}
+		<div
+			className='CAROUSEL 
+         flex h-full  flex-col items-center justify-center rounded-lg p-4 pt-16 '
+		>
+			<div className='relative flex w-full flex-col items-center justify-around gap-4'>
+				<div className='w-full rounded-lg border-2 object-cover '>
+					{loading ? (
+						<img
+							src={blackBackground}
+							alt='Loading...'
+							className=' w-full rounded-lg border-2 object-cover'
+						/>
+					) : (
+						platePhotos.map((platePhoto, index) =>
+							index === current ? (
+								<img
+									key={platePhoto.key}
+									src={platePhoto.src}
+									alt={platePhoto.alt}
+									className=' w-full rounded-lg border-2 object-cover'
+								/>
+							) : null,
+						)
+					)}
+				</div>
+				<div className='concept-text-background absolute right-[-5vw] top-[9vh] rotate-90 z-50 flex gap-2 rounded-lg border-2 p-1'>
+					{platePhotos.map((platePhoto, index) =>
+						index === current ? (
+							<BsCircleFill
+								key={platePhoto.key}
+								size={12}
+								className='h-full text-orange-500'
+								onClick={() => handleDotClick(index)}
+							/>
+						) : (
+							<BsCircleFill
+								key={platePhoto.key}
+								size={12}
+								color='black'
+								className='h-full'
+								onClick={() => handleDotClick(index)}
+							/>
+						),
+					)}
+				</div>
 			</div>
 		</div>
 	);

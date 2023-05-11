@@ -1,6 +1,6 @@
 const MenuCard = () => {
 	return (
-		<div className='MENU concept-text-background font-roboto ml-10 flex w-1/3 flex-col gap-6 rounded-md p-8'>
+		<div className='MENU concept-text-background font-roboto flex flex-col gap-6 rounded-md p-8'>
 			<div className='flex flex-col items-center gap-4'>
 				<h2>
 					{' '}
