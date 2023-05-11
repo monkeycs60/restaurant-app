@@ -151,4 +151,30 @@ background-repeat: no-repeat;
   animation: move-concept-texts 1.3s ease-in-out;
 }
 
+.animate-icon {
+  animation: move-icon 0.6s ease-in-out;
+}
 
+@keyframes move-icon {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px) rotate(-90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(8px) rotate(-90deg);
+  }
+}
+
+.animate-photos-carousel {
+  animation: fade-photos-carousel 0.7s ease-in-out; 
+}
+
+@keyframes fade-photos-carousel {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

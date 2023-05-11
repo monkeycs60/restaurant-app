@@ -3,10 +3,12 @@ import { RxDot, RxDotFilled } from 'react-icons/rx';
 import { platePhotos } from '../utils/platePhotos';
 import blackBackground from '../assets/black-background.jpg';
 import { BsCircleFill, BsCircle } from 'react-icons/bs';
+import { BsBookmarkFill, BsBookmark } from 'react-icons/bs';
 
 const Carousel = () => {
 	const [current, setCurrent] = useState<number>(3);
 	const [loading, setLoading] = useState<boolean>(true);
+	const [isBookmarked, setIsBookmarked] = useState<boolean>(false);
 
 	useEffect(() => {
 		const img = new Image();
@@ -15,8 +17,11 @@ const Carousel = () => {
 	}, [current]);
 
 	const handleDotClick = (index: number) => {
-		setLoading(true);
-		setCurrent(index);
+		if (current !== index) {
+			setLoading(true);
+			setCurrent(index);
+		}
+		setIsBookmarked(!isBookmarked);
 	};
 
 	return (
@@ -24,13 +29,18 @@ const Carousel = () => {
 			className='CAROUSEL 
          flex h-full  flex-col items-center justify-center rounded-lg p-4 pt-16 '
 		>
-			<div className='relative flex w-full flex-col items-center justify-around gap-4'>
-				<div className='w-full rounded-lg border-2 object-cover '>
+			<div className='relative z-20 flex w-full flex-col items-center justify-around gap-4'>
+				<div className='relative z-10 w-full rounded-lg border-2 object-cover'>
+					<img
+						src={blackBackground}
+						alt='Loading...'
+						className='absolute -z-10 w-full rounded-lg border-2 object-cover'
+					/>
 					{loading ? (
 						<img
 							src={blackBackground}
 							alt='Loading...'
-							className=' w-full rounded-lg border-2 object-cover'
+							className='w-full rounded-lg border-2 object-cover'
 						/>
 					) : (
 						platePhotos.map((platePhoto, index) =>
@@ -39,28 +49,27 @@ const Carousel = () => {
 									key={platePhoto.key}
 									src={platePhoto.src}
 									alt={platePhoto.alt}
-									className=' w-full rounded-lg border-2 object-cover'
+									className='animate-photos-carousel w-full rounded-lg border-2 object-cover'
 								/>
 							) : null,
 						)
 					)}
 				</div>
-				<div className='concept-text-background absolute right-[-5vw] top-[9vh] rotate-90 z-50 flex gap-2 rounded-lg border-2 p-1'>
+				<div className=' gap- absolute -right-7 top-0 -z-20 flex cursor-pointer flex-col rounded-lg p-1'>
 					{platePhotos.map((platePhoto, index) =>
 						index === current ? (
-							<BsCircleFill
+							<BsBookmarkFill
 								key={platePhoto.key}
-								size={12}
-								className='h-full text-orange-500'
+								className='animate-icon h-10 w-10 translate-x-2 -rotate-90 scale-110 text-orange-500 transition-transform duration-1000 ease-in-out'
 								onClick={() => handleDotClick(index)}
 							/>
 						) : (
-							<BsCircleFill
+							<BsBookmark
 								key={platePhoto.key}
-								size={12}
-								color='black'
-								className='h-full'
-								onClick={() => handleDotClick(index)}
+								className='h-8 w-8 translate-x-2 -rotate-90 cursor-pointer text-orange-500 transition-transform duration-1000 ease-in-out'
+								onClick={() => {
+									handleDotClick(index);
+								}}
 							/>
 						),
 					)}
