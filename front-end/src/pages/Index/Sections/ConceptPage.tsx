@@ -64,7 +64,7 @@ const ConceptPage = () => {
 					</button>
 				</div>
 			</div>
-			<div className='font-roboto flex  w-full justify-center gap-6 text-3xl font-extralight uppercase tracking-wide text-gray-200 '>
+			<div className='font-roboto flex w-full justify-center gap-6 text-3xl font-extralight uppercase tracking-wide text-gray-200 '>
 				<BsArrow90DegDown size={18} className='translate-y-4' />
 				<h2> Discover our menu </h2>
 				<BsArrow90DegUp size={18} className='translate-y-4 rotate-180' />

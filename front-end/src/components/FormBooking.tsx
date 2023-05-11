@@ -81,8 +81,6 @@ const FormBooking = () => {
 		isLoading,
 	} = useQuery<Date[], Error>(['bookedDates'], fetchBookedDates);
 
-	console.log('booked', bookedDates);
-
 	const [date, setDate] = useState<DateType>({
 		justDate: null,
 		dateTime: null,
@@ -140,9 +138,6 @@ const FormBooking = () => {
 	};
 
 	const times = getTimes();
-
-	console.log(date.dateTime);
-
 	const isMonday = (date: Date) => {
 		const dayOfWeek = date.getDay();
 		return dayOfWeek === 1;
