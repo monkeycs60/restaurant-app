@@ -12,7 +12,6 @@ const Index = () => {
 			<HeroPage />
 			<ConceptPage />
 			<MenuPresentation />
-			<BookNow />
 			<Team />
 			<PracticalInformations />
 			<FeaturedIn />

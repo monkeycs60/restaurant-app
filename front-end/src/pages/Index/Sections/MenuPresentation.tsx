@@ -4,7 +4,7 @@ import Carousel from '../../../components/Carousel';
 
 const MenuPresentation = () => {
 	return (
-		<div className='m-auto flex h-screen w-[75%] flex-col gap-6 p-8'>
+		<div className='m-auto flex h-screen w-[80%] flex-col justify-between p-8'>
 			<div className='flex w-full items-end justify-between gap-[5vw]'>
 				<MenuCard />
 				<Carousel />

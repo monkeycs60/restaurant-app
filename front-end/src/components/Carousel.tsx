@@ -27,20 +27,25 @@ const Carousel = () => {
 	return (
 		<div
 			className='CAROUSEL 
-         flex h-full  flex-col items-center justify-center rounded-lg p-4 pt-16 '
+         flex h-full w-[50%] flex-col-reverse items-center justify-center gap-2 p-4 pt-16'
 		>
 			<div className='relative z-20 flex w-full flex-col items-center justify-around gap-4'>
-				<div className='relative z-10 w-full rounded-lg border-2 object-cover'>
+				<div className='absolute bottom-0 left-0 z-30 h-[2px] w-[8vw] bg-white'></div>
+				<div className='absolute bottom-0 right-0 z-30 h-[2px] w-[8vw] bg-white'></div>
+				<div className='font-roboto absolute -bottom-2 z-50 bg-transparent px-1 italic text-gray-100'>
+					<p>A glimpse of our previous creations</p>
+				</div>
+				<div className='relative z-10 w-full  border-x-2 border-t-2 object-cover'>
 					<img
 						src={blackBackground}
 						alt='Loading...'
-						className='absolute -z-10 w-full rounded-lg border-2 object-cover'
+						className='absolute -z-10 w-full rounded-lg object-cover'
 					/>
 					{loading ? (
 						<img
 							src={blackBackground}
 							alt='Loading...'
-							className='w-full rounded-lg border-2 object-cover'
+							className='w-full rounded-lg  object-cover'
 						/>
 					) : (
 						platePhotos.map((platePhoto, index) =>
@@ -49,7 +54,7 @@ const Carousel = () => {
 									key={platePhoto.key}
 									src={platePhoto.src}
 									alt={platePhoto.alt}
-									className='animate-photos-carousel w-full rounded-lg border-2 object-cover'
+									className='animate-photos-carousel w-full rounded-lg  object-cover'
 								/>
 							) : null,
 						)
