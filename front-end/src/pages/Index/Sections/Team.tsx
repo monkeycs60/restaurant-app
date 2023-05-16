@@ -48,7 +48,7 @@ const Team = () => {
 								<span className='text-sm font-semibold text-orange-500'>
 									What sets us apart
 								</span>
-								<h2 className='font-roboto mb-10 mt-8 text-4xl font-semibold text-gray-200'>
+								<h2 className='font-playfair mb-10 mt-8 text-4xl  text-gray-200'>
 									We champion local and organic produce
 								</h2>
 								<p className='font-roboto text-xl text-gray-500'>
