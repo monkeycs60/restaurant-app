@@ -2,6 +2,17 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 const PracticalInformations = () => {
+	const locations = [
+		{
+			lat: 51.510607,
+			lng: -0.134301,
+			popupText: 'Chiaroscuro <br /> 10 Shaftesbury Ave <br /> London',
+		},
+		{ lat: 41.511607, lng: -0.135301, popupText: 'Autre lieu 1' },
+		{ lat: 61.512607, lng: -0.136301, popupText: 'Autre lieu 2' },
+		{ lat: 51.513607, lng: -0.637301, popupText: 'Autre lieu 3' },
+		{ lat: 51.514607, lng: -0.438301, popupText: 'Autre lieu 4' },
+	];
 	return (
 		<section className='relative overflow-hidden py-10 md:py-12'>
 			<img
