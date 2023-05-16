@@ -14,7 +14,6 @@ const Index = () => {
 			<MenuPresentation />
 			<Team />
 			<PracticalInformations />
-			<FeaturedIn />
 		</motion.div>
 	);
 };

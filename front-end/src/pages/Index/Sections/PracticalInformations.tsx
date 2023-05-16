@@ -1,63 +1,114 @@
-import OpeningHours from '../../../components/OpeningHours';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 
 const PracticalInformations = () => {
 	return (
-		<div className='flex flex-col gap-4 p-2 text-white xl:gap-[6vh] xl:p-8'>
-			<div className='flex justify-between'>
-				<div className='flex w-1/2 flex-col gap-4 p-8 text-sm xl:text-base'>
-					<h3 className='font-classic text-2xl font-bold text-amber-400'>
-						Address
-					</h3>
-					<p>
-						Chiaroscuro, 123 Dark Street, London, SW1A 1AA, United Kingdom
-					</p>
-					<h3 className='font-classic text-2xl font-bold text-amber-400'>
-						Getting Here
-					</h3>
-					<p>
-						The restaurant is a 5-minute walk from Westminster Underground
-						Station (served by Circle, District, and Jubilee lines) and a
-						10-minute walk from Victoria Station. There are nearby parking
-						facilities and bike-sharing stations.
-					</p>
-				</div>
-				<OpeningHours />
-			</div>
-			<div className='flex w-full justify-between gap-4 p-8'>
-				<div className='flex w-1/3 flex-col gap-4'>
-					<h3 className='font-classic font-bold text-amber-400 xl:text-2xl'>
-						Prices
-					</h3>
-					<div>
-						<p>Penumbra Path: £55 per person (blindfold)</p>
-						<p>Pitch Black Experience: £70 per person (dark room)</p>
+		<section className='relative overflow-hidden py-10 md:py-12'>
+			<img
+				className='absolute left-0 top-0'
+				src='saturn-assets/images/contact/light-left-blue.png'
+				alt=''
+			/>
+			<img
+				className='absolute bottom-0 right-0 -mb-20'
+				src='saturn-assets/images/contact/light-orange-right.png'
+				alt=''
+			/>
+			<div className='container relative mx-auto px-4'>
+				<div className='mx-auto max-w-7xl'>
+					<div className='mx-auto mb-20 max-w-2xl text-center'>
+						<span className='mb-4 inline-block rounded-full bg-orange-50 px-3 py-1 text-xs font-semibold text-orange-900'>
+							READY TO SUPPORT US
+						</span>
+						<h1 className='font-heading xs:text-6xl mb-4 text-5xl font-bold text-gray-900'>
+							<span>Let&rsquo;s stay</span>
+							<span className='font-serif italic'>connected</span>
+						</h1>
+						<p className='text-xl font-semibold text-gray-500'>
+							We help people to grow their business using saturn ui
+							library with professional and powerful solutions.
+						</p>
+					</div>
+					<div className='xs:max-w-sm mx-auto lg:max-w-none'>
+						<div className='mb-18 -mx-4 flex flex-wrap items-center'>
+							<div className='mb-12 w-full px-4 lg:mb-0 lg:w-1/3'>
+								<div className='flex items-center lg:justify-center'>
+									<div className='mr-5 flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-blue-200 p-1 sm:mr-8 sm:h-20 sm:w-20'>
+										<img
+											src='saturn-assets/images/contact/icon-phone.svg'
+											alt=''
+										/>
+									</div>
+									<div>
+										<span className='text-lg text-gray-500'>
+											Phone
+										</span>
+										<span className='block text-lg font-semibold text-gray-900'>
+											+1 891 4937
+										</span>
+									</div>
+								</div>
+							</div>
+							<div className='mb-12 w-full px-4 lg:mb-0 lg:w-1/3'>
+								<div className='flex items-center lg:justify-center'>
+									<div className='mr-5 flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-yellow-200 p-1 sm:mr-8 sm:h-20 sm:w-20'>
+										<img
+											src='saturn-assets/images/contact/icon-email.svg'
+											alt=''
+										/>
+									</div>
+									<div>
+										<span className='text-lg text-gray-500'>
+											Email
+										</span>
+										<span className='block text-lg font-semibold text-gray-900'>
+											hello@yourdomain.com
+										</span>
+									</div>
+								</div>
+							</div>
+							<div className='w-full px-4 lg:w-1/3'>
+								<div className='flex items-center lg:justify-center'>
+									<div className='mr-5 flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-green-200 p-1 sm:mr-8 sm:h-20 sm:w-20'>
+										<img
+											className='h-8'
+											src='saturn-assets/images/contact/icon-location.svg'
+											alt=''
+										/>
+									</div>
+									<div>
+										<span className='text-lg text-gray-500'>
+											Office
+										</span>
+										<span className='block text-lg font-semibold text-gray-900'>
+											213, New York
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className='rounded-4xl mt-8 flex h-[50vh] justify-center overflow-hidden rounded-lg'>
+						<MapContainer
+							center={[51.510607, -0.134301]}
+							zoom={14}
+							scrollWheelZoom={false}
+							className='flex h-full w-2/3 justify-center rounded-lg'
+						>
+							<TileLayer
+								attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+								url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+							/>
+							<Marker position={[51.510607, -0.134301]}>
+								<Popup>
+									Chiaroscuro <br /> 10 Shaftesbury Ave <br /> London
+								</Popup>
+							</Marker>
+						</MapContainer>
 					</div>
 				</div>
-				<div className='flex w-1/3 flex-col gap-4'>
-					<h3 className='font-classic font-bold text-amber-400 xl:text-2xl'>
-						Reservations
-					</h3>
-					<p>
-						Please call{' '}
-						<span className='font-bold text-amber-500'>
-							{' '}
-							+44 20 1234 5678{' '}
-						</span>{' '}
-						or book online through our website to reserve your dining
-						experience at Chiaroscuro.
-					</p>
-				</div>
-				<div className='flex w-1/3 flex-col gap-4'>
-					<h3 className='font-classic font-bold text-amber-400 xl:text-2xl'>
-						Payment Methods
-					</h3>
-					<p>
-						We accept all major credit/debit cards, mobile payments. We
-						will soon implement a Chiaroscuro gift card.
-					</p>
-				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

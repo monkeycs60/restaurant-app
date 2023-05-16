@@ -3,6 +3,8 @@ import Linkedin from '../assets/linkedin_socialnetwork_17441.png';
 import { motion } from 'framer-motion';
 
 type TeamMemberProps = {
+	customClassName: string;
+	translatePhoto?: string;
 	isInView: boolean;
 	photo: string;
 	alt: string;
@@ -12,6 +14,8 @@ type TeamMemberProps = {
 };
 
 const TeamMember = ({
+	customClassName,
+	translatePhoto,
 	isInView,
 	photo,
 	alt,
@@ -20,19 +24,18 @@ const TeamMember = ({
 	description,
 }: TeamMemberProps) => {
 	return (
-		<motion.div
-			className='banner-bg flex flex-col items-center justify-center gap-8 p-4 brightness-50 grayscale hover:brightness-100 hover:grayscale-0 xl:flex-row'
-			initial={{ opacity: 0, y: 30 }}
-			animate={
-				isInView
-					? { opacity: 1, y: 0, transition: { duration: 1.5 } }
-					: { opacity: 0 }
-			}
-			transition={{ duration: 1.5 }}
+		<div
+			className={`relative flex w-full flex-col items-center justify-center gap-8 rounded-lg bg-gray-700 brightness-50 grayscale hover:brightness-100 hover:grayscale-0 xl:flex-row ${customClassName}`}
 		>
-			<img src={photo} alt={alt} className='h-full w-1/3 object-cover ' />
-			<div className='flex flex-col gap-4 text-gray-100'>
-				<h3 className='text-xl font-bold'>{identity}</h3>
+			<div className={`${translatePhoto} h-full w-1/4`}>
+				<img
+					src={photo}
+					alt={alt}
+					className='h-full w-full object-cover '
+				/>
+			</div>
+			<div className='flex w-3/4 flex-col gap-4 text-gray-100'>
+				<h3 className='font-playfair text-xl font-bold'>{identity}</h3>
 				<div className='flex justify-between'>
 					<p className='italic'>{location}</p>
 					<div className='flex gap-2'>
@@ -60,9 +63,9 @@ const TeamMember = ({
 						</a>
 					</div>
 				</div>
-				<p className='text-sm'>{description}</p>
+				<p className='font-roboto text-sm'>{description}</p>
 			</div>
-		</motion.div>
+		</div>
 	);
 };
 

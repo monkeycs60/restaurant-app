@@ -1,68 +1,86 @@
-import HeadChef from '../../../assets/HeadChef.png';
-import Second from '../../../assets/second.png';
-import LineParty from '../../../assets/LineCook.png';
-import Junior from '../../../assets/junior.png';
-import Waitress1 from '../../../assets/waitress1.png';
-import Waitress2 from '../../../assets/waitress2.png';
-import TeamMember from '../../../components/TeamMember';
+import chef from '../../../assets/chef-dedicated.png';
+import { ImQuotesLeft } from 'react-icons/im';
 import { useRef } from 'react';
 import { useInView } from 'framer-motion';
+import logosPhotos from '../../../utils/logosPhotos';
+import { BsArrow90DegDown, BsArrow90DegUp } from 'react-icons/bs';
 const Team = () => {
 	const viewRef = useRef(null);
 	const isInView = useInView(viewRef, { once: true });
 	return (
-		<div
-			className='grid grid-cols-1 gap-6 bg-amber-500/40 p-12 xl:m-[10vh] xl:grid-cols-2'
-			ref={viewRef}
-		>
-			<TeamMember
-				isInView={isInView}
-				photo={HeadChef}
-				alt='Head Chef'
-				identity='Head Chef - Marco Williamson'
-				location='London, England'
-				description='Having worked in renowned restaurants across the globe, Marco brings a wealth of international experience to the table. His passion for combining global flavors and expertise in multi-sensory dining make every meal an unforgettable journey for our guests.'
-			/>
-			<TeamMember
-				isInView={isInView}
-				photo={Second}
-				alt='Second Chef'
-				identity='Second Chef - Liam Turner'
-				location='Manchester, England'
-				description='Liam has been working with Marco for over 8 years. He is a master of British and European flavors and innovative cooking techniques.'
-			/>
-			<TeamMember
-				isInView={isInView}
-				photo={LineParty}
-				alt='Line Cook'
-				identity='Line Cook - Oliver Harrison'
-				location='Birmingham, England'
-				description='A skilled cook with a passion for fresh, locally-sourced ingredients, Oliver specializes in crafting exquisite dishes that stimulate the senses, taking full advantage of the unique dining experience provided by dining in the dark.'
-			/>
-			<TeamMember
-				isInView={isInView}
-				photo={Junior}
-				alt='Junior Chef'
-				identity='Junior Chef - Emily Rapalo'
-				location='Edinburgh, Scotland'
-				description='A recent graduate of a top culinary school, Emily is eager to learn and brings her enthusiasm and creativity to the kitchen team.'
-			/>
-			<TeamMember
-				isInView={isInView}
-				photo={Waitress1}
-				alt='Waitress'
-				identity='Waitress - Charlotte Fink'
-				location='Dublin, Ireland'
-				description='Charlotte has a keen eye for detail and a genuine passion for exceptional service, making every  visit to the restaurant a truly memorable experience.'
-			/>
-			<TeamMember
-				isInView={isInView}
-				photo={Waitress2}
-				alt='Waitress'
-				identity='Waitress - Amelia Collins'
-				location='Cardiff, Wales'
-				description='With her warm and friendly personality, Amelia ensures that every guest feels welcome and well taken care of throughout their dining experience.'
-			/>
+		<div className='m-auto w-3/4 p-4'>
+			<div className='m-auto flex justify-between gap-8 p-6' ref={viewRef}>
+				<div className='flex w-[45%] rounded-lg'>
+					<img
+						src={chef}
+						alt='head chef'
+						className='rounded-lg object-cover'
+					/>
+				</div>
+				<div className='flex w-[45%] flex-col gap-8 rounded-lg border-[1px] p-8 hover:bg-amber-600/30'>
+					<div>
+						<ImQuotesLeft
+							size={50}
+							className='text-4xl text-gray-200 opacity-80'
+						/>
+					</div>
+					<p className='font-playfair text-xl leading-8 text-gray-200'>
+						&ldquo; You may not know what is on your plate, but rest
+						assured, we do. Dine in the dark, enlightened by our
+						dedication to transparency and quality control &ldquo;
+					</p>
+					<div>
+						<div className='font-roboto flex items-center gap-2'>
+							<div className='h-[2px] w-4 bg-white'></div>
+							<h2 className='text-lg text-gray-300'>
+								Jeffrey Williamson
+							</h2>
+						</div>
+						<h3 className='font-roboto text-gray-400'>Head Chef</h3>
+					</div>
+				</div>
+			</div>
+			<section className='py-20'>
+				<div className='container mx-auto px-4'>
+					<div className='-mx-4 flex flex-wrap items-center'>
+						<div className='mb-12 w-full px-4 md:mb-16 lg:mb-0 lg:w-1/2'>
+							<div className='max-w-md'>
+								<span className='text-sm font-semibold text-orange-500'>
+									What sets us apart
+								</span>
+								<h2 className='font-roboto mb-10 mt-8 text-4xl font-semibold text-gray-200'>
+									We champion local and organic produce
+								</h2>
+								<p className='font-roboto text-xl text-gray-500'>
+									We take pride in our commitment to quality with all
+									our meats, fruits and vegetables being sustainably
+									sourced and certified
+								</p>
+							</div>
+						</div>
+						<div className='w-full rounded-lg px-28 py-12 lg:w-1/2'>
+							<div className='-m-4 flex flex-wrap'>
+								{logosPhotos.map((logo) => (
+									<div key={logo.key} className='w-1/2 p-2 md:w-1/3'>
+										<div className='rounded-lg bg-zinc-300 py-4 grayscale hover:grayscale-0 lg:py-2'>
+											<img
+												className='mx-auto h-20 w-20 object-cover'
+												src={logo.src}
+												alt=''
+											/>
+										</div>
+									</div>
+								))}
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div className='TRANSITION font-roboto flex w-full justify-center gap-6 text-3xl font-extralight uppercase tracking-wide text-gray-200 '>
+				<BsArrow90DegDown size={18} className='translate-y-4' />
+				<h2> Practical Informations </h2>
+				<BsArrow90DegUp size={18} className='translate-y-4 rotate-180' />
+			</div>
 		</div>
 	);
 };
