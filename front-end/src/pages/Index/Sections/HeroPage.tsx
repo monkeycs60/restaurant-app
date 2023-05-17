@@ -7,7 +7,7 @@ const HeroPage = () => {
 			<nav>
 				<ul
 					className={clsx(
-						'font-classic fixed z-20 flex h-[7vh] w-full justify-around p-2 text-lg text-gray-200 backdrop-blur-sm',
+						'font-classic fixed z-50 flex h-[7vh] w-full justify-around p-2 text-lg text-gray-200 backdrop-blur-sm',
 					)}
 				>
 					<li className='cursor-pointer'>Concept</li>

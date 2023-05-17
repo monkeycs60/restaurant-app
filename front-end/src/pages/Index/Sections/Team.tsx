@@ -51,7 +51,7 @@ const Team = () => {
 								<p className='font-roboto text-lg text-gray-500'>
 									We take pride in our commitment to quality with all
 									our meats, fruits and vegetables being sustainably
-									sourced and certified
+									sourced and certified.
 								</p>
 							</div>
 						</div>

@@ -54,12 +54,6 @@ const MenuCard = () => {
 					</p>
 				</div>
 			</div>
-			{/* <div className='flex justify-end text-sm italic'>
-				<p>
-					Should you have any food intolerance or allergy, let us know when
-					you make a reservation{' '}
-				</p>
-			</div> */}
 		</div>
 	);
 };

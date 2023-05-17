@@ -27,19 +27,18 @@ const PracticalInformations = () => {
 				<div className='mx-auto max-w-7xl'>
 					<div className='mx-auto mb-20 flex max-w-2xl flex-col gap-4 text-center'>
 						<h1 className='font-playfair xs:text-6xl mb-4 text-5xl font-bold text-gray-100'>
-							<span>Let&rsquo;s visit </span>{' '}
+							<span>Coming to </span>{' '}
 							<span className='font-dancing font-serif text-6xl text-orange-600'>
 								Chiaroscuro
 							</span>
 						</h1>
 						<p className='font-roboto text-xl text-gray-300'>
-							Don't miss out on this unparalleled London experience! Our
-							eager team awaits your visit, whether it's during the
-							weekday or over the weekend
+							Our team eagerly awaits your visit, whether it's during the
+							weekday or over the weekend, ready to reawaken your senses.
 						</p>
 					</div>
 					<div className='mb-12 flex justify-between'>
-						<div className='xs:max-w-sm concept-text-background font-roboto mx-auto w-1/2 rounded-lg p-6 lg:max-w-[50%]'>
+						<div className='xs:max-w-sm concept-text-background font-roboto mx-auto w-1/2 rounded-lg p-4 lg:max-w-[50%]'>
 							<div className='flex flex-col flex-wrap items-center gap-8 p-6'>
 								<div className='w-full px-4'>
 									<div className='flex items-center gap-6'>
@@ -51,13 +50,10 @@ const PracticalInformations = () => {
 										</div>
 										<div className='flex flex-col'>
 											<span className='text-base text-gray-500'>
-												Phone
+												Contact
 											</span>
 											<span className='block text-base font-semibold text-gray-900'>
 												020 2831 9278
-											</span>
-											<span className='mt-1 text-base text-gray-500'>
-												Email
 											</span>
 											<span className='block text-base font-semibold text-gray-900'>
 												chiaroscuro@contact.com
@@ -94,22 +90,27 @@ const PracticalInformations = () => {
 												color='white'
 											/>
 										</div>
-										<div className='flex w-full  items-center gap-8'>
-											<div className='flex flex-col justify-center'>
-												<span className='block text-base font-semibold text-gray-900'>
-													Tuesday-Saturday
-												</span>
-												<span className='block text-sm text-gray-900'>
-													12:00 - 14:00 / 19:00 - 23:00
-												</span>
-											</div>
-											<div className='flex flex-col justify-center'>
-												<span className='block text-base font-semibold text-gray-900'>
-													Sunday
-												</span>
-												<span className='block text-sm text-gray-900'>
-													12:00 - 14:00
-												</span>
+										<div>
+											<span className='text-base text-gray-500'>
+												Opening Hours
+											</span>
+											<div className='flex w-full  items-center gap-8'>
+												<div className='flex flex-col justify-center'>
+													<span className='block text-base font-semibold text-gray-900'>
+														Tuesday-Saturday
+													</span>
+													<span className='block text-sm text-gray-900'>
+														12AM - 2PM / 7PM - 11PM
+													</span>
+												</div>
+												<div className='flex flex-col justify-center'>
+													<span className='block text-base font-semibold text-gray-900'>
+														Sunday
+													</span>
+													<span className='block text-sm text-gray-900'>
+														12AM - 2PM
+													</span>
+												</div>
 											</div>
 										</div>
 									</div>
