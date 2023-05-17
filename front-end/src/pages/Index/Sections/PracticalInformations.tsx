@@ -1,4 +1,11 @@
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import {
+	MapContainer,
+	TileLayer,
+	Marker,
+	Popup,
+	useMap,
+	Tooltip,
+} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 const PracticalInformations = () => {
@@ -112,8 +119,9 @@ const PracticalInformations = () => {
 							/>
 							<Marker position={[51.510607, -0.134301]}>
 								<Popup>
-									Chiaroscuro <br /> 10 Shaftesbury Ave <br /> London
+									10 Shaftesbury Ave <br /> London
 								</Popup>
+								<Tooltip>Chiaroscuro Restaurant</Tooltip>
 							</Marker>
 						</MapContainer>
 					</div>

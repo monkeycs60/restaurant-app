@@ -17,38 +17,35 @@ const Team = () => {
 						className='rounded-lg object-cover'
 					/>
 				</div>
-				<div className='flex w-[45%] flex-col gap-8 rounded-lg border-[1px] p-8 hover:bg-amber-600/30'>
+				<div className='concept-text-background flex w-[45%] flex-col gap-8 rounded-lg border-[1px] p-8 hover:bg-amber-600/30'>
 					<div>
 						<ImQuotesLeft
 							size={50}
-							className='text-4xl text-gray-200 opacity-80'
+							className='text-4xl text-orange-600 opacity-80'
 						/>
 					</div>
-					<p className='font-playfair text-xl leading-8 text-gray-200'>
+					<p className='font-playfair text-xl leading-8 text-gray-900'>
 						&ldquo; You may not know what is on your plate, but rest
 						assured, we do. Dine in the dark, enlightened by our
 						dedication to transparency and quality control &ldquo;
 					</p>
 					<div>
 						<div className='font-roboto flex items-center gap-2'>
-							<div className='h-[2px] w-4 bg-white'></div>
-							<h2 className='text-lg text-gray-300'>
+							<div className='h-[2px] w-4 bg-black'></div>
+							<h2 className='text-lg font-bold text-gray-900'>
 								Jeffrey Williamson
 							</h2>
 						</div>
-						<h3 className='font-roboto text-gray-400'>Head Chef</h3>
+						<h3 className='font-roboto text-gray-800'>Head Chef</h3>
 					</div>
 				</div>
 			</div>
-			<section className='py-20'>
-				<div className='container mx-auto px-4'>
+			<section className='py-12'>
+				<div className='bg container mx-auto px-4'>
 					<div className='-mx-4 flex flex-wrap items-center'>
 						<div className='mb-12 w-full px-4 md:mb-16 lg:mb-0 lg:w-1/2'>
 							<div className='max-w-md'>
-								<span className='text-sm font-semibold text-orange-500'>
-									What sets us apart
-								</span>
-								<h2 className='font-playfair mb-10 mt-8 text-4xl  text-gray-200'>
+								<h2 className='font-roboto mb-10 mt-8 text-4xl  text-gray-200'>
 									We champion local and organic produce
 								</h2>
 								<p className='font-roboto text-xl text-gray-500'>
