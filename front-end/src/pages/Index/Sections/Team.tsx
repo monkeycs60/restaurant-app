@@ -48,14 +48,14 @@ const Team = () => {
 								<h2 className='font-roboto mb-10 mt-8 text-4xl  text-gray-200'>
 									We champion local and organic produce
 								</h2>
-								<p className='font-roboto text-xl text-gray-500'>
+								<p className='font-roboto text-lg text-gray-500'>
 									We take pride in our commitment to quality with all
 									our meats, fruits and vegetables being sustainably
 									sourced and certified
 								</p>
 							</div>
 						</div>
-						<div className='w-full rounded-lg px-28 py-12 lg:w-1/2'>
+						<div className='flex w-full translate-x-6 rounded-lg px-28 py-12 lg:w-1/2'>
 							<div className='-m-4 flex flex-wrap'>
 								{logosPhotos.map((logo) => (
 									<div key={logo.key} className='w-1/2 p-2 md:w-1/3'>
