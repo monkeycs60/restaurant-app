@@ -34,7 +34,7 @@ const ModalBooking = ({
 
 	return (
 		<dialog
-			className='modal-booking items-center justify-around bg-red-500 '
+			className='concept-text-background fixed h-[80%] w-[60%] flex-col items-center rounded-lg'
 			ref={dialogRef}
 		>
 			<button className='close-btn' onClick={closeModal}>

@@ -1,8 +1,18 @@
 import { BsArrow90DegDown, BsArrow90DegUp } from 'react-icons/bs';
 import girlBlindfold from '../../../assets/blindfold-girl.png';
 import clsx from 'clsx';
+import { useState } from 'react';
+import ModalBooking from '../../../components/ModalBooking';
 
 const ConceptPage = () => {
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	const openModalClick = () => {
+		setIsModalOpen(true);
+	};
+	const closeModal = () => {
+		setIsModalOpen(false);
+	};
 	return (
 		<div className='h-screen'>
 			<div
@@ -59,11 +69,17 @@ const ConceptPage = () => {
 							'font-playfair rounded-md bg-gray-700 px-16 py-2 text-gray-100',
 							'hover:bg-orange-600 hover:text-black',
 						)}
+						onClick={() => openModalClick()}
 					>
 						Book a table
 					</button>
 				</div>
 			</div>
+			<ModalBooking
+				isModalOpen={isModalOpen}
+				closeModal={closeModal}
+				IdPrefix='instance2'
+			/>
 			<div className='font-roboto flex w-full justify-center gap-6 text-3xl font-extralight uppercase tracking-wide text-gray-200 '>
 				<BsArrow90DegDown size={18} className='translate-y-4' />
 				<h2> Discover our menu </h2>
