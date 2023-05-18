@@ -42,43 +42,13 @@ dialog::backdrop {
 
 .close-btn {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 20px;
+  right: 20px;
   border: none;
   background: none;
-  font-size: 24px;
+  font-size: 30px;
   cursor: pointer;
 }
-
-.custom-radio {
-  display: none;
-}
-
-.custom-radio + label {
-  position: relative;
-  padding-left: 35px;
-  cursor: pointer;
-  display: inline-block;
-}
-
-.custom-radio + label:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 25px;
-  height: 25px;
-  border-radius: 25%;
-  border: 2px solid #696464;
-}
-
-.custom-radio:checked + label:before {
-  content: '';
-  background: #EA580C;
-}
-
-
-
 
 .banner-bg {
   /* background-color: rgb(22, 31, 35); */

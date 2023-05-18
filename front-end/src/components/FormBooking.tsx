@@ -7,6 +7,7 @@ import Calendar from 'react-calendar';
 import '../styles/calendar.css';
 import { add } from 'date-fns';
 import { useQuery } from '@tanstack/react-query';
+import { IoReturnDownBack } from 'react-icons/io5';
 
 interface DateType {
 	justDate: Date | null;
@@ -28,6 +29,8 @@ const schema = z.object({
 
 type BookingFormData = z.infer<typeof schema>;
 const FormBooking = () => {
+	const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+
 	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
 
@@ -121,8 +124,6 @@ const FormBooking = () => {
 			}
 		}
 
-		console.warn(times);
-
 		const availableTimes = times.filter(
 			(time) =>
 				!bookedDates?.some(
@@ -143,6 +144,24 @@ const FormBooking = () => {
 		return dayOfWeek === 1;
 	};
 
+	// La fonction pour convertir l'heure en format 24h
+	const to24HourFormat = (time: Date): number => {
+		const hours = time.getHours();
+		const minutes = time.getMinutes();
+
+		return hours + minutes / 60;
+	};
+
+	console.log(typeof times);
+
+	// On filtre les créneaux de midi
+	const middayTimes = times?.filter(
+		(time) => to24HourFormat(time) >= 12 && to24HourFormat(time) < 14,
+	);
+
+	// On filtre les créneaux de soir
+	const eveningTimes = times?.filter((time) => to24HourFormat(time) >= 14);
+
 	return (
 		<>
 			<div className='flex flex-col items-center justify-center gap-10'>
@@ -151,54 +170,37 @@ const FormBooking = () => {
 				</h2>
 			</div>
 			<form
-				className='font-classic mt-[5vh] flex w-2/3 flex-col gap-8'
+				className='font-roboto mt-[5vh] flex w-1/2 flex-col gap-8'
 				onSubmit={handleSubmit(onSubmit)}
 			>
 				<fieldset className='flex flex-col gap-2'>
-					{/* <legend className='mb-2'>Experience</legend> */}
-					<input
-						id='penumbra'
-						type='radio'
-						value='penumbra'
-						className='custom-radio mr-2'
-						required
+					<select
 						{...register('experience', { required: true })}
-					/>
-					<label htmlFor='penumbra' className='mr-2'>
-						Penumbra Path: £55 per person (blindfold)
-					</label>
-					<input
-						id='pitch_black'
-						type='radio'
-						value='pitch_black'
-						className='custom-radio mr-2'
-						required
-						{...register('experience', { required: true })}
-					/>
-					<label htmlFor='pitch_black' className='mr-2'>
-						Pitch Black Experience: £70 per person (dark room)
-					</label>
+						className='custom-select rounded-lg px-4 py-2'
+					>
+						<option value=''>Select an experience</option>
+						<option value='penumbra'>
+							Penumbra Path: £55 per person [blindfold]
+						</option>
+						<option value='pitch_black'>
+							Pitch Black Experience: £70 per person [dark room]
+						</option>
+					</select>
+
+					{errors.experience && (
+						<span className='text-blue-700'>Experience is required</span>
+					)}
 				</fieldset>
-				{errors.experience && (
-					<span className='text-blue-700'>Experience is required</span>
-				)}
-				<label className='flex  justify-between'>
-					<span>Phone number</span>
-					<input
-						type='text'
-						placeholder='Phone number'
-						min='1'
-						className='w-1/2'
-						{...register('phone', { required: true })}
-					/>
-				</label>
-				{errors.phone && (
-					<span className='text-blue-700'>Phone number is required</span>
-				)}
-				<label className='flex  justify-between'>
-					<span>Number of guests</span>
-					<select className='w-1/2 rounded-none' {...register('guests')}>
-						{Array.from({ length: 10 }, (_, i) => (
+				<label className='flex justify-between'>
+					<select
+						className='w-full rounded-lg px-4 py-2'
+						defaultValue=''
+						{...register('guests', { required: true })}
+					>
+						<option value='' disabled>
+							Number of guests
+						</option>
+						{Array.from({ length: 8 }, (_, i) => (
 							<option className='rounded-none' key={i + 1} value={i + 1}>
 								{i + 1}
 							</option>
@@ -211,37 +213,86 @@ const FormBooking = () => {
 					</span>
 				)}
 				<label className='flex justify-between'>
-					<span>Date and time:</span>
-					{date.justDate ? (
-						<div className='flex p-4'>
-							{times?.map((time, i) => (
-								<div
-									key={`time-${i}`}
-									className='rounded-sm bg-gray-100 p-2'
-								>
-									<button
-										type='button'
-										onClick={() => {
-											setDate({ ...date, dateTime: time });
+					<input
+						type='text'
+						placeholder='Phone number'
+						min='1'
+						className='w-full rounded-lg px-4 py-2 placeholder:text-black'
+						{...register('phone', { required: true })}
+					/>
+				</label>
+				{errors.phone && (
+					<span className='text-blue-700'>Phone number is required</span>
+				)}
+				<label className='flex flex-col justify-between gap-4'>
+					{!isCalendarOpen ? (
+						<span className='font-roboto flex justify-center text-lg'>
+							Reservation date
+						</span>
+					) : (
+						<span className='font-roboto flex justify-center text-lg'>
+							{' '}
+							Select your preferred time slot
+						</span>
+					)}
 
-											setValue('date', time.toISOString());
-										}}
+					{date.justDate ? (
+						<div className='flex w-full flex-col gap-4'>
+							<span className='flex justify-center italic'>Midday</span>
+							<div className='grid grid-cols-4'>
+								{middayTimes?.map((time, i) => (
+									<div
+										key={`midday-${i}`}
+										className='flex justify-center rounded-sm bg-gray-100 p-2 hover:bg-orange-300'
 									>
-										{time.toLocaleTimeString('en-US', {
-											hour: 'numeric',
-											minute: 'numeric',
-											hour12: true,
-										})}
-									</button>
-								</div>
-							))}
+										<button
+											type='button'
+											onClick={() => {
+												setDate({ ...date, dateTime: time });
+												setValue('date', time.toISOString());
+											}}
+										>
+											{time.toLocaleTimeString('en-US', {
+												hour: 'numeric',
+												minute: 'numeric',
+												hour12: true,
+											})}
+										</button>
+									</div>
+								))}
+							</div>
+							<span className='flex justify-center italic'>Evening</span>
+							<div className='grid grid-cols-4'>
+								{eveningTimes?.map((time, i) => (
+									<div
+										key={`midday-${i}`}
+										className='flex justify-center rounded-sm bg-gray-100 p-2 hover:bg-orange-300'
+									>
+										<button
+											type='button'
+											onClick={() => {
+												setDate({ ...date, dateTime: time });
+												setValue('date', time.toISOString());
+											}}
+										>
+											{time.toLocaleTimeString('en-US', {
+												hour: 'numeric',
+												minute: 'numeric',
+												hour12: true,
+											})}
+										</button>
+									</div>
+								))}
+							</div>
 							<button
 								type='button'
+								className='m-auto flex w-1/2 items-center justify-center bg-gray-400 p-1'
 								onClick={() => {
 									setDate({ ...date, dateTime: null, justDate: null });
+									setIsCalendarOpen(false);
 								}}
 							>
-								x
+								<IoReturnDownBack className='h-6 w-6' />
 							</button>
 						</div>
 					) : (
@@ -251,6 +302,7 @@ const FormBooking = () => {
 							minDate={add(new Date(), { hours: 2 })}
 							onClickDay={(date) => {
 								setDate({ ...date, justDate: date, dateTime: date });
+								setIsCalendarOpen(true);
 							}}
 							tileDisabled={({ date }) => {
 								return isMonday(date);
@@ -262,7 +314,7 @@ const FormBooking = () => {
 					<span className='text-blue-700'>Date and time is required</span>
 				)}
 				<button
-					className=' bg-gray-800 p-3 text-xl uppercase hover:bg-gray-400 hover:text-gray-900'
+					className='rounded-md bg-orange-600 p-3 text-xl uppercase text-white hover:bg-orange-700'
 					type='submit'
 				>
 					Book
