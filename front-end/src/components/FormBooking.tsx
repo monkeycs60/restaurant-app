@@ -29,6 +29,10 @@ const schema = z.object({
 
 type BookingFormData = z.infer<typeof schema>;
 const FormBooking = () => {
+	const [selectedTime, setSelectedTime] = useState<Date | null>(null);
+
+	console.log(selectedTime);
+
 	const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
 	const [username, setUsername] = useState('');
@@ -152,8 +156,6 @@ const FormBooking = () => {
 		return hours + minutes / 60;
 	};
 
-	console.log(typeof times);
-
 	// On filtre les créneaux de midi
 	const middayTimes = times?.filter(
 		(time) => to24HourFormat(time) >= 12 && to24HourFormat(time) < 14,
@@ -235,8 +237,18 @@ const FormBooking = () => {
 							Select your preferred time slot
 						</span>
 					)}
-
-					{date.justDate ? (
+					{selectedTime ? (
+						<span className='font-roboto flex justify-center text-lg'>
+							{selectedTime.toLocaleString('en-GB', {
+								day: 'numeric',
+								month: 'long',
+								year: 'numeric',
+								hour: 'numeric',
+								minute: 'numeric',
+							})}
+						</span>
+					) : null}
+					{isCalendarOpen ? (
 						<div className='flex w-full flex-col gap-4'>
 							<span className='flex justify-center italic'>Midday</span>
 							<div className='grid grid-cols-4'>
@@ -248,8 +260,10 @@ const FormBooking = () => {
 										<button
 											type='button'
 											onClick={() => {
+												const dateTime = time;
 												setDate({ ...date, dateTime: time });
 												setValue('date', time.toISOString());
+												setSelectedTime(dateTime);
 											}}
 										>
 											{time.toLocaleTimeString('en-US', {
@@ -271,8 +285,10 @@ const FormBooking = () => {
 										<button
 											type='button'
 											onClick={() => {
+												const dateTime = time;
 												setDate({ ...date, dateTime: time });
 												setValue('date', time.toISOString());
+												setSelectedTime(dateTime);
 											}}
 										>
 											{time.toLocaleTimeString('en-US', {
@@ -288,7 +304,6 @@ const FormBooking = () => {
 								type='button'
 								className='m-auto flex w-1/2 items-center justify-center bg-gray-400 p-1'
 								onClick={() => {
-									setDate({ ...date, dateTime: null, justDate: null });
 									setIsCalendarOpen(false);
 								}}
 							>
