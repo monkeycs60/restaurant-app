@@ -27,11 +27,15 @@ const schema = z.object({
 	date: z.string(),
 });
 
-type BookingFormData = z.infer<typeof schema>;
-const FormBooking = () => {
+export type BookingFormData = z.infer<typeof schema>;
+const FormBooking = ({
+	setIsBooking,
+}: {
+	setIsBooking: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
 	const [selectedTime, setSelectedTime] = useState<Date | null>(null);
 
-	console.log(selectedTime);
+	const [selectedButton, setSelectedButton] = useState<string | null>(null);
 
 	const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
@@ -66,6 +70,12 @@ const FormBooking = () => {
 				BookingFormDataPlusDetails,
 			);
 			console.log(response.data);
+
+			localStorage.setItem('experience', data.experience);
+			localStorage.setItem('guests', data.guests);
+			localStorage.setItem('date', data.date);
+
+			setIsBooking(true);
 		} catch (error) {
 			console.log(error);
 		}
@@ -226,7 +236,7 @@ const FormBooking = () => {
 				{errors.phone && (
 					<span className='text-blue-700'>Phone number is required</span>
 				)}
-				<label className='flex flex-col justify-between gap-4'>
+				<div className='flex flex-col justify-between gap-4'>
 					{!isCalendarOpen ? (
 						<span className='font-roboto flex justify-center text-lg'>
 							Reservation date
@@ -237,15 +247,20 @@ const FormBooking = () => {
 							Select your preferred time slot
 						</span>
 					)}
-					{selectedTime ? (
-						<span className='font-roboto flex justify-center text-lg'>
+					{selectedTime && !isCalendarOpen ? (
+						<span className='font-roboto flex justify-center border-b-2  border-orange-600 text-lg'>
 							{selectedTime.toLocaleString('en-GB', {
 								day: 'numeric',
 								month: 'long',
 								year: 'numeric',
-								hour: 'numeric',
-								minute: 'numeric',
 							})}
+							{' at '}
+							<span className='ml-2 border-b-2 text-xl font-bold'>
+								{selectedTime.toLocaleString('en-GB', {
+									hour: 'numeric',
+									minute: 'numeric',
+								})}
+							</span>
 						</span>
 					) : null}
 					{isCalendarOpen ? (
@@ -255,7 +270,11 @@ const FormBooking = () => {
 								{middayTimes?.map((time, i) => (
 									<div
 										key={`midday-${i}`}
-										className='flex justify-center rounded-sm bg-gray-100 p-2 hover:bg-orange-300'
+										className={`flex justify-center rounded-sm bg-gray-100 p-2 hover:bg-orange-300 ${
+											selectedButton === time.toISOString()
+												? 'rounded-sm bg-orange-300 p-2'
+												: 'rounded-sm bg-gray-100 p-2 hover:bg-orange-300'
+										} `}
 									>
 										<button
 											type='button'
@@ -264,6 +283,7 @@ const FormBooking = () => {
 												setDate({ ...date, dateTime: time });
 												setValue('date', time.toISOString());
 												setSelectedTime(dateTime);
+												setSelectedButton(time.toISOString());
 											}}
 										>
 											{time.toLocaleTimeString('en-US', {
@@ -280,7 +300,11 @@ const FormBooking = () => {
 								{eveningTimes?.map((time, i) => (
 									<div
 										key={`midday-${i}`}
-										className='flex justify-center rounded-sm bg-gray-100 p-2 hover:bg-orange-300'
+										className={`flex justify-center rounded-sm bg-gray-100 p-2 hover:bg-orange-300 ${
+											selectedButton === time.toISOString()
+												? 'rounded-sm bg-orange-300 p-2'
+												: 'rounded-sm bg-gray-100 p-2 hover:bg-orange-300'
+										} `}
 									>
 										<button
 											type='button'
@@ -289,6 +313,7 @@ const FormBooking = () => {
 												setDate({ ...date, dateTime: time });
 												setValue('date', time.toISOString());
 												setSelectedTime(dateTime);
+												setSelectedButton(time.toISOString());
 											}}
 										>
 											{time.toLocaleTimeString('en-US', {
@@ -324,7 +349,7 @@ const FormBooking = () => {
 							}}
 						/>
 					)}
-				</label>
+				</div>
 				{errors.date && (
 					<span className='text-blue-700'>Date and time is required</span>
 				)}

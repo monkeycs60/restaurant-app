@@ -1,10 +1,11 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Login from './Auth/Login';
 import Register from './Auth/Register';
 import { useCookies } from 'react-cookie';
 import FormBooking from './FormBooking';
 import { LoginProps } from './Auth/Login';
 import { RegisterProps } from './Auth/Register';
+import SignUp from './SignUp';
 
 interface ModalProps {
 	isModalOpen: boolean;
@@ -32,12 +33,20 @@ const ModalBooking = ({
 		}
 	}, [isModalOpen]);
 
+	const [isBooking, setIsBooking] = useState(false);
+
 	return (
 		<dialog
 			className='concept-text-background fixed h-[80%] w-[60%] flex-col items-center rounded-lg'
 			ref={dialogRef}
 		>
-			<button className='close-btn' onClick={closeModal}>
+			<button
+				className='close-btn'
+				onClick={() => {
+					closeModal();
+					setIsBooking(false);
+				}}
+			>
 				&times;
 			</button>
 
@@ -48,7 +57,11 @@ const ModalBooking = ({
 				</>
 			) : (
 				<>
-					<FormBooking />
+					{isBooking ? (
+						<SignUp />
+					) : (
+						<FormBooking setIsBooking={setIsBooking} />
+					)}
 				</>
 			)}
 		</dialog>
