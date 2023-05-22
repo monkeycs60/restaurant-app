@@ -4,13 +4,15 @@ import { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import '../styles/calendar.css';
 import { add } from 'date-fns';
-import { IoReturnDownBack } from 'react-icons/io5';
 import { useAvailability } from '../hooks/useAvailability';
 import { useBooking, BookingFormData, schema } from '../hooks/useBooking';
 import { HeaderBooking } from './Booking/HeaderBooking';
 import { ExperienceSelect } from './Booking/ExperienceSelect';
 import { GuestSelect } from './Booking/GuestSelect';
 import { PhoneNumberInput } from './Booking/PhoneNumberInput';
+import { ButtonBooking } from './Booking/ButtonBooking';
+import TimeSelection from './Booking/TimeSelection';
+import TimeDisplayed from './Booking/TimeDisplayed';
 
 const FormBooking = ({
 	setIsBooking,
@@ -64,93 +66,20 @@ const FormBooking = ({
 						</span>
 					)}
 					{selectedTime && !isCalendarOpen ? (
-						<span className='font-roboto flex justify-center border-b-2  border-orange-600 text-lg'>
-							{selectedTime.toLocaleString('en-GB', {
-								day: 'numeric',
-								month: 'long',
-								year: 'numeric',
-							})}
-							{' at '}
-							<span className='ml-2 border-b-2 text-xl font-bold'>
-								{selectedTime.toLocaleString('en-GB', {
-									hour: 'numeric',
-									minute: 'numeric',
-								})}
-							</span>
-						</span>
+						<TimeDisplayed selectedTime={selectedTime} />
 					) : null}
 					{isCalendarOpen ? (
-						<div className='flex w-full flex-col gap-4'>
-							<span className='flex justify-center italic'>Midday</span>
-							<div className='grid grid-cols-4'>
-								{middayTimes?.map((time, i) => (
-									<div
-										key={`midday-${i}`}
-										className={`flex justify-center rounded-sm bg-gray-100 p-2 hover:bg-orange-300 ${
-											selectedButton === time.toISOString()
-												? 'rounded-sm bg-orange-300 p-2'
-												: 'rounded-sm bg-gray-100 p-2 hover:bg-orange-300'
-										} `}
-									>
-										<button
-											type='button'
-											onClick={() => {
-												const dateTime = time;
-												setDate({ ...date, dateTime: time });
-												setValue('date', time.toISOString());
-												setSelectedTime(dateTime);
-												setSelectedButton(time.toISOString());
-											}}
-										>
-											{time.toLocaleTimeString('en-US', {
-												hour: 'numeric',
-												minute: 'numeric',
-												hour12: true,
-											})}
-										</button>
-									</div>
-								))}
-							</div>
-							<span className='flex justify-center italic'>Evening</span>
-							<div className='grid grid-cols-4'>
-								{eveningTimes?.map((time, i) => (
-									<div
-										key={`midday-${i}`}
-										className={`flex justify-center rounded-sm bg-gray-100 p-2 hover:bg-orange-300 ${
-											selectedButton === time.toISOString()
-												? 'rounded-sm bg-orange-300 p-2'
-												: 'rounded-sm bg-gray-100 p-2 hover:bg-orange-300'
-										} `}
-									>
-										<button
-											type='button'
-											onClick={() => {
-												const dateTime = time;
-												setDate({ ...date, dateTime: time });
-												setValue('date', time.toISOString());
-												setSelectedTime(dateTime);
-												setSelectedButton(time.toISOString());
-											}}
-										>
-											{time.toLocaleTimeString('en-US', {
-												hour: 'numeric',
-												minute: 'numeric',
-												hour12: true,
-											})}
-										</button>
-									</div>
-								))}
-							</div>
-							<button
-								type='button'
-								className='m-auto flex w-1/2 items-center justify-center bg-gray-400 p-1'
-								onClick={() => {
-									setIsCalendarOpen(false);
-								}}
-							>
-								<IoReturnDownBack className='h-6 w-6' />
-							</button>
-						</div>
+						<TimeSelection
+							currentDate={date}
+							middayTimes={middayTimes}
+							eveningTimes={eveningTimes}
+							selectedButton={selectedButton}
+							setSelectedButton={setSelectedButton}
+							setDate={setDate}
+							setValue={setValue}
+							setSelectedTime={setSelectedTime}
+							setIsCalendarOpen={setIsCalendarOpen}
+						/>
 					) : (
 						<Calendar
 							className='REACT-CALENDAR'
@@ -169,12 +98,7 @@ const FormBooking = ({
 				{errors.date && (
 					<span className='text-blue-700'>Date and time is required</span>
 				)}
-				<button
-					className='rounded-md bg-orange-600 p-3 text-xl uppercase text-white hover:bg-orange-700'
-					type='submit'
-				>
-					Book
-				</button>
+				<ButtonBooking />
 			</form>
 		</>
 	);

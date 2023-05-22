@@ -1,4 +1,4 @@
-import { FieldError, useForm, DeepMap, UseFormRegister } from 'react-hook-form';
+import { FieldError, UseFormRegister } from 'react-hook-form';
 import { BookingFormData } from '../../hooks/useBooking';
 
 export type BookProps = {
