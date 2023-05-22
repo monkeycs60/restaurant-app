@@ -8,6 +8,8 @@ import '../styles/calendar.css';
 import { add } from 'date-fns';
 import { useQuery } from '@tanstack/react-query';
 import { IoReturnDownBack } from 'react-icons/io5';
+import { fetchBookedDates } from '../services/api';
+import { useAvailability } from '../hooks/useAvailability';
 
 interface DateType {
 	justDate: Date | null;
@@ -33,6 +35,10 @@ const FormBooking = ({
 }: {
 	setIsBooking: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+	const { date, setDate, times, isMonday, middayTimes, eveningTimes } =
+		useAvailability();
+	console.log('times', times);
+
 	const [selectedTime, setSelectedTime] = useState<Date | null>(null);
 
 	const [selectedButton, setSelectedButton] = useState<string | null>(null);
@@ -80,99 +86,11 @@ const FormBooking = ({
 			console.log(error);
 		}
 	};
-
-	async function fetchBookedDates() {
-		try {
-			const response = await axios.get('http://localhost:3001/booking');
-			return response.data.map(
-				(booking: BookingFormData) => new Date(booking.date),
-			);
-		} catch (error) {
-			throw new Error('Error fetching booked dates');
-		}
-	}
-
 	const {
 		data: bookedDates,
 		error,
 		isLoading,
 	} = useQuery<Date[], Error>(['bookedDates'], fetchBookedDates);
-
-	const [date, setDate] = useState<DateType>({
-		justDate: null,
-		dateTime: null,
-	});
-	const getTimes = () => {
-		if (!date.justDate) return;
-
-		const { justDate } = date;
-
-		const dayOfWeek = justDate.getDay();
-		if (dayOfWeek === 1) return [];
-
-		const lunchStart = add(justDate, { hours: 12 });
-		const lunchEnd = add(justDate, { hours: 14 });
-		const dinnerStart = add(justDate, { hours: 19 });
-		const dinnerEnd = add(justDate, { hours: 22, minutes: 30 });
-		const interval = 30;
-
-		const times = [];
-
-		// Ajout des créneaux pour le déjeuner
-		for (
-			let index = lunchStart;
-			index < lunchEnd;
-			index = add(index, { minutes: interval })
-		) {
-			times.push(index);
-		}
-
-		// Ajout des créneaux pour le dîner
-		if (dayOfWeek !== 0) {
-			for (
-				let index = dinnerStart;
-				index < dinnerEnd;
-				index = add(index, { minutes: interval })
-			) {
-				times.push(index);
-			}
-		}
-
-		const availableTimes = times.filter(
-			(time) =>
-				!bookedDates?.some(
-					(bookedDate) =>
-						bookedDate.getHours() === time.getHours() &&
-						bookedDate.getMinutes() === time.getMinutes() &&
-						bookedDate.getDate() === time.getDate() &&
-						bookedDate.getMonth() === time.getMonth() &&
-						bookedDate.getFullYear() === time.getFullYear(),
-				),
-		);
-		return availableTimes;
-	};
-
-	const times = getTimes();
-	const isMonday = (date: Date) => {
-		const dayOfWeek = date.getDay();
-		return dayOfWeek === 1;
-	};
-
-	// La fonction pour convertir l'heure en format 24h
-	const to24HourFormat = (time: Date): number => {
-		const hours = time.getHours();
-		const minutes = time.getMinutes();
-
-		return hours + minutes / 60;
-	};
-
-	// On filtre les créneaux de midi
-	const middayTimes = times?.filter(
-		(time) => to24HourFormat(time) >= 12 && to24HourFormat(time) < 14,
-	);
-
-	// On filtre les créneaux de soir
-	const eveningTimes = times?.filter((time) => to24HourFormat(time) >= 14);
 
 	return (
 		<>
