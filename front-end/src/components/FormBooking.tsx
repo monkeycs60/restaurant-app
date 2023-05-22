@@ -1,52 +1,30 @@
 import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import '../styles/calendar.css';
 import { add } from 'date-fns';
-import { useQuery } from '@tanstack/react-query';
 import { IoReturnDownBack } from 'react-icons/io5';
-import { fetchBookedDates } from '../services/api';
 import { useAvailability } from '../hooks/useAvailability';
+import { useBooking, BookingFormData, schema } from '../hooks/useBooking';
+import { HeaderBooking } from './Booking/HeaderBooking';
+import { ExperienceSelect } from './Booking/ExperienceSelect';
+import { GuestSelect } from './Booking/GuestSelect';
+import { PhoneNumberInput } from './Booking/PhoneNumberInput';
 
-interface DateType {
-	justDate: Date | null;
-	dateTime: Date | null;
-}
-
-const schema = z.object({
-	experience: z.string(),
-	phone: z
-		.string()
-		.min(10)
-		.refine(
-			(value) => /^[0-9]+$/.test(value),
-			'Phone number can only contain numbers',
-		),
-	guests: z.string(),
-	date: z.string(),
-});
-
-export type BookingFormData = z.infer<typeof schema>;
 const FormBooking = ({
 	setIsBooking,
 }: {
 	setIsBooking: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-	const { date, setDate, times, isMonday, middayTimes, eveningTimes } =
+	const { onSubmit, setUsername, setEmail } = useBooking(setIsBooking);
+
+	const { date, setDate, isMonday, middayTimes, eveningTimes } =
 		useAvailability();
-	console.log('times', times);
 
 	const [selectedTime, setSelectedTime] = useState<Date | null>(null);
-
 	const [selectedButton, setSelectedButton] = useState<string | null>(null);
-
 	const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-
-	const [username, setUsername] = useState('');
-	const [email, setEmail] = useState('');
 
 	useEffect(() => {
 		const storedUsername = localStorage.getItem('userName');
@@ -64,96 +42,16 @@ const FormBooking = ({
 		resolver: zodResolver(schema),
 	});
 
-	const onSubmit = async (data: BookingFormData) => {
-		const BookingFormDataPlusDetails = {
-			username,
-			email,
-			...data,
-		};
-		try {
-			const response = await axios.post(
-				'http://localhost:3001/booking',
-				BookingFormDataPlusDetails,
-			);
-			console.log(response.data);
-
-			localStorage.setItem('experience', data.experience);
-			localStorage.setItem('guests', data.guests);
-			localStorage.setItem('date', data.date);
-
-			setIsBooking(true);
-		} catch (error) {
-			console.log(error);
-		}
-	};
-	const {
-		data: bookedDates,
-		error,
-		isLoading,
-	} = useQuery<Date[], Error>(['bookedDates'], fetchBookedDates);
-
 	return (
 		<>
-			<div className='flex flex-col items-center justify-center gap-10'>
-				<h2 className='font-dancing text-5xl font-bold text-orange-600'>
-					Chiaroscuro
-				</h2>
-			</div>
+			<HeaderBooking />
 			<form
 				className='font-roboto mt-[5vh] flex w-1/2 flex-col gap-8'
 				onSubmit={handleSubmit(onSubmit)}
 			>
-				<fieldset className='flex flex-col gap-2'>
-					<select
-						{...register('experience', { required: true })}
-						className='custom-select rounded-lg px-4 py-2'
-					>
-						<option value=''>Select an experience</option>
-						<option value='penumbra'>
-							Penumbra Path: £55 per person [blindfold]
-						</option>
-						<option value='pitch_black'>
-							Pitch Black Experience: £70 per person [dark room]
-						</option>
-					</select>
-
-					{errors.experience && (
-						<span className='text-blue-700'>Experience is required</span>
-					)}
-				</fieldset>
-				<label className='flex justify-between'>
-					<select
-						className='w-full rounded-lg px-4 py-2'
-						defaultValue=''
-						{...register('guests', { required: true })}
-					>
-						<option value='' disabled>
-							Number of guests
-						</option>
-						{Array.from({ length: 8 }, (_, i) => (
-							<option className='rounded-none' key={i + 1} value={i + 1}>
-								{i + 1}
-							</option>
-						))}
-					</select>
-				</label>
-				{errors.guests && (
-					<span className='text-blue-700'>
-						Number of guests is required
-					</span>
-				)}
-				<label className='flex justify-between'>
-					<input
-						type='text'
-						placeholder='Phone number'
-						min='1'
-						className='w-full rounded-lg px-4 py-2 placeholder:text-black'
-						{...register('phone', { required: true })}
-					/>
-				</label>
-				{errors.phone && (
-					<span className='text-blue-700'>Phone number is required</span>
-				)}
+				<ExperienceSelect register={register} errors={errors} />
+				<GuestSelect register={register} errors={errors} />
+				<PhoneNumberInput register={register} errors={errors} />
 				<div className='flex flex-col justify-between gap-4'>
 					{!isCalendarOpen ? (
 						<span className='font-roboto flex justify-center text-lg'>

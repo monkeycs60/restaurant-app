@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BookingFormData } from '../components/FormBooking';
+import { BookingFormData } from '../hooks/useBooking';
 
 export async function fetchBookedDates() {
 	try {

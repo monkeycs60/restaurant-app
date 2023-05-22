@@ -8,11 +8,6 @@ interface DateType {
 	dateTime: Date | null;
 }
 
-interface TimeType {
-	availableTimes: Date[];
-	middayTimes: Date[];
-	eveningTimes: Date[];
-}
 export const useAvailability = () => {
 	const [date, setDate] = useState<DateType>({
 		justDate: null,
@@ -37,11 +32,7 @@ export const useAvailability = () => {
 		return dayOfWeek === 1;
 	};
 	useEffect(() => {
-		console.log('useeffect déclenché');
-
 		if (date.justDate) {
-			console.log('CODE IF du useeffect déclenché');
-
 			getTimes();
 		}
 	}, [date]);
@@ -91,7 +82,6 @@ export const useAvailability = () => {
 						bookedDate.getFullYear() === time.getFullYear(),
 				),
 		);
-		console.log('availableTimes', availableTimes);
 
 		return setTimes(availableTimes);
 	};
@@ -101,8 +91,6 @@ export const useAvailability = () => {
 	);
 
 	const eveningTimes = times?.filter((time) => to24HourFormat(time) >= 14);
-
-	console.log('function appelée', times);
 
 	return {
 		date,
