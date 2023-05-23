@@ -9,4 +9,5 @@ export type BookProps = {
 		guests?: FieldError;
 		date?: FieldError;
 	};
+	watch?: any;
 };

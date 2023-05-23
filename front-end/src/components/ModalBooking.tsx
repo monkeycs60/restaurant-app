@@ -37,7 +37,7 @@ const ModalBooking = ({
 
 	return (
 		<dialog
-			className='concept-text-background fixed h-[80%] w-[60%] flex-col items-center rounded-lg'
+			className='concept-text-background fixed h-[80%] w-[40%] flex-col items-center rounded-lg'
 			ref={dialogRef}
 		>
 			<button

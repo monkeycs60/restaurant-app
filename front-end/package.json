@@ -33,6 +33,7 @@
     "react-modal": "^3.16.1",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.10.0",
+    "react-tooltip": "^5.13.1",
     "three": "^0.151.3",
     "zod": "^3.21.4"
   },

@@ -5,7 +5,7 @@ interface RegisterProps {
 
 export const RegisterComponent = ({ isLogin, setIsLogin }: RegisterProps) => {
 	return (
-		<div className='mx-auto my-8 flex w-[40%] flex-col gap-8'>
+		<div className='mx-auto my-8 flex w-[65%] flex-col gap-8 rounded-md bg-zinc-50 p-8'>
 			<h2 className='font-roboto text-center text-xl font-bold'>
 				Create an account to finalize your reservation
 			</h2>
@@ -18,7 +18,7 @@ export const RegisterComponent = ({ isLogin, setIsLogin }: RegisterProps) => {
 					type='text'
 					placeholder='01234 567890'
 					min='1'
-					className='w-full rounded-lg px-4 py-2 placeholder:text-black'
+					className='w-full rounded-lg border-2 border-zinc-600 px-4 py-2 placeholder:text-black'
 				/>
 
 				<label htmlFor='email' className='flex justify-between'>
@@ -29,7 +29,7 @@ export const RegisterComponent = ({ isLogin, setIsLogin }: RegisterProps) => {
 					type='text'
 					placeholder='address@mail.com'
 					min='1'
-					className='w-full rounded-lg px-4 py-2 placeholder:text-black'
+					className='w-full rounded-lg border-2 border-zinc-600 px-4 py-2 placeholder:text-black'
 				/>
 				<label htmlFor='password' className='flex justify-between'>
 					Password
@@ -39,7 +39,7 @@ export const RegisterComponent = ({ isLogin, setIsLogin }: RegisterProps) => {
 					type='password'
 					placeholder='*********'
 					min='1'
-					className='w-full rounded-lg px-4 py-2 placeholder:text-black'
+					className='w-full rounded-lg border-2 border-zinc-600 px-4 py-2 placeholder:text-black'
 				/>
 				<label htmlFor='confirm-password' className='flex justify-between'>
 					Confirm password
@@ -49,7 +49,7 @@ export const RegisterComponent = ({ isLogin, setIsLogin }: RegisterProps) => {
 					type='password'
 					placeholder='*********'
 					min='1'
-					className='w-full rounded-lg px-4 py-2 placeholder:text-black'
+					className='w-full rounded-lg border-2 border-zinc-600 px-4 py-2 placeholder:text-black'
 				/>
 				<label htmlFor='conditions' className='flex justify-start gap-4'>
 					<input type='checkbox' id='conditions' />I agree to the General
@@ -58,7 +58,7 @@ export const RegisterComponent = ({ isLogin, setIsLogin }: RegisterProps) => {
 
 				<button
 					type='submit'
-					className='w-full mt-4 rounded bg-orange-500 p-2 text-white hover:bg-orange-700'
+					className='mt-4 w-full rounded bg-orange-500 p-2 text-white hover:bg-orange-700'
 				>
 					Create Account
 				</button>

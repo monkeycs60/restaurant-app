@@ -40,6 +40,7 @@ const FormBooking = ({
 		handleSubmit,
 		setValue,
 		formState: { errors },
+		watch,
 	} = useForm<BookingFormData>({
 		resolver: zodResolver(schema),
 	});
@@ -48,10 +49,14 @@ const FormBooking = ({
 		<>
 			<HeaderBooking />
 			<form
-				className='font-roboto mt-[5vh] flex w-1/2 flex-col gap-8'
+				className='font-roboto mt-[5vh] flex w-2/3 flex-col gap-8'
 				onSubmit={handleSubmit(onSubmit)}
 			>
-				<ExperienceSelect register={register} errors={errors} />
+				<ExperienceSelect
+					register={register}
+					errors={errors}
+					watch={watch}
+				/>
 				<GuestSelect register={register} errors={errors} />
 				<PhoneNumberInput register={register} errors={errors} />
 				<div className='flex flex-col justify-between gap-4'>
