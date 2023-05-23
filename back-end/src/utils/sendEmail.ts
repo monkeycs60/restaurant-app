@@ -10,14 +10,14 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function sendEmail(to: string, subject: string, bookingData: any) {
-	console.log('date formatée', formatDate(bookingData.date));
-	console.log('date classique', bookingData.date);
-
-	const mailOptions = {
-		from: 'gregre_95@hotmail.fr',
-		to: to,
-		subject: subject,
-		html: `
+	if (bookingData.experience === 'pitch_black') {
+		bookingData.experience = 'Pitch Black';
+	}
+		const mailOptions = {
+			from: 'gregre_95@hotmail.fr',
+			to: to,
+			subject: subject,
+			html: `
           <div style="text-align: center; background-color: lightgray; padding: 16px; border-radius: 10px;">
     <img src="https://i.postimg.cc/7YTk7m8y/blindfold-girl.png" alt="Logo" style="border-radius: 50%;" width="140" height="140">
     <h1 style="color: orange; font-size: 30px; text-shadow: 2px 2px #ff0000;">Restaurant Confirmation</h1>
@@ -32,7 +32,7 @@ export async function sendEmail(to: string, subject: string, bookingData: any) {
     <p style="font-size: 16px; color: gray; font-family: Arial, sans-serif; font-style: italic">The Chiaroscuro team</p>
 </div>
         `,
-	};
+		};
 
 	try {
 		let info = await transporter.sendMail(mailOptions);

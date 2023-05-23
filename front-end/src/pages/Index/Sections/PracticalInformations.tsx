@@ -13,16 +13,6 @@ import { BsCalendarDay } from 'react-icons/bs';
 const PracticalInformations = () => {
 	return (
 		<section className='relative overflow-hidden py-10 md:py-12'>
-			<img
-				className='absolute left-0 top-0'
-				src='saturn-assets/images/contact/light-left-blue.png'
-				alt=''
-			/>
-			<img
-				className='absolute bottom-0 right-0 -mb-20'
-				src='saturn-assets/images/contact/light-orange-right.png'
-				alt=''
-			/>
 			<div className='container relative mx-auto px-4'>
 				<div className='mx-auto max-w-7xl'>
 					<div className='mx-auto mb-20 flex max-w-2xl flex-col gap-4 text-center'>

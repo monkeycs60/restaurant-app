@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import useAuth from '../../hooks/useAuth';
 import { useCookies } from 'react-cookie';
+import { set } from 'date-fns';
 
 const schema = z.object({
 	phone: z
@@ -23,9 +24,14 @@ type RegisterFormData = z.infer<typeof schema>;
 interface RegisterProps {
 	isLogin: boolean;
 	setIsLogin: React.Dispatch<React.SetStateAction<boolean>>;
+	setIsSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const RegisterComponent = ({ isLogin, setIsLogin }: RegisterProps) => {
+export const RegisterComponent = ({
+	isLogin,
+	setIsLogin,
+	setIsSuccess,
+}: RegisterProps) => {
 	const {
 		register,
 		handleSubmit,
@@ -55,6 +61,7 @@ export const RegisterComponent = ({ isLogin, setIsLogin }: RegisterProps) => {
 				setCookieTwo('userID', data.newUser._id);
 
 				localStorage.removeItem('bookingData');
+				setIsSuccess(true);
 			},
 			onError: (error) => {
 				console.log(error);

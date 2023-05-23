@@ -1,11 +1,9 @@
 import { useRef, useEffect, useState } from 'react';
-import Login from './Auth/Login';
-import Register from './Auth/Register';
-import { useCookies } from 'react-cookie';
 import FormBooking from './FormBooking';
 import { LoginProps } from './Auth/Login';
 import { RegisterProps } from './Auth/Register';
 import SignUp from './SignUp';
+import SuccessPage from './Booking/SuccessPage';
 
 interface ModalProps {
 	isModalOpen: boolean;
@@ -15,14 +13,7 @@ interface ModalProps {
 	IdPrefix?: string;
 }
 
-const ModalBooking = ({
-	isModalOpen,
-	closeModal,
-	Login: LoginComponent = Login,
-	Register: RegisterComponent = Register,
-	IdPrefix: idPrefix = '',
-}: ModalProps) => {
-	const [cookies] = useCookies(['token']);
+const ModalBooking = ({ isModalOpen, closeModal }: ModalProps) => {
 	const dialogRef = useRef<HTMLDialogElement>(null);
 
 	useEffect(() => {
@@ -33,6 +24,7 @@ const ModalBooking = ({
 		}
 	}, [isModalOpen]);
 
+	const [isSuccess, setIsSuccess] = useState(false);
 	const [isBooking, setIsBooking] = useState(false);
 
 	return (
@@ -45,12 +37,20 @@ const ModalBooking = ({
 				onClick={() => {
 					closeModal();
 					setIsBooking(false);
+					setIsSuccess(false);
+					localStorage.removeItem('bookingId');
 				}}
 			>
 				&times;
 			</button>
 
-			{isBooking ? <SignUp /> : <FormBooking setIsBooking={setIsBooking} />}
+			{isSuccess ? (
+				<SuccessPage />
+			) : isBooking ? (
+				<SignUp setIsSuccess={setIsSuccess} />
+			) : (
+				<FormBooking setIsBooking={setIsBooking} />
+			)}
 		</dialog>
 	);
 };

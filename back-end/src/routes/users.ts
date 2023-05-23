@@ -106,6 +106,7 @@ router.post('/login', async (req, res) => {
 			userID: user._id,
 			userMail: user.email,
 			token,
+			newBooking,
 		});
 	} catch (error) {
 		res.status(500).json({ message: 'Error creating booking', error });

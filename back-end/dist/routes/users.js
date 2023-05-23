@@ -83,6 +83,7 @@ router.post('/login', async (req, res) => {
             userID: user._id,
             userMail: user.email,
             token,
+            newBooking,
         });
     }
     catch (error) {

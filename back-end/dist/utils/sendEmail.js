@@ -8,8 +8,9 @@ const transporter = nodemailer.createTransport({
     },
 });
 export async function sendEmail(to, subject, bookingData) {
-    console.log('date formatée', formatDate(bookingData.date));
-    console.log('date classique', bookingData.date);
+    if (bookingData.experience === 'pitch_black') {
+        bookingData.experience = 'Pitch Black';
+    }
     const mailOptions = {
         from: 'gregre_95@hotmail.fr',
         to: to,

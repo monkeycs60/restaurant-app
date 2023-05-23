@@ -18,6 +18,26 @@ router.get('/', async (req, res) => {
 	}
 });
 
+router.get('/:id', async (req, res) => {
+	try {
+		const booking = await BookingModel.findById(req.params.id);
+		if (!booking) {
+			res.status(404).json({
+				message: 'Booking not found',
+			});
+			return;
+		}
+		res.status(200).json(booking);
+	} catch (error) {
+		if (error instanceof Error) {
+			res.status(400).json({
+				message: 'Error fetching booking',
+				error: error.message,
+			});
+		}
+	}
+});
+
 router.post('/', async (req, res) => {
 	try {
 		const booking = new BookingModel(req.body);

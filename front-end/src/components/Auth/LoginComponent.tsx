@@ -14,9 +14,14 @@ type LoginFormData = z.infer<typeof schema>;
 interface LoginProps {
 	isLogin: boolean;
 	setIsLogin: React.Dispatch<React.SetStateAction<boolean>>;
+	setIsSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const LoginComponent = ({ isLogin, setIsLogin }: LoginProps) => {
+export const LoginComponent = ({
+	isLogin,
+	setIsLogin,
+	setIsSuccess,
+}: LoginProps) => {
 	const {
 		register,
 		handleSubmit,
@@ -40,12 +45,14 @@ export const LoginComponent = ({ isLogin, setIsLogin }: LoginProps) => {
 		};
 		loginMutation.mutate(dataToSend, {
 			onSuccess: (data) => {
-				console.log('data from login', data);
+				console.log('data de la mutation', data);
 
-				// infos du login
+				setIsSuccess(true);
+
 				setCookieOne('token', data.token);
-				setCookieTwo('userID', data.user._id);
+				setCookieTwo('userID', data.userID);
 
+				localStorage.setItem('bookingId', data.newBooking._id);
 				localStorage.removeItem('bookingData');
 			},
 			onError: (error) => {
