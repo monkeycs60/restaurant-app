@@ -45,8 +45,6 @@ export const LoginComponent = ({
 		};
 		loginMutation.mutate(dataToSend, {
 			onSuccess: (data) => {
-				console.log('data de la mutation', data);
-
 				setIsSuccess(true);
 
 				setCookieOne('token', data.token);
@@ -75,7 +73,7 @@ export const LoginComponent = ({
 				<input
 					id='email'
 					type='text'
-					placeholder='your-address@mail.com'
+					placeholder='address@mail.com'
 					min='1'
 					className='w-full rounded-lg border-2 border-zinc-600 px-4 py-2 placeholder:text-black'
 					{...register('email')}

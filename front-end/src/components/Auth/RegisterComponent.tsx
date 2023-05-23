@@ -54,14 +54,15 @@ export const RegisterComponent = ({
 		};
 		registerMutation.mutate(dataToSend, {
 			onSuccess: (data) => {
-				console.log('data from register', data);
+				setIsSuccess(true);
+				console.log('data du back register', data);
 
 				// infos du login
 				setCookieOne('token', data.token);
 				setCookieTwo('userID', data.newUser._id);
 
+				localStorage.setItem('bookingId', data.newBooking._id);
 				localStorage.removeItem('bookingData');
-				setIsSuccess(true);
 			},
 			onError: (error) => {
 				console.log(error);

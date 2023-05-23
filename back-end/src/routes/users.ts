@@ -57,10 +57,13 @@ router.post('/register', async (req, res) => {
 			expiresIn: '24h',
 		});
 
+		// console.log('nouveau booking', newBooking);
+
 		res.status(201).json({
 			message: 'User created successfully',
 			newUser,
 			token,
+			newBooking,
 		});
 	} catch (error) {
 		res.status(500).json({ message: 'Error creating user', error });

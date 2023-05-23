@@ -42,10 +42,12 @@ router.post('/register', async (req, res) => {
         const token = jwt.sign({ id: newUser._id }, JWTSecret, {
             expiresIn: '24h',
         });
+        // console.log('nouveau booking', newBooking);
         res.status(201).json({
             message: 'User created successfully',
             newUser,
             token,
+            newBooking,
         });
     }
     catch (error) {

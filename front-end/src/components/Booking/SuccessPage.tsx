@@ -69,7 +69,7 @@ const SuccessPage = () => {
 				We can't wait to serve you a culinary experience you'll never
 				forget. See you in the dark!
 			</p>
-			<p>Chiaroscuro Team</p>
+			<p className='text-sm italic'>Chiaroscuro Team</p>
 		</div>
 	);
 };
