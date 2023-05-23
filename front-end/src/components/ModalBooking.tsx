@@ -50,20 +50,7 @@ const ModalBooking = ({
 				&times;
 			</button>
 
-			{!cookies.token ? (
-				<>
-					<LoginComponent idPrefix={idPrefix} />
-					<RegisterComponent idPrefix={idPrefix} />
-				</>
-			) : (
-				<>
-					{isBooking ? (
-						<SignUp />
-					) : (
-						<FormBooking setIsBooking={setIsBooking} />
-					)}
-				</>
-			)}
+			{isBooking ? <SignUp /> : <FormBooking setIsBooking={setIsBooking} />}
 		</dialog>
 	);
 };

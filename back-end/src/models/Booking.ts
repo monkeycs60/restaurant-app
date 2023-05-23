@@ -1,19 +1,7 @@
 import mongoose from 'mongoose';
 
 const bookingSchema = new mongoose.Schema({
-	username: {
-		type: String,
-		required: true,
-	},
-	email: {
-		type: String,
-		required: true,
-	},
 	experience: {
-		type: String,
-		required: true,
-	},
-	phone: {
 		type: String,
 		required: true,
 	},
@@ -22,6 +10,14 @@ const bookingSchema = new mongoose.Schema({
 		required: true,
 	},
 	date: {
+		type: String,
+		required: true,
+	},
+	phone: {
+		type: String,
+		required: true,
+	},
+	email: {
 		type: String,
 		required: true,
 	},

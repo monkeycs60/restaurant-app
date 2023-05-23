@@ -1,17 +1,10 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 const userSchema = new mongoose.Schema({
-    username: {
+    phone: {
         type: String,
         required: true,
         unique: true,
         trim: true,
-        minlength: 3
-    },
-    password: {
-        type: String,
-        required: true,
-        trim: true,
-        minlength: 3
     },
     email: {
         type: String,
@@ -19,10 +12,12 @@ const userSchema = new mongoose.Schema({
         unique: true,
         trim: true,
     },
-    savedRecipes: [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Recipe',
-        }]
+    password: {
+        type: String,
+        required: true,
+        trim: true,
+        minlength: 3,
+    },
 }, {
     timestamps: true,
 });

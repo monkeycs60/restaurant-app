@@ -9,7 +9,6 @@ import { useBooking, BookingFormData, schema } from '../hooks/useBooking';
 import { HeaderBooking } from './Booking/HeaderBooking';
 import { ExperienceSelect } from './Booking/ExperienceSelect';
 import { GuestSelect } from './Booking/GuestSelect';
-import { PhoneNumberInput } from './Booking/PhoneNumberInput';
 import { ButtonBooking } from './Booking/ButtonBooking';
 import TimeSelection from './Booking/TimeSelection';
 import TimeDisplayed from './Booking/TimeDisplayed';
@@ -19,7 +18,7 @@ const FormBooking = ({
 }: {
 	setIsBooking: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-	const { onSubmit, setUsername, setEmail } = useBooking(setIsBooking);
+	const { onSubmit } = useBooking(setIsBooking);
 
 	const { date, setDate, isMonday, middayTimes, eveningTimes } =
 		useAvailability();
@@ -27,13 +26,6 @@ const FormBooking = ({
 	const [selectedTime, setSelectedTime] = useState<Date | null>(null);
 	const [selectedButton, setSelectedButton] = useState<string | null>(null);
 	const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-
-	useEffect(() => {
-		const storedUsername = localStorage.getItem('userName');
-		const storedEmail = localStorage.getItem('userMail');
-		if (storedUsername) setUsername(storedUsername);
-		if (storedEmail) setEmail(storedEmail);
-	}, []);
 
 	const {
 		register,
@@ -58,7 +50,6 @@ const FormBooking = ({
 					watch={watch}
 				/>
 				<GuestSelect register={register} errors={errors} />
-				<PhoneNumberInput register={register} errors={errors} />
 				<div className='flex flex-col justify-between gap-4'>
 					{!isCalendarOpen ? (
 						<span className='font-roboto flex justify-center text-lg'>
