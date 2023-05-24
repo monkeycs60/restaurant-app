@@ -15,10 +15,9 @@ const schema = z.object({
 	email: z.string().email(),
 	password: z.string().min(8),
 	confirmPassword: z.string().min(8),
-	conditions: z.boolean().refine((bool) => bool === true, {
-		message: 'You must agree to the General Conditions',
-		path: ['conditions'],
-	}),
+	conditions: z
+		.boolean()
+		.refine((value) => value, 'You must agree to the General Conditions'),
 });
 
 type RegisterFormData = z.infer<typeof schema>;
