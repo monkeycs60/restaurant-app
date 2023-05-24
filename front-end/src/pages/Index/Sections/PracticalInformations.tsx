@@ -12,7 +12,7 @@ import { GoLocation } from 'react-icons/go';
 import { BsCalendarDay } from 'react-icons/bs';
 const PracticalInformations = () => {
 	return (
-		<section className='relative overflow-hidden py-10 md:py-12'>
+		<section className='3xl:py-2 3xl:pb-10 relative overflow-hidden py-10 md:py-12'>
 			<div className='container relative mx-auto px-4'>
 				<div className='mx-auto max-w-7xl'>
 					<div className='mx-auto mb-20 flex max-w-2xl flex-col gap-4 text-center'>

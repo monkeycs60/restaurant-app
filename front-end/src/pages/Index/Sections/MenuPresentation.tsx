@@ -15,7 +15,12 @@ const MenuPresentation = () => {
 				<MenuCard />
 				<Carousel />
 			</div>
-			<div className='TRANSITION font-roboto flex w-full justify-center gap-6 text-3xl font-extralight uppercase tracking-wide text-gray-200 '>
+			<div
+				className={clsx(
+					'TRANSITION font-roboto flex w-full justify-center gap-6 text-3xl font-extralight uppercase tracking-wide text-gray-200 ',
+					'3xl:text-4xl',
+				)}
+			>
 				<BsArrow90DegDown size={18} className='translate-y-4' />
 				<h2> Our Chef Commitment </h2>
 				<BsArrow90DegUp size={18} className='translate-y-4 rotate-180' />

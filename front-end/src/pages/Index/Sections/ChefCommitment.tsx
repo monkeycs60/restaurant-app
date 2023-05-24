@@ -4,12 +4,16 @@ import { useRef } from 'react';
 import { useInView } from 'framer-motion';
 import logosPhotos from '../../../utils/logosPhotos';
 import { BsArrow90DegDown, BsArrow90DegUp } from 'react-icons/bs';
+import clsx from 'clsx';
 const Team = () => {
 	const viewRef = useRef(null);
 	const isInView = useInView(viewRef, { once: true });
 	return (
-		<div className='m-auto w-3/4 p-4'>
-			<div className='m-auto flex justify-between gap-8 p-6' ref={viewRef}>
+		<div className={clsx('m-auto w-3/4 p-4', '3xl:w-[55%] 3xl:px-8')}>
+			<div
+				className='3xl:p-0 m-auto flex justify-between gap-8 p-6'
+				ref={viewRef}
+			>
 				<div className='flex w-[45%] rounded-lg'>
 					<img
 						src={chef}
@@ -73,7 +77,12 @@ const Team = () => {
 					</div>
 				</div>
 			</section>
-			<div className='TRANSITION font-roboto flex w-full justify-center gap-6 text-3xl font-extralight uppercase tracking-wide text-gray-200 '>
+			<div
+				className={clsx(
+					'TRANSITION font-roboto flex w-full justify-center gap-6 text-3xl font-extralight uppercase tracking-wide text-gray-200 ',
+					'3xl:text-4xl 3xl:my-[5vh]',
+				)}
+			>
 				<BsArrow90DegDown size={18} className='translate-y-4' />
 				<h2> Practical Informations </h2>
 				<BsArrow90DegUp size={18} className='translate-y-4 rotate-180' />
