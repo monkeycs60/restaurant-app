@@ -7,7 +7,8 @@ const HeroPage = () => {
 			<nav>
 				<ul
 					className={clsx(
-						'font-classic fixed z-50 flex h-[7vh] w-full justify-around p-2 text-lg text-gray-200 backdrop-blur-sm',
+						'font-classic fixed z-50 flex h-[7vh] w-full items-center justify-around p-2 text-lg text-gray-200 backdrop-blur-sm',
+						'',
 					)}
 				>
 					<li className='cursor-pointer'>Concept</li>
@@ -24,7 +25,12 @@ const HeroPage = () => {
 					<h1 className='font-dancing text-6xl font-bold'>Chiaroscuro</h1>
 					<h3 className='font-playfair text-2xl'>London</h3>
 				</div>
-				<h2 className='font-roboto absolute bottom-[-5vh] left-[8vw] text-7xl font-extralight uppercase tracking-wide text-gray-200'>
+				<h2
+					className={clsx(
+						'font-roboto absolute bottom-[-10%] left-[50%] translate-x-[-50%] translate-y-[-10%] whitespace-nowrap text-7xl font-extralight uppercase tracking-wide text-gray-200',
+						'3xl:text-8xl',
+					)}
+				>
 					Have you ever eaten in the dark ?
 				</h2>
 			</div>
