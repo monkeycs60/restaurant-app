@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import useAuthFormSubmit from '../../hooks/useAuthFormSubmit';
 import { useState } from 'react';
+import clsx from 'clsx';
 const schema = z.object({
 	phone: z
 		.string()
@@ -49,7 +50,12 @@ export const RegisterComponent = ({
 		setError,
 	);
 	return (
-		<div className='mx-auto my-8 flex w-[65%] flex-col gap-8 rounded-md bg-zinc-50 p-8'>
+		<div
+			className={clsx(
+				'mx-auto my-8 flex w-[65%] flex-col gap-8 rounded-md bg-zinc-50 p-8',
+				'3xl:w-[40%]',
+			)}
+		>
 			<h2 className='font-roboto text-center text-xl font-bold'>
 				Create an account to finalize your reservation
 			</h2>

@@ -44,7 +44,7 @@ const SuccessPage = () => {
 			<h2 className='mb-4 text-3xl text-orange-600'>
 				Reservation Confirmed!
 			</h2>
-			<p>Dear Guest,</p>
+			<p className='3xl:mt-[5vh]'>Dear Guest,</p>
 			<p>
 				Thank you for choosing Chiaroscuro, a unique dining adventure in
 				complete darkness.

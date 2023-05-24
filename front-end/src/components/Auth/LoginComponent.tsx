@@ -3,6 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import useAuthFormSubmit from '../../hooks/useAuthFormSubmit';
 import { AuthFormData, schema } from '../../hooks/useAuthFormSubmit';
 import { useState } from 'react';
+import clsx from 'clsx';
 
 interface LoginProps {
 	isLogin: boolean;
@@ -31,7 +32,12 @@ export const LoginComponent = ({
 	);
 
 	return (
-		<div className='font-roboto mx-auto my-8 flex w-[65%] flex-col gap-8 rounded-md bg-zinc-50 p-8'>
+		<div
+			className={clsx(
+				'font-roboto mx-auto my-8 flex w-[65%] flex-col gap-8 rounded-md bg-zinc-50 p-8',
+				'3xl:w-[40%]',
+			)}
+		>
 			<h2 className='text-center text-xl font-bold'>
 				Login to your account to finalize your reservation
 			</h2>

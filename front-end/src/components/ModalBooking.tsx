@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import FormBooking from './FormBooking';
 import SignUp from './SignUp';
 import SuccessPage from './Booking/SuccessPage';
+import clsx from 'clsx';
 
 interface ModalProps {
 	isModalOpen: boolean;
@@ -25,7 +26,10 @@ const ModalBooking = ({ isModalOpen, closeModal }: ModalProps) => {
 
 	return (
 		<dialog
-			className='concept-text-background fixed h-[80%] w-[40%] flex-col items-center rounded-lg'
+			className={clsx(
+				'concept-text-background fixed h-[80%] w-[40%] flex-col items-center rounded-lg',
+				'3xl:h-[60%]',
+			)}
 			ref={dialogRef}
 		>
 			<button
