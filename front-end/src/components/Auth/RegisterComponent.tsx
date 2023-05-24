@@ -1,9 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import useAuth from '../../hooks/useAuth';
-import { useCookies } from 'react-cookie';
-
+import useAuthFormSubmit from '../../hooks/useAuthFormSubmit';
 const schema = z.object({
 	phone: z
 		.string()
@@ -42,33 +40,10 @@ export const RegisterComponent = ({
 		resolver: zodResolver(schema),
 	});
 
-	const [_, setCookieOne] = useCookies(['token']);
-	const [__, setCookieTwo] = useCookies(['userID']);
-
-	const registerMutation = useAuth<RegisterFormData>('register');
-	const onSubmit = (data: RegisterFormData) => {
-		const bookingData = JSON.parse(
-			localStorage.getItem('bookingData') || '{}',
-		);
-		const dataToSend = {
-			...data,
-			bookingData,
-		};
-		registerMutation.mutate(dataToSend, {
-			onSuccess: (data) => {
-				setIsSuccess(true);
-
-				setCookieOne('token', data.token);
-				setCookieTwo('userID', data.newUser._id);
-
-				localStorage.setItem('bookingId', data.newBooking._id);
-				localStorage.removeItem('bookingData');
-			},
-			onError: (error) => {
-				console.log(error);
-			},
-		});
-	};
+	const onSubmit = useAuthFormSubmit<RegisterFormData>(
+		'register',
+		setIsSuccess,
+	);
 	return (
 		<div className='mx-auto my-8 flex w-[65%] flex-col gap-8 rounded-md bg-zinc-50 p-8'>
 			<h2 className='font-roboto text-center text-xl font-bold'>

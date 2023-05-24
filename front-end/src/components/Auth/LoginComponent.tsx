@@ -1,15 +1,7 @@
 import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import useAuth from '../../hooks/useAuth';
-import { useCookies } from 'react-cookie';
-
-const schema = z.object({
-	email: z.string().email(),
-	password: z.string().min(8),
-});
-
-type LoginFormData = z.infer<typeof schema>;
+import useAuthFormSubmit from '../../hooks/useAuthFormSubmit';
+import { AuthFormData, schema } from '../../hooks/useAuthFormSubmit';
 
 interface LoginProps {
 	isLogin: boolean;
@@ -26,38 +18,11 @@ export const LoginComponent = ({
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm<LoginFormData>({
+	} = useForm<AuthFormData>({
 		resolver: zodResolver(schema),
 	});
 
-	const [_, setCookieOne] = useCookies(['token']);
-	const [__, setCookieTwo] = useCookies(['userID']);
-
-	const loginMutation = useAuth<LoginFormData>('login');
-
-	const onSubmit = (data: LoginFormData) => {
-		const bookingData = JSON.parse(
-			localStorage.getItem('bookingData') || '{}',
-		);
-		const dataToSend = {
-			...data,
-			bookingData,
-		};
-		loginMutation.mutate(dataToSend, {
-			onSuccess: (data) => {
-				setIsSuccess(true);
-
-				setCookieOne('token', data.token);
-				setCookieTwo('userID', data.userID);
-
-				localStorage.setItem('bookingId', data.newBooking._id);
-				localStorage.removeItem('bookingData');
-			},
-			onError: (error) => {
-				console.log(error);
-			},
-		});
-	};
+	const onSubmit = useAuthFormSubmit<AuthFormData>('login', setIsSuccess);
 	return (
 		<div className='mx-auto my-8 flex w-[65%] flex-col gap-8 rounded-md bg-zinc-50 p-8'>
 			<h2 className='font-roboto text-center text-xl font-bold'>
