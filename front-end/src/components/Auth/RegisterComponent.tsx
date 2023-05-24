@@ -3,7 +3,6 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import useAuth from '../../hooks/useAuth';
 import { useCookies } from 'react-cookie';
-import { set } from 'date-fns';
 
 const schema = z.object({
 	phone: z
@@ -16,7 +15,10 @@ const schema = z.object({
 	email: z.string().email(),
 	password: z.string().min(8),
 	confirmPassword: z.string().min(8),
-	conditions: z.boolean(),
+	conditions: z.boolean().refine((bool) => bool === true, {
+		message: 'You must agree to the General Conditions',
+		path: ['conditions'],
+	}),
 });
 
 type RegisterFormData = z.infer<typeof schema>;
@@ -55,9 +57,7 @@ export const RegisterComponent = ({
 		registerMutation.mutate(dataToSend, {
 			onSuccess: (data) => {
 				setIsSuccess(true);
-				console.log('data du back register', data);
 
-				// infos du login
 				setCookieOne('token', data.token);
 				setCookieTwo('userID', data.newUser._id);
 
