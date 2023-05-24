@@ -1,15 +1,11 @@
 import { useRef, useEffect, useState } from 'react';
 import FormBooking from './FormBooking';
-import { LoginProps } from './Auth/Login';
-import { RegisterProps } from './Auth/Register';
 import SignUp from './SignUp';
 import SuccessPage from './Booking/SuccessPage';
 
 interface ModalProps {
 	isModalOpen: boolean;
 	closeModal: () => void;
-	Login?: React.ComponentType<LoginProps>;
-	Register?: React.ComponentType<RegisterProps>;
 	IdPrefix?: string;
 }
 
@@ -39,6 +35,7 @@ const ModalBooking = ({ isModalOpen, closeModal }: ModalProps) => {
 					setIsBooking(false);
 					setIsSuccess(false);
 					localStorage.removeItem('bookingId');
+					localStorage.removeItem('bookingData');
 				}}
 			>
 				&times;

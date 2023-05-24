@@ -14,6 +14,7 @@ const useAuthFormSubmit = <
 >(
 	mutationKey: 'login' | 'register',
 	setIsSuccess: React.Dispatch<React.SetStateAction<boolean>>,
+	setError: React.Dispatch<React.SetStateAction<string | null>>,
 ) => {
 	const [_, setCookieOne] = useCookies(['token']);
 	const [__, setCookieTwo] = useCookies(['userID']);
@@ -31,6 +32,7 @@ const useAuthFormSubmit = <
 		authMutation.mutate(dataToSend, {
 			onSuccess: (data: any) => {
 				setIsSuccess(true);
+				setError(null);
 				setCookieOne('token', data.token);
 				setCookieTwo(
 					'userID',
@@ -41,6 +43,8 @@ const useAuthFormSubmit = <
 			},
 			onError: (error: any) => {
 				console.log(error);
+
+				setError(error?.response.data.message || 'An error occurred');
 			},
 		});
 	};

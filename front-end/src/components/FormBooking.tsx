@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Calendar from 'react-calendar';
 import '../styles/calendar.css';
 import { add } from 'date-fns';
@@ -35,14 +35,34 @@ const FormBooking = ({
 		watch,
 	} = useForm<BookingFormData>({
 		resolver: zodResolver(schema),
+		mode: 'onChange',
 	});
+
+	const experience = watch('experience');
+	const guests = watch('guests');
+	const dateCheck = watch('date');
 
 	return (
 		<>
 			<HeaderBooking />
 			<form
 				className='font-roboto mt-[5vh] flex w-2/3 flex-col gap-8'
-				onSubmit={handleSubmit(onSubmit)}
+				onSubmit={(e) => {
+					if (!experience || !guests || !dateCheck) {
+						e.preventDefault();
+						if (!experience || experience === '') {
+							alert('Please select an experience.');
+						} else if (!guests) {
+							alert('Please select the number of guests.');
+						} else if (!dateCheck) {
+							alert('Please select a date.');
+						} else {
+							alert('Please fill in all required fields.');
+						}
+					} else {
+						handleSubmit(onSubmit)(e);
+					}
+				}}
 			>
 				<ExperienceSelect
 					register={register}

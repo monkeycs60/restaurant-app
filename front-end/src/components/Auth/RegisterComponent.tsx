@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import useAuthFormSubmit from '../../hooks/useAuthFormSubmit';
+import { useState } from 'react';
 const schema = z.object({
 	phone: z
 		.string()
@@ -32,6 +33,8 @@ export const RegisterComponent = ({
 	setIsLogin,
 	setIsSuccess,
 }: RegisterProps) => {
+	const [error, setError] = useState<string | null>(null);
+
 	const {
 		register,
 		handleSubmit,
@@ -43,6 +46,7 @@ export const RegisterComponent = ({
 	const onSubmit = useAuthFormSubmit<RegisterFormData>(
 		'register',
 		setIsSuccess,
+		setError,
 	);
 	return (
 		<div className='mx-auto my-8 flex w-[65%] flex-col gap-8 rounded-md bg-zinc-50 p-8'>
@@ -122,6 +126,7 @@ export const RegisterComponent = ({
 				{errors.conditions && (
 					<span className='text-red-500'>{errors.conditions.message}</span>
 				)}
+				{error && <div className='text-red-500'>{error}</div>}
 				<button
 					type='submit'
 					className='mt-4 w-full rounded bg-orange-500 p-2 text-white hover:bg-orange-700'

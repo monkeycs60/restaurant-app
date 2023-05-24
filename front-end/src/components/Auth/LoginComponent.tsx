@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import useAuthFormSubmit from '../../hooks/useAuthFormSubmit';
 import { AuthFormData, schema } from '../../hooks/useAuthFormSubmit';
+import { useState } from 'react';
 
 interface LoginProps {
 	isLogin: boolean;
@@ -14,6 +15,7 @@ export const LoginComponent = ({
 	setIsLogin,
 	setIsSuccess,
 }: LoginProps) => {
+	const [error, setError] = useState<string | null>(null);
 	const {
 		register,
 		handleSubmit,
@@ -22,10 +24,15 @@ export const LoginComponent = ({
 		resolver: zodResolver(schema),
 	});
 
-	const onSubmit = useAuthFormSubmit<AuthFormData>('login', setIsSuccess);
+	const onSubmit = useAuthFormSubmit<AuthFormData>(
+		'login',
+		setIsSuccess,
+		setError,
+	);
+
 	return (
-		<div className='mx-auto my-8 flex w-[65%] flex-col gap-8 rounded-md bg-zinc-50 p-8'>
-			<h2 className='font-roboto text-center text-xl font-bold'>
+		<div className='font-roboto mx-auto my-8 flex w-[65%] flex-col gap-8 rounded-md bg-zinc-50 p-8'>
+			<h2 className='text-center text-xl font-bold'>
 				Login to your account to finalize your reservation
 			</h2>
 			<form
@@ -60,6 +67,7 @@ export const LoginComponent = ({
 				{errors.password && (
 					<span className='text-red-500'>{errors.password.message}</span>
 				)}
+				{error && <div className='text-red-500'>{error}</div>}
 				<button
 					type='submit'
 					className='mt-4 w-full rounded bg-orange-500 p-2 text-white hover:bg-orange-700'
