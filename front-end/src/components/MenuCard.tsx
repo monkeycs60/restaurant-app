@@ -1,23 +1,35 @@
+import clsx from 'clsx';
+
 const MenuCard = () => {
 	return (
-		<div className='MENU concept-text-background font-roboto flex flex-col gap-6 rounded-md p-8'>
+		<div
+			className={clsx(
+				'MENU concept-text-background font-roboto flex flex-col gap-6 rounded-md p-8',
+				'3xl:p-12',
+			)}
+		>
 			<div className='flex flex-col items-center gap-4'>
 				<h2>
 					{' '}
-					<span className='font-dancing text-3xl'> Chiaroscuro </span>
-					<span className='font-playfair text-xl font-bold uppercase'>
+					<span className='font-dancing 3xl:text-5xl text-3xl'>
+						{' '}
+						Chiaroscuro{' '}
+					</span>
+					<span className='font-playfair 3xl:text-3xl text-xl font-bold uppercase'>
 						menu
 					</span>
 				</h2>
-				<h4 className='text-xs uppercase'>£45 per guest</h4>
+				<h4 className='3xl:pt-2 3xl:text-sm text-xs uppercase'>
+					£45 per guest
+				</h4>
 			</div>
 			<div className='flex flex-col items-center justify-between gap-0'>
 				<div className='flex flex-col items-center justify-between gap-4'>
 					<div className='flex flex-col gap-2 text-center'>
-						<h3 className='font-playfair mt-2 text-sm font-bold uppercase'>
+						<h3 className='font-playfair 3xl:text-base mt-2 text-sm font-bold uppercase'>
 							Philosophizing with a snorkel
 						</h3>
-						<p className='text-sm italic'>Fresh, smooth and crispy</p>
+						<p className=' text-sm italic'>Fresh, smooth and crispy</p>
 					</div>
 					<p className='text-center'>
 						Deconstructed exploration of a marine ecosystem
@@ -27,7 +39,7 @@ const MenuCard = () => {
 				<div className='flex flex-col items-center justify-center gap-4 p-4'>
 					<div className='flex flex-col items-center justify-center gap-2 text-center'>
 						<h3 className='text-sm font-bold uppercase'>*</h3>
-						<h3 className='font-playfair text-sm font-bold uppercase'>
+						<h3 className='font-playfair 3xl:text-base text-sm font-bold uppercase'>
 							Epicurian expedition to distant destinations
 						</h3>
 						<p className='text-sm italic'>Tender, spicy and savoury</p>
@@ -42,7 +54,7 @@ const MenuCard = () => {
 				<div className='flex flex-col items-center justify-center gap-4'>
 					<div className='flex flex-col gap-2 text-center'>
 						<h3 className='text-sm font-bold uppercase'>*</h3>
-						<h3 className='font-playfair text-sm font-bold uppercase'>
+						<h3 className='font-playfair 3xl:text-base text-sm font-bold uppercase'>
 							Linear regression
 						</h3>
 						<p className='text-sm italic'>
