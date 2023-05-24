@@ -1,17 +1,10 @@
 import clsx from 'clsx';
 import { BsArrow90DegDown, BsArrow90DegUp } from 'react-icons/bs';
-import { useState } from 'react';
+import useModal from '../../../hooks/useModal';
 import ModalBooking from '../../../components/ModalBooking';
 
 const HeroPage = () => {
-	const [isModalOpen, setIsModalOpen] = useState(false);
-
-	const openModalClick = () => {
-		setIsModalOpen(true);
-	};
-	const closeModal = () => {
-		setIsModalOpen(false);
-	};
+	const [isModalOpen, openModal, closeModal] = useModal();
 	return (
 		<div className='relative h-screen w-full'>
 			<nav>
@@ -26,7 +19,7 @@ const HeroPage = () => {
 					<li className='cursor-pointer'>Team</li>
 					<li
 						className='flex cursor-pointer items-center justify-center px-8 text-orange-500 '
-						onClick={() => openModalClick()}
+						onClick={openModal}
 					>
 						Make a reservation
 					</li>
