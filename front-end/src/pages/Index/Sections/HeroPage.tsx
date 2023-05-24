@@ -37,7 +37,7 @@ const HeroPage = () => {
 			<div
 				className={clsx(
 					'font-roboto relative flex h-[50vh] translate-y-[-4vh] flex-col items-center justify-center gap-[3vh] text-xl text-gray-300',
-					'3xl:text-3xl',
+					'3xl:text-2xl',
 				)}
 			>
 				<p className='w-1/2 text-center'>
@@ -56,7 +56,7 @@ const HeroPage = () => {
 				<div
 					className={clsx(
 						'font-roboto absolute bottom-0 flex gap-6 text-3xl font-extralight uppercase tracking-wide text-gray-200',
-						'3xl:text-5xl',
+						'3xl:text-4xl',
 					)}
 				>
 					<BsArrow90DegDown size={18} className='translate-y-4' />

@@ -14,15 +14,17 @@ const ConceptPage = () => {
 		setIsModalOpen(false);
 	};
 	return (
-		<div className='h-screen'>
+		<div className={clsx('h-screen', '3xl:h-auto')}>
 			<div
 				className={clsx(
 					'relative m-auto flex h-[90%] w-2/3 items-center justify-center ',
+					'3xl:h-[60%] 3xl:my-[5vh]',
 				)}
 			>
 				<div
 					className={clsx(
 						'flex h-[70vh] w-[40%] items-center justify-end',
+						'3xl:w-[18vw] 3xl:h-[38vh]',
 					)}
 				>
 					<img
@@ -34,6 +36,7 @@ const ConceptPage = () => {
 				<div
 					className={clsx(
 						'concept-text-background font-roboto flex h-[82%] w-[60%] flex-col items-center justify-center gap-[5vh] rounded-lg p-16 leading-7 text-gray-900',
+						'3xl:h-[40%] 3xl:w-[45%] 3xl:text-lg 3xl:gap-[4vh] 3xl:p-16',
 					)}
 				>
 					<p>
@@ -80,7 +83,12 @@ const ConceptPage = () => {
 				closeModal={closeModal}
 				IdPrefix='instance2'
 			/>
-			<div className='font-roboto flex w-full justify-center gap-6 text-3xl font-extralight uppercase tracking-wide text-gray-200 '>
+			<div
+				className={clsx(
+					'font-roboto flex w-full justify-center gap-6 text-3xl font-extralight uppercase tracking-wide text-gray-200 ',
+					'3xl:text-4xl 3xl:mt-[10vh]',
+				)}
+			>
 				<BsArrow90DegDown size={18} className='translate-y-4' />
 				<h2> Discover our menu </h2>
 				<BsArrow90DegUp size={18} className='translate-y-4 rotate-180' />
