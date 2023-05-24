@@ -21,7 +21,12 @@ const Team = () => {
 						className='rounded-lg object-cover'
 					/>
 				</div>
-				<div className='concept-text-background flex w-[45%] flex-col gap-8 rounded-lg border-[1px] p-8 hover:bg-amber-600/30'>
+				<div
+					className={clsx(
+						'concept-text-background flex w-[45%] flex-col gap-8 rounded-lg border-[1px] p-8 hover:bg-amber-600/30',
+						'3xl:gap-12',
+					)}
+				>
 					<div>
 						<ImQuotesLeft
 							size={50}
@@ -33,14 +38,16 @@ const Team = () => {
 						assured, we do. Dine in the dark, enlightened by our
 						dedication to transparency and quality control &ldquo;
 					</p>
-					<div>
+					<div className='3xl:flex 3xl:flex-col 3xl:gap-2'>
 						<div className='font-roboto flex items-center gap-2'>
 							<div className='h-[2px] w-4 bg-black'></div>
-							<h2 className='text-lg font-bold text-gray-900'>
+							<h2 className='3xl:text-xl text-lg font-bold text-gray-900'>
 								Jeffrey Williamson
 							</h2>
 						</div>
-						<h3 className='font-roboto text-gray-800'>Head Chef</h3>
+						<h3 className='font-roboto 3xl:text-lg text-gray-800'>
+							Head Chef
+						</h3>
 					</div>
 				</div>
 			</div>
