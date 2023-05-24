@@ -8,7 +8,7 @@ const HeroPage = () => {
 				<ul
 					className={clsx(
 						'font-classic fixed z-50 flex h-[7vh] w-full items-center justify-around p-2 text-lg text-gray-200 backdrop-blur-sm',
-						'',
+						'3xl:text-2xl',
 					)}
 				>
 					<li className='cursor-pointer'>Concept</li>
@@ -37,11 +37,12 @@ const HeroPage = () => {
 			<div
 				className={clsx(
 					'font-roboto relative flex h-[50vh] translate-y-[-4vh] flex-col items-center justify-center gap-[3vh] text-xl text-gray-300',
+					'3xl:text-3xl',
 				)}
 			>
 				<p className='w-1/2 text-center'>
 					Welcome to{' '}
-					<span className='font-dancing text-4xl text-orange-600'>
+					<span className='font-dancing 3xl:text-5xl text-4xl text-orange-600'>
 						Chiaroscuro
 					</span>
 					{'  '}, where your dining experience is plunged into complete
@@ -52,7 +53,12 @@ const HeroPage = () => {
 					unforgettable culinary adventure for you, designed to rediscover
 					your long-lost senses.
 				</p>
-				<div className='font-roboto absolute bottom-0 flex gap-6 text-3xl font-extralight uppercase tracking-wide text-gray-200 '>
+				<div
+					className={clsx(
+						'font-roboto absolute bottom-0 flex gap-6 text-3xl font-extralight uppercase tracking-wide text-gray-200',
+						'3xl:text-5xl',
+					)}
+				>
 					<BsArrow90DegDown size={18} className='translate-y-4' />
 					<h2> Embark on a sensory journey </h2>
 					<BsArrow90DegUp size={18} className='translate-y-4 rotate-180' />
