@@ -7,7 +7,7 @@ import ModalBooking from '../../../components/ModalBooking';
 const ConceptPage = () => {
 	const [isModalOpen, openModal, closeModal] = useModal();
 	return (
-		<div className={clsx('h-screen', '3xl:h-auto')}>
+		<div className={clsx('h-autos', 'lg:h-screen', '3xl:h-auto')}>
 			<div
 				className={clsx(
 					'relative m-auto flex h-[90%] w-2/3 items-center justify-center ',

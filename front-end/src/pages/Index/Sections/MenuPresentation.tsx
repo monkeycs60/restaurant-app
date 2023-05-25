@@ -7,11 +7,17 @@ const MenuPresentation = () => {
 	return (
 		<div
 			className={clsx(
-				'm-auto flex h-screen w-[80%] flex-col justify-between p-8',
+				'm-auto flex w-[80%] flex-col justify-between p-8',
+				'lg:h-screen',
 				'3xl:h-auto 3xl:my-[5vh] 3xl:w-[55%] 3xl:gap-[10vh]',
 			)}
 		>
-			<div className='flex w-full items-end justify-between gap-[5vw]'>
+			<div
+				className={clsx(
+					'flex w-full flex-col items-end justify-between gap-[5vw]',
+					'lg:flex-row',
+				)}
+			>
 				<MenuCard />
 				<Carousel />
 			</div>

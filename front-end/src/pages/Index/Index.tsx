@@ -6,7 +6,7 @@ import ConceptPage from './Sections/ConceptPage';
 import MenuPresentation from './Sections/MenuPresentation';
 const Index = () => {
 	return (
-		<motion.div className='banner-bg fade-in-home'>
+		<motion.div className='banner-bg fade-in-home max-w-[100%] lg:max-w-none'>
 			<HeroPage />
 			<ConceptPage />
 			<MenuPresentation />
