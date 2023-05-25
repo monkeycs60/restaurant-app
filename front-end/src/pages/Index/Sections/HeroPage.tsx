@@ -53,8 +53,8 @@ const HeroPage = () => {
 			</div>
 			<div
 				className={clsx(
-					'font-roboto relative my-[6vh] flex  flex-col items-center justify-center gap-[3vh] text-base text-gray-300',
-					'lg:h-[50vh] lg:translate-y-[-4vh] lg:text-xl lg:my-0',
+					'font-roboto relative my-[6vh] flex  flex-col items-center justify-center gap-[5vh] text-base text-gray-300',
+					'lg:my-0 lg:h-[50vh] lg:translate-y-[-4vh] lg:gap-[3vh] lg:text-xl',
 					'3xl:text-2xl',
 				)}
 			>
@@ -73,8 +73,8 @@ const HeroPage = () => {
 				</p>
 				<div
 					className={clsx(
-						'font-roboto static bottom-0 flex gap-6 text-center text-xl font-extralight uppercase tracking-wide text-gray-200',
-						'lg:absolute lg:text-left lg:text-3xl',
+						'font-roboto static bottom-0 flex w-[80%] gap-6 text-center text-2xl font-extralight uppercase tracking-wide text-gray-200',
+						'lg:absolute lg:w-auto lg:text-left lg:text-3xl',
 						'3xl:text-4xl',
 					)}
 				>
