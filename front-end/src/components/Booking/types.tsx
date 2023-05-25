@@ -5,7 +5,6 @@ export type BookProps = {
 	register: UseFormRegister<BookingFormData>;
 	errors: {
 		experience?: FieldError;
-		phone?: FieldError;
 		guests?: FieldError;
 		date?: FieldError;
 	};

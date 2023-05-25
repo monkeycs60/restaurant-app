@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
-import Index from './pages/Index';
 import useCleanStorageOnLoad from './hooks/useCleanStorageOnLoad';
+import Index from './pages/Index/Index';
 
 function App() {
 	useCleanStorageOnLoad();

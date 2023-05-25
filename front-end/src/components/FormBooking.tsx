@@ -46,7 +46,7 @@ const FormBooking = ({
 		<>
 			<HeaderBooking />
 			<form
-				className='font-roboto mt-[5vh] flex w-2/3 flex-col gap-8 3xl:gap-[3vh]'
+				className='font-roboto 3xl:gap-[3vh] mt-[5vh] flex w-2/3 flex-col gap-8'
 				onSubmit={(e) => {
 					if (!experience || !guests || !dateCheck) {
 						e.preventDefault();
