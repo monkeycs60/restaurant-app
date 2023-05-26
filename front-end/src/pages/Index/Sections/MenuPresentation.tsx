@@ -8,7 +8,7 @@ const MenuPresentation = () => {
 		<div
 			className={clsx(
 				'm-auto flex w-[80%] flex-col justify-between p-8',
-				'lg:h-screen',
+				'lg:h-screen lg:mt-10',
 				'3xl:h-auto 3xl:my-[5vh] 3xl:w-[55%] 3xl:gap-[10vh]',
 			)}
 		>
