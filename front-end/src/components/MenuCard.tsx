@@ -4,12 +4,13 @@ const MenuCard = () => {
 	return (
 		<div
 			className={clsx(
-				'MENU concept-text-background font-roboto flex flex-col gap-6 rounded-md p-8',
+				'MENU concept-text-background font-roboto flex w-full flex-col gap-6 rounded-md p-8',
+				'lg:w-auto lg:p-8',
 				'3xl:p-12',
 			)}
 		>
 			<div className='flex flex-col items-center gap-4'>
-				<h2>
+				<h2 className='text-center lg:text-left'>
 					{' '}
 					<span className='font-dancing 3xl:text-5xl text-3xl'>
 						{' '}

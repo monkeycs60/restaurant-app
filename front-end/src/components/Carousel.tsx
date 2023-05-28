@@ -4,6 +4,7 @@ import { platePhotos } from '../utils/platePhotos';
 import blackBackground from '../assets/black-background.jpg';
 import { BsCircleFill, BsCircle } from 'react-icons/bs';
 import { BsBookmarkFill, BsBookmark } from 'react-icons/bs';
+import clsx from 'clsx';
 
 const Carousel = () => {
 	const [current, setCurrent] = useState<number>(3);
@@ -26,8 +27,10 @@ const Carousel = () => {
 
 	return (
 		<div
-			className='CAROUSEL 
-         flex h-full w-[50%] flex-col-reverse items-center justify-center gap-2 p-4 pt-16'
+			className={clsx(
+				'CAROUSEL m-auto flex h-full w-[80%] flex-col-reverse items-center justify-center gap-2 p-4 pt-2',
+				'lg:m-0 lg:w-[50%] lg:pt-16',
+			)}
 		>
 			<div className='relative z-20 flex w-full flex-col items-center justify-around gap-4'>
 				<div className='3xl:w-[6vw] absolute bottom-0 left-0 z-30 h-[2px] w-[8vw] bg-white'></div>
@@ -39,13 +42,19 @@ const Carousel = () => {
 					<img
 						src={blackBackground}
 						alt='Loading...'
-						className='absolute -z-10 w-full rounded-lg object-cover'
+						className={clsx(
+							'absolute -z-10 h-[30vh] w-full rounded-lg object-cover',
+							'lg:h-auto lg:w-full',
+						)}
 					/>
 					{loading ? (
 						<img
 							src={blackBackground}
 							alt='Loading...'
-							className='w-full rounded-lg  object-cover'
+							className={clsx(
+								'h-[30vh] w-full rounded-lg object-cover',
+								'lg:h-auto lg:w-full',
+							)}
 						/>
 					) : (
 						platePhotos.map((platePhoto, index) =>
@@ -54,7 +63,10 @@ const Carousel = () => {
 									key={platePhoto.key}
 									src={platePhoto.src}
 									alt={platePhoto.alt}
-									className='animate-photos-carousel w-full rounded-lg  object-cover'
+									className={clsx(
+										'animate-photos-carousel h-[30vh] rounded-lg',
+										'lg:h-auto lg:w-full lg:object-cover',
+									)}
 								/>
 							) : null,
 						)

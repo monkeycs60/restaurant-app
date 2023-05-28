@@ -7,15 +7,15 @@ const MenuPresentation = () => {
 	return (
 		<div
 			className={clsx(
-				'm-auto flex w-[80%] flex-col justify-between p-8',
-				'lg:h-screen lg:mt-10',
+				'mt-10 flex w-full flex-col justify-between p-0',
+				'lg:m-auto lg:mt-10 lg:h-screen lg:w-[80%] lg:p-8',
 				'3xl:h-auto 3xl:my-[5vh] 3xl:w-[55%] 3xl:gap-[10vh]',
 			)}
 		>
 			<div
 				className={clsx(
-					'flex w-full flex-col items-end justify-between gap-[5vw]',
-					'lg:flex-row',
+					'flex w-full flex-col-reverse items-end justify-between gap-[10vw]',
+					'lg:flex-row lg:gap-[5vw]',
 				)}
 			>
 				<MenuCard />
