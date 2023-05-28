@@ -95,7 +95,7 @@ const PracticalInformations = () => {
 													</span>
 												</div>
 												<div className='flex flex-col justify-center'>
-													<span className='block lg:text-base text-sm font-semibold text-gray-900'>
+													<span className='block text-sm font-semibold text-gray-900 lg:text-base'>
 														Sunday
 													</span>
 													<span className='block text-sm text-gray-900'>
