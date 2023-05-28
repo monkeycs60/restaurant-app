@@ -9,11 +9,11 @@ const Footer = () => {
 			<div className='flex w-1/2 flex-col items-end'>
 				<p>
 					{' '}
-					<span className='font-handwriting text-xl'>
+					<span className='font-handwriting lg:text-xl'>
 						Chiaroscuro
 					</span>{' '}
 				</p>
-				<p className='text-sm italic'>+44 20 2831 9278</p>
+				<p className='text-xs italic lg:text-sm'>+44 20 2831 9278</p>
 			</div>
 			<div className='flex w-full items-center justify-end gap-2 xl:w-1/3 '>
 				<a
@@ -22,7 +22,7 @@ const Footer = () => {
 				'
 					target='_blank'
 				>
-					<BsInstagram className='h-full w-6' />
+					<BsInstagram className='h-full lg:w-6' />
 				</a>
 				<a
 					href='
@@ -30,7 +30,7 @@ const Footer = () => {
 				'
 					target='_blank'
 				>
-					<RiFacebookLine className='h-full w-6' />
+					<RiFacebookLine className='h-full lg:w-6' />
 				</a>
 				<a
 					href='
@@ -38,7 +38,7 @@ const Footer = () => {
 				'
 					target='_blank'
 				>
-					<FiLinkedin className='h-full w-6' />
+					<FiLinkedin className='h-full lg:w-6' />
 				</a>
 				<a
 					href='
@@ -46,7 +46,7 @@ const Footer = () => {
 				'
 					target='_blank'
 				>
-					<SiTripadvisor className='h-full w-6' />
+					<SiTripadvisor className='h-full lg:w-6' />
 				</a>
 			</div>
 		</footer>

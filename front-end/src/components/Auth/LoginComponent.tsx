@@ -34,7 +34,8 @@ export const LoginComponent = ({
 	return (
 		<div
 			className={clsx(
-				'font-roboto mx-auto my-8 flex w-[65%] flex-col gap-8 rounded-md bg-zinc-50 p-8',
+				'font-roboto mx-auto my-[8vh] flex w-[90%] flex-col gap-8 rounded-md bg-zinc-50 p-8',
+				'lg:my-8 lg:w-[65%]',
 				'3xl:w-[40%]',
 			)}
 		>

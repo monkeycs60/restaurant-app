@@ -27,7 +27,8 @@ const ModalBooking = ({ isModalOpen, closeModal }: ModalProps) => {
 	return (
 		<dialog
 			className={clsx(
-				'concept-text-background fixed h-[80%] w-[40%] flex-col items-center rounded-lg',
+				'concept-text-background fixed h-[100%] w-[100%] flex-col items-center rounded-lg',
+				'lg-[80%] lg:w-[40%]',
 				'3xl:h-[60%]',
 			)}
 			ref={dialogRef}

@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchBookedDate } from '../../services/api';
 import moment from 'moment';
+import clsx from 'clsx';
 type BookingResponse = {
 	date: string;
 	email: string;
@@ -40,7 +41,12 @@ const SuccessPage = () => {
 	console.log('résa en cours', data);
 
 	return (
-		<div className='font-roboto mt-[5vh] flex h-full w-[80%] flex-col gap-4 p-10 text-black'>
+		<div
+			className={clsx(
+				'font-roboto mt-[5vh] flex h-full w-full  flex-col gap-4 p-6 text-black',
+				'lg:w-[80%] lg:p-10',
+			)}
+		>
 			<h2 className='mb-4 text-3xl text-orange-600'>
 				Reservation Confirmed!
 			</h2>
