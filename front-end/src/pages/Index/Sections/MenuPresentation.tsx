@@ -23,7 +23,8 @@ const MenuPresentation = () => {
 			</div>
 			<div
 				className={clsx(
-					'TRANSITION font-roboto flex w-full justify-center gap-6 text-3xl font-extralight uppercase tracking-wide text-gray-200 ',
+					'TRANSITION font-roboto m-auto mb-[2vh] mt-[6vh] flex w-[80%] justify-center gap-6 text-center text-2xl font-extralight uppercase tracking-wide text-gray-200',
+					'lg:my-0 lg:w-full lg:text-left lg:text-3xl',
 					'3xl:text-4xl',
 				)}
 			>

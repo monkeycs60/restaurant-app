@@ -33,8 +33,18 @@ const Carousel = () => {
 			)}
 		>
 			<div className='relative z-20 flex w-full flex-col items-center justify-around gap-4'>
-				<div className='3xl:w-[6vw] absolute bottom-0 left-0 z-30 h-[2px] w-[8vw] bg-white'></div>
-				<div className='3xl:w-[6vw] absolute bottom-0 right-0 z-30 h-[2px] w-[8vw] bg-white'></div>
+				<div
+					className={clsx(
+						'3xl:w-[6vw] absolute bottom-0 left-0 z-30 h-[2px] w-[3vw] bg-white',
+						'lg:w-[8vw]',
+					)}
+				></div>
+				<div
+					className={clsx(
+						'3xl:w-[6vw] absolute bottom-0 right-0 z-30 h-[2px] w-[3vw] bg-white',
+						'lg:w-[8vw]',
+					)}
+				></div>
 				<div className='font-roboto absolute -bottom-2 z-40 bg-transparent px-1 italic text-gray-100'>
 					<p>A glimpse of our previous creations</p>
 				</div>

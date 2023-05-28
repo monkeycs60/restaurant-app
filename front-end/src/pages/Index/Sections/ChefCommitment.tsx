@@ -9,21 +9,40 @@ const Team = () => {
 	const viewRef = useRef(null);
 	const isInView = useInView(viewRef, { once: true });
 	return (
-		<div className={clsx('m-auto w-3/4 p-4', '3xl:w-[55%] 3xl:px-8')}>
+		<div
+			className={clsx(
+				'm-auto mt-[4vh] w-full',
+				'lg:mt-0 lg:w-3/4 lg:p-4',
+				'3xl:w-[55%] 3xl:px-8',
+			)}
+		>
 			<div
-				className='3xl:p-0 m-auto flex justify-between gap-8 p-6'
+				className={clsx(
+					' m-auto flex flex-col justify-between gap-12',
+					'lg:flex-row lg:gap-8 lg:p-6',
+					'3xl:p-0',
+				)}
 				ref={viewRef}
 			>
-				<div className='flex w-[45%] rounded-lg'>
+				<div
+					className={clsx(
+						'm-auto flex w-[70%] rounded-lg border-2 border-white',
+						'lg:w-[45%] lg:border-none',
+					)}
+				>
 					<img
 						src={chef}
 						alt='head chef'
-						className='rounded-lg object-cover'
+						className={clsx(
+							'h-full w-full rounded-lg object-cover',
+							'lg:h-auto lg:w-auto',
+						)}
 					/>
 				</div>
 				<div
 					className={clsx(
-						'concept-text-background flex w-[45%] flex-col gap-8 rounded-lg border-[1px] p-8 hover:bg-amber-600/30',
+						'concept-text-background flex flex-col gap-6 rounded-lg border-[1px] p-4 hover:bg-amber-600/30',
+						'lg:w-[45%] lg:gap-8 lg:p-8',
 						'3xl:gap-12',
 					)}
 				>
@@ -33,7 +52,7 @@ const Team = () => {
 							className='text-4xl text-orange-600 opacity-80'
 						/>
 					</div>
-					<p className='font-playfair text-xl leading-8 text-gray-900'>
+					<p className='font-playfair text-base leading-8 text-gray-900 lg:text-xl'>
 						&ldquo; You may not know what is on your plate, but rest
 						assured, we do. Dine in the dark, enlightened by our
 						dedication to transparency and quality control &ldquo;
@@ -41,11 +60,11 @@ const Team = () => {
 					<div className='3xl:flex 3xl:flex-col 3xl:gap-2'>
 						<div className='font-roboto flex items-center gap-2'>
 							<div className='h-[2px] w-4 bg-black'></div>
-							<h2 className='3xl:text-xl text-lg font-bold text-gray-900'>
+							<h2 className='3xl:text-xl text-base font-bold text-gray-900 lg:text-lg'>
 								Jeffrey Williamson
 							</h2>
 						</div>
-						<h3 className='font-roboto 3xl:text-lg text-gray-800'>
+						<h3 className='font-roboto 3xl:text-lg text-sm text-gray-800 lg:text-base'>
 							Head Chef
 						</h3>
 					</div>
