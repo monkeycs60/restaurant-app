@@ -29,9 +29,9 @@ const PracticalInformations = () => {
 						</p>
 					</div>
 					<div className='flex flex-col justify-between lg:mb-12 lg:flex-row'>
-						<div className='xs:max-w-sm concept-text-background font-roboto mx-auto rounded-lg p-4 lg:w-1/2 lg:max-w-[50%]'>
+						<div className='xs:max-w-sm concept-text-background font-roboto mx-auto rounded-lg lg:w-1/2 lg:max-w-[50%] lg:p-4'>
 							<div className='flex flex-col flex-wrap items-center gap-6 p-2 lg:gap-8 lg:p-6'>
-								<div className='w-full px-4'>
+								<div className='w-full px-4 py-2 lg:py-0'>
 									<div className='flex items-center gap-6'>
 										<div className=' flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gray-700 p-1 sm:mr-8 lg:h-14 lg:w-14'>
 											<RiContactsBook2Line
@@ -52,7 +52,7 @@ const PracticalInformations = () => {
 										</div>
 									</div>
 								</div>
-								<div className='w-full px-4'>
+								<div className='w-full px-4 py-2 lg:py-0'>
 									<div className='flex items-start lg:gap-6'>
 										<div className='mr-5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gray-700 p-1 sm:mr-8 lg:h-14 lg:w-14'>
 											<GoLocation
@@ -73,7 +73,7 @@ const PracticalInformations = () => {
 										</div>
 									</div>
 								</div>
-								<div className='w-full px-4'>
+								<div className='w-full px-4 py-2 lg:py-0'>
 									<div className='flex items-center lg:gap-6'>
 										<div className='mr-5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gray-700 p-1 sm:mr-8 lg:h-14 lg:w-14'>
 											<BsCalendarDay
