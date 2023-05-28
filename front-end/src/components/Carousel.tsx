@@ -45,7 +45,7 @@ const Carousel = () => {
 						'lg:w-[8vw]',
 					)}
 				></div>
-				<div className='font-roboto absolute -bottom-2 z-40 bg-transparent px-1 italic text-gray-100'>
+				<div className='font-roboto absolute -bottom-2 z-40 bg-transparent px-1 text-xs italic text-gray-100 lg:text-base'>
 					<p>A glimpse of our previous creations</p>
 				</div>
 				<div className='relative z-10 w-full  border-x-2 border-t-2 object-cover'>
@@ -82,18 +82,18 @@ const Carousel = () => {
 						)
 					)}
 				</div>
-				<div className=' gap- absolute -right-7 top-0 -z-20 flex cursor-pointer flex-col rounded-lg p-1'>
+				<div className=' gap- absolute -right-4 top-0 -z-20 flex cursor-pointer flex-col rounded-lg p-1 lg:-right-7'>
 					{platePhotos.map((platePhoto, index) =>
 						index === current ? (
 							<BsBookmarkFill
 								key={platePhoto.key}
-								className='animate-icon h-10 w-10 translate-x-2 -rotate-90 scale-110 text-orange-500 transition-transform duration-1000 ease-in-out'
+								className='animate-icon h-6 w-6 translate-x-2 -rotate-90 scale-110 text-orange-500 transition-transform duration-1000 ease-in-out lg:h-10 lg:w-10'
 								onClick={() => handleDotClick(index)}
 							/>
 						) : (
 							<BsBookmark
 								key={platePhoto.key}
-								className='h-8 w-8 translate-x-2 -rotate-90 cursor-pointer text-orange-500 transition-transform duration-1000 ease-in-out'
+								className='h-5 w-5 translate-x-2 -rotate-90 cursor-pointer text-orange-500 transition-transform duration-1000 ease-in-out lg:h-8 lg:w-8'
 								onClick={() => {
 									handleDotClick(index);
 								}}
