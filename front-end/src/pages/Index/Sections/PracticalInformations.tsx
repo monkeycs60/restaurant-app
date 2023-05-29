@@ -1,6 +1,3 @@
-import leafletMarker from '../../../assets/leaflet/marker-icon-2x.png';
-import leafletShadow from '../../../assets/leaflet/marker-shadow.png';
-import L from 'leaflet';
 import {
 	MapContainer,
 	TileLayer,
@@ -10,20 +7,12 @@ import {
 	Tooltip,
 } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import * as L from 'leaflet';
+import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
 import { RiContactsBook2Line } from 'react-icons/ri';
 import { GoLocation } from 'react-icons/go';
 import { BsCalendarDay } from 'react-icons/bs';
 import clsx from 'clsx';
-
-L.icon({
-	iconUrl: leafletMarker,
-	shadowUrl: leafletShadow,
-	iconSize: [25, 41],
-	iconAnchor: [12, 41],
-	popupAnchor: [1, -34],
-	tooltipAnchor: [16, -28],
-	shadowSize: [41, 41],
-});
 const PracticalInformations = () => {
 	return (
 		<section className='3xl:py-2 3xl:pb-10 relative m-auto w-[85%] overflow-hidden py-10 md:py-12 lg:w-auto'>
