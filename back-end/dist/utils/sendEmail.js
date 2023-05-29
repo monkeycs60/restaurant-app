@@ -1,10 +1,12 @@
 import nodemailer from 'nodemailer';
 import { formatDate } from './formatDate.js';
+import dotenv from 'dotenv';
+dotenv.config();
 const transporter = nodemailer.createTransport({
     service: 'hotmail',
     auth: {
-        user: 'gregre_95@hotmail.fr',
-        pass: 'Saab900!',
+        user: process.env.RESTAURANT_OWNER_EMAIL_ADDRESS,
+        pass: process.env.RESTAURANT_OWNER_EMAIL_ADDRESS_PASSWORD,
     },
 });
 export async function sendEmail(to, subject, bookingData) {
