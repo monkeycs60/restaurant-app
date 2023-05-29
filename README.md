@@ -4,7 +4,6 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-%2347A248?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Express](https://img.shields.io/badge/Express.js-%23404d59?style=for-the-badge)
 ![Nodemailer](https://img.shields.io/badge/Nodemailer-%2300A4EC?style=for-the-badge&logo=nodemailer&logoColor=white)
-![HTML](https://img.shields.io/badge/HTML-%23E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-%2338B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-%23007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-%23000000?style=for-the-badge&logo=vite&logoColor=white)
