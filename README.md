@@ -1,5 +1,7 @@
 # Restaurant Chiaroscuro - MERN fullstack project
 
+[Production Environment](https://restaurant-app-67d7-cr41816bg-monkeycs60.vercel.app/)
+
 ![Node.js](https://img.shields.io/badge/Node.js-%23339933?style=for-the-badge&logo=node.js&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-%2347A248?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Express](https://img.shields.io/badge/Express.js-%23404d59?style=for-the-badge)
@@ -35,16 +37,18 @@ Note that you can't receive the confirmation email with this account as it is no
 
 - Backend installation:
 
-  ```bash
+    ```bash
   cd back-end
   ```
 
   ```bash
-  # Install dependencies
   npm install
+  ```
 
-  # Start local dev server
-  npm run dev
+- Run the app:
+
+  ```bash
+  npm run start
   ```
 
 - Frontend installation:
