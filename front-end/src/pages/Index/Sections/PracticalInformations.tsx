@@ -7,12 +7,17 @@ import {
 	Tooltip,
 } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import * as L from 'leaflet';
-import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
+import markerLeaflet from '../../../assets/marker.png';
+import { icon } from 'leaflet';
 import { RiContactsBook2Line } from 'react-icons/ri';
 import { GoLocation } from 'react-icons/go';
 import { BsCalendarDay } from 'react-icons/bs';
 import clsx from 'clsx';
+
+const ICON = icon({
+	iconUrl: markerLeaflet,
+	iconSize: [28, 33],
+});
 const PracticalInformations = () => {
 	return (
 		<section className='3xl:py-2 3xl:pb-10 relative m-auto w-[85%] overflow-hidden py-10 md:py-12 lg:w-auto'>
@@ -126,7 +131,7 @@ const PracticalInformations = () => {
 									attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 									url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 								/>
-								<Marker position={[51.510607, -0.134301]}>
+								<Marker position={[51.510607, -0.134301]} icon={ICON}>
 									<Popup>
 										10 Shaftesbury Ave <br /> London
 									</Popup>
