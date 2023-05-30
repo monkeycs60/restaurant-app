@@ -24,7 +24,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-console.log('corsOptions', corsOptions);
 
 
 app.use('/auth', usersRouter);
@@ -35,9 +34,10 @@ const mongoDBURI: string = `mongodb+srv://${process.env.MONGO_DB_USER}:${process
 const mongoDBRailwayURI: string = process.env.MONGO_DB_RAILWAY_URI || '';
 
 const DB_URI =
-	process.env.NODE_ENV === 'production' ? mongoDBRailwayURI : mongoDBURI;
+process.env.NODE_ENV === 'production' ? mongoDBRailwayURI : mongoDBURI;
 
-	console.log('Database URI:', DB_URI);
+console.log('Database URI:', DB_URI);
+console.log('corsOptions', corsOptions);
 
 mongoose
 	.connect(DB_URI)
