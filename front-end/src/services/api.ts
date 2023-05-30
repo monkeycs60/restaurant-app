@@ -6,9 +6,7 @@ const isLocal = false;
 const API_URL = isLocal
 	? 'http://localhost:3001'
 	: 'https://restaurant-app-production-29bf.up.railway.app';
-const API = axios.create({
-	baseURL: API_URL,
-});
+axios.defaults.baseURL = API_URL;
 
 console.log('axios.defaults.baseURL', axios.defaults.baseURL);
 
