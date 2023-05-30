@@ -10,6 +10,8 @@ isLocal
 	? (axios.defaults.baseURL = API_URL_LOCAL)
 	: (axios.defaults.baseURL = API_URL_RAILWAY);
 
+console.log('axios.defaults.baseURL', axios.defaults.baseURL);
+
 export async function authenticate<Tipo>(endpoint: string, credentials: Tipo) {
 	try {
 		const response = await axios.post(`/auth/${endpoint}`, credentials);
