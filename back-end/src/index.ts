@@ -24,6 +24,9 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+console.log('corsOptions', corsOptions);
+
+
 app.use('/auth', usersRouter);
 app.use('/recipes', recipesRouter);
 app.use('/booking', bookingRouter);
