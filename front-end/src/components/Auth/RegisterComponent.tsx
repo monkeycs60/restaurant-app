@@ -7,7 +7,7 @@ import clsx from 'clsx';
 const schema = z.object({
 	phone: z
 		.string()
-		.min(10)
+		.min(10, 'Phone number must be at least 10 digits')
 		.refine(
 			(value) => /^[0-9]+$/.test(value),
 			'Phone number can only contain numbers',
