@@ -1,14 +1,8 @@
 import axios from 'axios';
 import { BookingFormData } from '../hooks/useBooking';
 
-const isLocal = false;
-
-const API_URL = isLocal
-	? 'http://localhost:3001'
-	: 'https://restaurant-app-production-29bf.up.railway.app';
+const API_URL = import.meta.env.VITE_API_URL;
 axios.defaults.baseURL = API_URL;
-
-console.log('axios.defaults.baseURL', axios.defaults.baseURL);
 
 export async function authenticate<Tipo>(endpoint: string, credentials: Tipo) {
 	try {

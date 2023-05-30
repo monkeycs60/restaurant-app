@@ -36,17 +36,18 @@ const TimeSelection = ({
 	return (
 		<div className='flex w-full flex-col gap-4'>
 			<span className='flex justify-center italic'>Midday</span>
-			<div className='grid grid-cols-4'>
+			<div className='grid grid-cols-4 gap-2'>
 				{middayTimes?.map((time, i) => (
 					<div
 						key={`midday-${i}`}
-						className={`flex justify-center rounded-sm bg-gray-100 p-2 hover:bg-orange-300 ${
+						className={`flex justify-center rounded-sm bg-gray-100 hover:bg-orange-300 ${
 							selectedButton === time.toISOString()
-								? 'rounded-sm bg-orange-300 p-2'
-								: 'rounded-sm bg-gray-100 p-2 hover:bg-orange-300'
+								? 'rounded-sm bg-orange-300 '
+								: 'rounded-sm bg-gray-100 hover:bg-orange-300'
 						} `}
 					>
 						<button
+							className='h-full w-full rounded-lg p-1 lg:p-2'
 							type='button'
 							onClick={() => handleTimeSelection(time)}
 						>
@@ -60,17 +61,18 @@ const TimeSelection = ({
 				))}
 			</div>
 			<span className='flex justify-center italic'>Evening</span>
-			<div className='grid grid-cols-4'>
+			<div className='grid grid-cols-4 gap-2'>
 				{eveningTimes?.map((time, i) => (
 					<div
 						key={`evening-${i}`}
-						className={`flex justify-center rounded-sm bg-gray-100 p-2 hover:bg-orange-300 ${
+						className={`flex justify-center rounded-sm bg-gray-100 hover:bg-orange-300 ${
 							selectedButton === time.toISOString()
-								? 'rounded-sm bg-orange-300 p-2'
-								: 'rounded-sm bg-gray-100 p-2 hover:bg-orange-300'
+								? 'rounded-sm bg-orange-300'
+								: 'rounded-sm bg-gray-100 hover:bg-orange-300'
 						} `}
 					>
 						<button
+							className='h-full w-full rounded-lg p-1 lg:p-2'
 							type='button'
 							onClick={() => handleTimeSelection(time)}
 						>

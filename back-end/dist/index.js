@@ -8,17 +8,22 @@ import { bookingRouter } from './routes/booking.js';
 dotenv.config();
 const app = express();
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+    origin: process.env.NODE_ENV === 'production'
+        ? 'https://restaurant-app-67d7.vercel.app'
+        : 'http://127.0.0.1:5173',
+    credentials: true,
+};
+app.use(cors(corsOptions));
 app.use('/auth', usersRouter);
 app.use('/recipes', recipesRouter);
 app.use('/booking', bookingRouter);
-const mongoDBUser = process.env.MONGO_DB_USER;
-const mongoDBPassword = process.env.MONGO_DB_PASSWORD;
-const mongoDBURI = `mongodb+srv://${mongoDBUser}:${mongoDBPassword}@restodb.6lqxxnc.mongodb.net/restodb?retryWrites=true&w=majority`;
+const mongoDBURI = `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@restodb.6lqxxnc.mongodb.net/restodb?retryWrites=true&w=majority`;
 const mongoDBRailwayURI = process.env.MONGO_DB_RAILWAY_URI || '';
-console.log('hello!!');
+const DB_URI = process.env.NODE_ENV === 'production' ? mongoDBRailwayURI : mongoDBURI;
+console.log('Database URI:', DB_URI);
 mongoose
-    .connect(mongoDBRailwayURI)
+    .connect(DB_URI)
     .then(() => console.log('Connected to MongoDB!'))
     .catch((err) => console.error('Error connecting to MongoDB:', err));
 app.listen(3001, () => console.log('Magic happens on port 3001'));
