@@ -21,11 +21,12 @@ app.use('/booking', bookingRouter);
 const mongoDBUser: string | undefined = process.env.MONGO_DB_USER;
 const mongoDBPassword: string | undefined = process.env.MONGO_DB_PASSWORD;
 const mongoDBURI: string = `mongodb+srv://${mongoDBUser}:${mongoDBPassword}@restodb.6lqxxnc.mongodb.net/restodb?retryWrites=true&w=majority`;
+const mongoDBRailwayURI: string = process.env.MONGO_DB_RAILWAY_URI || '';
 
 console.log('hello!!');
 
 mongoose
-	.connect(mongoDBURI)
+	.connect(mongoDBRailwayURI)
 	.then(() => console.log('Connected to MongoDB!'))
 	.catch((err) => console.error('Error connecting to MongoDB:', err));
 
