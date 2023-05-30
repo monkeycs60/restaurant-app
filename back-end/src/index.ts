@@ -6,7 +6,6 @@ import dotenv from 'dotenv';
 import { usersRouter } from './routes/users.js';
 import { recipesRouter } from './routes/recipes.js';
 import { bookingRouter } from './routes/booking.js';
-import { log } from 'console';
 
 dotenv.config();
 
