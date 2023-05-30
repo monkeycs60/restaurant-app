@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import { usersRouter } from './routes/users.js';
@@ -6,28 +7,23 @@ import { recipesRouter } from './routes/recipes.js';
 import { bookingRouter } from './routes/booking.js';
 dotenv.config();
 const app = express();
-// const corsOptions = {
-// 	origin: (origin: any, callback: any) => {
-// 		const whitelist = [
-// 			'https://restaurant-app-67d7.vercel.app',
-// 			'https://restaurant-app-67d7-4nv3ofvyh-monkeycs60.vercel.app',
-// 			'http://127.0.0.1:5173',
-// 		];
-// 		if (whitelist.includes(origin)) {
-// 			callback(null, true);
-// 		} else {
-// 			callback(new Error('Not allowed by CORS'));
-// 		}
-// 	},
-// 	credentials: true,
-// };
-// app.use(cors(corsOptions));
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-    next();
-});
+const corsOptions = {
+    origin: (origin, callback) => {
+        const whitelist = [
+            'https://restaurant-app-67d7.vercel.app',
+            'https://restaurant-app-67d7-4nv3ofvyh-monkeycs60.vercel.app',
+            'http://127.0.0.1:5173',
+        ];
+        if (whitelist.includes(origin)) {
+            callback(null, true);
+        }
+        else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/auth', usersRouter);
 app.use('/recipes', recipesRouter);
