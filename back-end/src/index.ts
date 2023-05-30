@@ -56,7 +56,7 @@ const mongoDBURI: string = `mongodb+srv://${process.env.MONGO_DB_USER}:${process
 const mongoDBRailwayURI: string = process.env.MONGO_DB_RAILWAY_URI || '';
 
 const DB_URI =
-process.env.NODE_ENV === 'production' ? mongoDBRailwayURI : mongoDBURI;
+	process.env.NODE_ENV === 'production' ? mongoDBRailwayURI : mongoDBURI;
 
 console.log('Database URI:', DB_URI);
 console.log('corsOptions', corsOptions);
@@ -66,4 +66,6 @@ mongoose
 	.then(() => console.log('Connected to MongoDB!'))
 	.catch((err) => console.error('Error connecting to MongoDB:', err));
 
+const port = process.env.PORT || 3001;
+app.listen(port, () => console.log(`Magic happens on port ${port}`));
 app.listen(3001, () => console.log('Magic happens on port 3001'));

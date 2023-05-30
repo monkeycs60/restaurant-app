@@ -54,5 +54,7 @@ mongoose
     .connect(DB_URI)
     .then(() => console.log('Connected to MongoDB!'))
     .catch((err) => console.error('Error connecting to MongoDB:', err));
+const port = process.env.PORT || 3001;
+app.listen(port, () => console.log(`Magic happens on port ${port}`));
 app.listen(3001, () => console.log('Magic happens on port 3001'));
 //# sourceMappingURL=index.js.map
