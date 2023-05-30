@@ -78,7 +78,7 @@ Note that you can't receive the confirmation email with this account as it is no
   ## Prerequisites
 
 - [React 18.2.0](https://reactjs.org/)
-- [Node.js v16](https://nodejs.org/en/)
+- [Node.js v18](https://nodejs.org/en/)
 - [MongoDB Community Server](https://www.mongodb.com/try/download/community)
 
 
