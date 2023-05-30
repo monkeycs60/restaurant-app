@@ -12,9 +12,9 @@ const schema = z.object({
 			(value) => /^[0-9]+$/.test(value),
 			'Phone number can only contain numbers',
 		),
-	email: z.string().email(),
-	password: z.string().min(8),
-	confirmPassword: z.string().min(8),
+	email: z.string().email('Invalid email address'),
+	password: z.string().min(8, 'Password must be at least 8 characters'),
+	confirmPassword: z.string().min(8, 'Passwords must match'),
 	conditions: z
 		.boolean()
 		.refine((value) => value, 'You must agree to the General Conditions'),
@@ -52,7 +52,7 @@ export const RegisterComponent = ({
 		<div
 			className={clsx(
 				'mx-auto my-[8vh] flex w-[90%]  flex-col gap-8 rounded-md bg-zinc-50 p-8',
-				'lg:w-[65%] lg:my-8',
+				'lg:my-8 lg:w-[65%]',
 				'3xl:w-[40%]',
 			)}
 		>

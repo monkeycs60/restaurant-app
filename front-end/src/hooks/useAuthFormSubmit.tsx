@@ -3,8 +3,8 @@ import useAuth from './useAuth';
 import { z } from 'zod';
 
 export const schema = z.object({
-	email: z.string().email(),
-	password: z.string().min(8),
+	email: z.string().email('This user does not exist'),
+	password: z.string().min(8, 'This user does not exist'),
 });
 
 export type AuthFormData = z.infer<typeof schema>;
