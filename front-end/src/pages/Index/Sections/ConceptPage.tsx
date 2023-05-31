@@ -1,5 +1,5 @@
 import { BsArrow90DegDown, BsArrow90DegUp } from 'react-icons/bs';
-import girlBlindfold from '../../../assets/blindfold-girl.png';
+import girlBlindfold from '../../../assets/blindfold-girl.webp';
 import clsx from 'clsx';
 import useModal from '../../../hooks/useModal';
 import ModalBooking from '../../../components/ModalBooking';

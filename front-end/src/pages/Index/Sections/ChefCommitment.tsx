@@ -1,4 +1,4 @@
-import chef from '../../../assets/chef-dedicated.png';
+import chef from '../../../assets/chef-dedicated.webp';
 import { ImQuotesLeft } from 'react-icons/im';
 import { useRef } from 'react';
 import { useInView } from 'framer-motion';
