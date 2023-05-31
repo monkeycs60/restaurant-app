@@ -25,13 +25,17 @@ const ConceptPage = () => {
 						'3xl:w-[18vw] 3xl:h-[38vh]',
 					)}
 				>
-					<img
-						src={girlBlindfold}
-						alt='girl blindfolded'
+					<div
 						className={clsx(
 							'z-10 h-[80%] rounded-lg lg:translate-x-[6%]',
 						)}
-					/>
+					>
+						<img
+							src={girlBlindfold}
+							alt='girl blindfolded'
+							className='h-full w-full rounded-lg object-cover'
+						/>
+					</div>
 				</div>
 				<div
 					className={clsx(
