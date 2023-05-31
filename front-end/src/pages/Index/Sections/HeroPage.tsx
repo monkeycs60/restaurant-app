@@ -2,11 +2,12 @@ import clsx from 'clsx';
 import { BsArrow90DegDown, BsArrow90DegUp } from 'react-icons/bs';
 import useModal from '../../../hooks/useModal';
 import ModalBooking from '../../../components/ModalBooking';
+import { Link } from 'react-scroll';
 
 const HeroPage = () => {
 	const [isModalOpen, openModal, closeModal] = useModal();
 	return (
-		<div className='relative h-screen w-full'>
+		<section className='relative h-screen w-full'>
 			<nav>
 				<ul
 					className={clsx(
@@ -15,16 +16,48 @@ const HeroPage = () => {
 						'3xl:text-2xl',
 					)}
 				>
-					<li className='cursor-pointer'>Concept</li>
-					<li className='cursor-pointer'>Menu</li>
-					<li className='cursor-pointer'>Team</li>
+					<Link
+						to='conceptPage'
+						spy={true}
+						smooth={true}
+						duration={800}
+						className='cursor-pointer'
+					>
+						Concept
+					</Link>
+					<Link
+						to='menuPage'
+						spy={true}
+						smooth={true}
+						duration={800}
+						className='cursor-pointer'
+					>
+						Menu
+					</Link>
+					<Link
+						to='commitmentPage'
+						spy={true}
+						smooth={true}
+						duration={800}
+						className='cursor-pointer'
+					>
+						Commitment
+					</Link>
 					<li
 						className='flex cursor-pointer items-center justify-center px-8 text-orange-500 '
 						onClick={openModal}
 					>
 						Make a reservation
 					</li>
-					<li className='cursor-pointer'>Contact us</li>
+					<Link
+						to='findUsPage'
+						spy={true}
+						smooth={true}
+						duration={800}
+						className='cursor-pointer'
+					>
+						Find Us
+					</Link>
 				</ul>
 			</nav>
 			<ModalBooking
@@ -83,7 +116,7 @@ const HeroPage = () => {
 					<BsArrow90DegUp size={18} className='translate-y-4 rotate-180' />
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

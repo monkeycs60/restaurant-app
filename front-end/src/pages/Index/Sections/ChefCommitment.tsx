@@ -9,7 +9,8 @@ const Team = () => {
 	const viewRef = useRef(null);
 	const isInView = useInView(viewRef, { once: true });
 	return (
-		<div
+		<section
+			id='commitmentPage'
 			className={clsx(
 				'm-auto mt-[4vh] w-full',
 				'lg:mt-0 lg:w-3/4 lg:p-4',
@@ -119,7 +120,7 @@ const Team = () => {
 				<h2> Practical Informations </h2>
 				<BsArrow90DegUp size={18} className='translate-y-4 rotate-180' />
 			</div>
-		</div>
+		</section>
 	);
 };
 

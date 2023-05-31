@@ -5,7 +5,8 @@ import clsx from 'clsx';
 
 const MenuPresentation = () => {
 	return (
-		<div
+		<section
+			id='menuPage'
 			className={clsx(
 				'mt-10 flex w-full flex-col justify-between p-0',
 				'lg:m-auto lg:mt-10 lg:h-screen lg:w-[80%] lg:p-8',
@@ -32,7 +33,7 @@ const MenuPresentation = () => {
 				<h2> Our Chef Commitment </h2>
 				<BsArrow90DegUp size={18} className='translate-y-4 rotate-180' />
 			</div>
-		</div>
+		</section>
 	);
 };
 

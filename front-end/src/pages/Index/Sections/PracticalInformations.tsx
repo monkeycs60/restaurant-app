@@ -20,7 +20,10 @@ const ICON = icon({
 });
 const PracticalInformations = () => {
 	return (
-		<section className='3xl:py-2 3xl:pb-10 relative m-auto w-[85%] overflow-hidden py-10 md:py-12 lg:w-auto'>
+		<section
+			id='findUsPage'
+			className='3xl:py-2 3xl:pb-10 relative m-auto w-[85%] overflow-hidden py-10 md:py-12 lg:w-auto'
+		>
 			<div className='container relative mx-auto px-4'>
 				<div className='mx-auto max-w-7xl'>
 					<div className='mx-auto mb-10 flex max-w-2xl flex-col gap-4 text-center lg:mb-20'>

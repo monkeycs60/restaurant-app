@@ -7,7 +7,10 @@ import ModalBooking from '../../../components/ModalBooking';
 const ConceptPage = () => {
 	const [isModalOpen, openModal, closeModal] = useModal();
 	return (
-		<div className={clsx('h-auto', 'lg:h-screen', '3xl:h-auto')}>
+		<section
+			id='conceptPage'
+			className={clsx('h-auto', 'lg:h-screen', '3xl:h-auto')}
+		>
 			<div
 				className={clsx(
 					'relative m-auto flex h-[90%] flex-col items-center justify-center gap-12',
@@ -92,7 +95,7 @@ const ConceptPage = () => {
 				<h2> Discover our menu </h2>
 				<BsArrow90DegUp size={18} className='translate-y-4 rotate-180' />
 			</div>
-		</div>
+		</section>
 	);
 };
 
