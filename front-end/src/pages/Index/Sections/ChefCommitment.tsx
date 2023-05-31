@@ -5,7 +5,7 @@ import { useInView } from 'framer-motion';
 import logosPhotos from '../../../utils/logosPhotos';
 import { BsArrow90DegDown, BsArrow90DegUp } from 'react-icons/bs';
 import clsx from 'clsx';
-const Team = () => {
+const ChefCommitment = () => {
 	const viewRef = useRef(null);
 	const isInView = useInView(viewRef, { once: true });
 	return (
@@ -124,4 +124,4 @@ const Team = () => {
 	);
 };
 
-export default Team;
+export default ChefCommitment;
