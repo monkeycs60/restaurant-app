@@ -3,9 +3,24 @@ import girlBlindfold from '../../../assets/blindfold-girl.webp';
 import clsx from 'clsx';
 import useModal from '../../../hooks/useModal';
 import ModalBooking from '../../../components/ModalBooking';
+import { useRef, useMemo } from 'react';
+import { useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
+import useBoxVariants from '../../../hooks/useBoxVariants';
 
 const ConceptPage = () => {
 	const [isModalOpen, openModal, closeModal] = useModal();
+
+	const config = useMemo(
+		() => ({
+			hidden: { opacity: 0, x: -100 },
+			visible: { opacity: 1, x: 0 },
+		}),
+		[],
+	);
+	const boxVariantsImage = useBoxVariants(config);
+	const viewRef = useRef(null);
+	const isInView = useInView(viewRef, { once: true });
 	return (
 		<section
 			id='conceptPage'
@@ -18,12 +33,17 @@ const ConceptPage = () => {
 					'3xl:h-[60%] 3xl:my-[5vh]',
 				)}
 			>
-				<div
+				<motion.div
 					className={clsx(
 						'flex h-[80%] w-[70%] items-center justify-end border-2 border-white',
 						'lg:h-[70vh] lg:w-[40%] lg:border-none',
 						'3xl:w-[18vw] 3xl:h-[38vh]',
 					)}
+					ref={viewRef}
+					initial='hidden'
+					animate={isInView ? 'visible' : 'hidden'}
+					variants={boxVariantsImage}
+					transition={{ duration: 1.1 }}
 				>
 					<div
 						className={clsx(
@@ -36,7 +56,7 @@ const ConceptPage = () => {
 							className='h-full w-full rounded-lg object-cover'
 						/>
 					</div>
-				</div>
+				</motion.div>
 				<div
 					className={clsx(
 						'concept-text-background font-roboto flex w-[100%] flex-col items-center justify-center gap-[5vh] rounded-lg p-8 leading-7 text-gray-900',

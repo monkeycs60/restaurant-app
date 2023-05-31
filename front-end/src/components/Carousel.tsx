@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
-import { RxDot, RxDotFilled } from 'react-icons/rx';
 import { platePhotos } from '../utils/platePhotos';
 import blackBackground from '../assets/black-background.jpg';
-import { BsCircleFill, BsCircle } from 'react-icons/bs';
 import { BsBookmarkFill, BsBookmark } from 'react-icons/bs';
 import clsx from 'clsx';
+import { useRef } from 'react';
+import { useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const Carousel = () => {
+	const viewRef = useRef(null);
+	const isInView = useInView(viewRef, { once: true });
+
 	const [current, setCurrent] = useState<number>(3);
 	const [loading, setLoading] = useState<boolean>(true);
 	const [isBookmarked, setIsBookmarked] = useState<boolean>(false);
@@ -48,7 +52,13 @@ const Carousel = () => {
 				<div className='font-roboto absolute -bottom-2 z-40 bg-transparent px-1 text-xs italic text-gray-100 lg:text-base'>
 					<p>A glimpse of our previous creations</p>
 				</div>
-				<div className='relative z-10 w-full  border-x-2 border-t-2 object-cover'>
+				<motion.div
+					ref={viewRef}
+					initial={{ opacity: 0 }}
+					animate={isInView ? { opacity: 1 } : {}}
+					transition={{ duration: 1.1 }}
+					className='relative z-10 w-full  border-x-2 border-t-2 object-cover'
+				>
 					<img
 						src={blackBackground}
 						alt='Loading...'
@@ -81,7 +91,7 @@ const Carousel = () => {
 							) : null,
 						)
 					)}
-				</div>
+				</motion.div>
 				<div className=' gap- absolute -right-4 top-0 -z-20 flex cursor-pointer flex-col rounded-lg p-1 lg:-right-7'>
 					{platePhotos.map((platePhoto, index) =>
 						index === current ? (

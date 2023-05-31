@@ -13,12 +13,26 @@ import { RiContactsBook2Line } from 'react-icons/ri';
 import { GoLocation } from 'react-icons/go';
 import { BsCalendarDay } from 'react-icons/bs';
 import clsx from 'clsx';
+import { useRef, useMemo } from 'react';
+import { useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
+import useBoxVariants from '../../../hooks/useBoxVariants';
 
 const ICON = icon({
 	iconUrl: markerLeaflet,
 	iconSize: [23, 38],
 });
 const PracticalInformations = () => {
+	const configMap = useMemo(
+		() => ({
+			hidden: { opacity: 0, x: -60 },
+			visible: { opacity: 1, x: -192 },
+		}),
+		[],
+	);
+	const BoxVariantsMap = useBoxVariants(configMap);
+	const viewRef = useRef(null);
+	const isInView = useInView(viewRef, { once: true });
 	return (
 		<section
 			id='findUsPage'
@@ -118,7 +132,12 @@ const PracticalInformations = () => {
 								</div>
 							</div>
 						</div>
-						<div
+						<motion.div
+							ref={viewRef}
+							initial='hidden'
+							animate={isInView ? 'visible' : 'hidden'}
+							variants={BoxVariantsMap}
+							transition={{ duration: 1.1 }}
 							className={clsx(
 								'rounded-4xl flex h-72 justify-center overflow-hidden rounded-lg',
 								'lg:h-auto lg:w-[35%] lg:-translate-x-48',
@@ -141,7 +160,7 @@ const PracticalInformations = () => {
 									<Tooltip>Chiaroscuro Restaurant</Tooltip>
 								</Marker>
 							</MapContainer>
-						</div>
+						</motion.div>
 					</div>
 				</div>
 			</div>

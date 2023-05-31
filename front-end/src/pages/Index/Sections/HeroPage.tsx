@@ -3,9 +3,15 @@ import { BsArrow90DegDown, BsArrow90DegUp } from 'react-icons/bs';
 import useModal from '../../../hooks/useModal';
 import ModalBooking from '../../../components/ModalBooking';
 import { Link } from 'react-scroll';
+import { useRef } from 'react';
+import { useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const HeroPage = () => {
 	const [isModalOpen, openModal, closeModal] = useModal();
+
+	const viewRef = useRef(null);
+	const isInView = useInView(viewRef, { once: true });
 	return (
 		<section className='relative h-screen w-full'>
 			<nav>
@@ -78,15 +84,19 @@ const HeroPage = () => {
 					</h1>
 					<h2 className='font-playfair text-xl lg:text-2xl'>London</h2>
 				</div>
-				<h2
+				<motion.h2
 					className={clsx(
 						'font-roboto absolute bottom-[-10%] left-[50%] hidden translate-x-[-50%] translate-y-[-10%] whitespace-nowrap text-7xl font-extralight uppercase tracking-wide text-gray-200',
 						'lg:block',
 						'3xl:text-8xl',
 					)}
+					ref={viewRef}
+					initial={{ opacity: 0 }}
+					animate={isInView ? { opacity: 1 } : {}}
+					transition={{ duration: 1.1 }}
 				>
 					Have you ever eaten in the dark ?
-				</h2>
+				</motion.h2>
 			</div>
 			<div
 				className={clsx(

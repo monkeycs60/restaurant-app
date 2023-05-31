@@ -1,11 +1,29 @@
 import chef from '../../../assets/chef-dedicated.webp';
 import { ImQuotesLeft } from 'react-icons/im';
-import { useRef } from 'react';
-import { useInView } from 'framer-motion';
 import logosPhotos from '../../../utils/logosPhotos';
 import { BsArrow90DegDown, BsArrow90DegUp } from 'react-icons/bs';
 import clsx from 'clsx';
+import { useRef, useMemo } from 'react';
+import { useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
+import useBoxVariants from '../../../hooks/useBoxVariants';
 const ChefCommitment = () => {
+	const configImage = useMemo(
+		() => ({
+			hidden: { opacity: 0, x: -100 },
+			visible: { opacity: 1, x: 0 },
+		}),
+		[],
+	);
+	const configText = useMemo(
+		() => ({
+			hidden: { opacity: 0, x: 100 },
+			visible: { opacity: 1, x: 0 },
+		}),
+		[],
+	);
+	const boxVariantsImage = useBoxVariants(configImage);
+	const boxVariantsText = useBoxVariants(configText);
 	const viewRef = useRef(null);
 	const isInView = useInView(viewRef, { once: true });
 	return (
@@ -23,13 +41,17 @@ const ChefCommitment = () => {
 					'lg:flex-row lg:gap-16 lg:p-6',
 					'3xl:p-0',
 				)}
-				ref={viewRef}
 			>
-				<div
+				<motion.div
 					className={clsx(
 						'm-auto flex w-[70%] rounded-lg border-2 border-white',
 						'lg:w-[50%] lg:border-none',
 					)}
+					ref={viewRef}
+					initial='hidden'
+					animate={isInView ? 'visible' : 'hidden'}
+					variants={boxVariantsImage}
+					transition={{ duration: 1.1 }}
 				>
 					<img
 						src={chef}
@@ -39,13 +61,18 @@ const ChefCommitment = () => {
 							'lg:h-auto lg:w-auto',
 						)}
 					/>
-				</div>
-				<div
+				</motion.div>
+				<motion.div
 					className={clsx(
 						'concept-text-background flex flex-col gap-6 rounded-lg border-[1px] p-4 hover:bg-amber-600/30',
 						'lg:w-[50%] lg:gap-8 lg:p-8',
 						'3xl:gap-12',
 					)}
+					ref={viewRef}
+					initial='hidden'
+					animate={isInView ? 'visible' : 'hidden'}
+					variants={boxVariantsText}
+					transition={{ duration: 1.1 }}
 				>
 					<div>
 						<ImQuotesLeft
@@ -69,9 +96,9 @@ const ChefCommitment = () => {
 							Head Chef
 						</h3>
 					</div>
-				</div>
+				</motion.div>
 			</div>
-			<section className='m-auto w-[90%] py-12 lg:w-auto'>
+			<div className='m-auto w-[90%] py-12 lg:w-auto'>
 				<div className='bg container mx-auto px-4'>
 					<div className='-mx-4 flex flex-wrap items-center'>
 						<div className='mb-12 w-full px-4 md:mb-16 lg:mb-0 lg:w-1/2'>
@@ -108,7 +135,7 @@ const ChefCommitment = () => {
 						</div>
 					</div>
 				</div>
-			</section>
+			</div>
 			<div
 				className={clsx(
 					'TRANSITION font-roboto m-auto  flex w-[80%] justify-center gap-6 text-center text-2xl font-extralight uppercase tracking-wide text-gray-200',
