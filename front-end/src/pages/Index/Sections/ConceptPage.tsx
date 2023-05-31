@@ -47,7 +47,7 @@ const ConceptPage = () => {
 				>
 					<div
 						className={clsx(
-							'z-10 h-[80%] rounded-lg lg:translate-x-[6%]',
+							'z-30 h-[80%] rounded-lg lg:translate-x-[6%]',
 						)}
 					>
 						<img
