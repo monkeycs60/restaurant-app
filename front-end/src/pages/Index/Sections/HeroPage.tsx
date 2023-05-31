@@ -5,7 +5,7 @@ import ModalBooking from '../../../components/ModalBooking';
 import { Link } from 'react-scroll';
 import { useRef } from 'react';
 import { useInView } from 'framer-motion';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { HiOutlineMenuAlt1 } from 'react-icons/hi';
 import useHamburgerMenu from '../../../hooks/useHamburgerMenu';
 import HamburgerMenu from '../../../components/HamburgerMenu';
@@ -103,12 +103,14 @@ const HeroPage = () => {
 				closeModal={closeModal}
 				IdPrefix='instance2'
 			/>
-			{isHamburgerOpen && (
-				<HamburgerMenu
-					isHamburgerOpen={isHamburgerOpen}
-					toggleHamburgerMenu={toggleHamburgerMenu}
-				/>
-			)}
+			<AnimatePresence mode='wait'>
+				{isHamburgerOpen && (
+					<HamburgerMenu
+						isHamburgerOpen={isHamburgerOpen}
+						toggleHamburgerMenu={toggleHamburgerMenu}
+					/>
+				)}
+			</AnimatePresence>
 			<div
 				className={clsx('hero-background relative h-[40vh]', 'lg:h-[50vh]')}
 			>
