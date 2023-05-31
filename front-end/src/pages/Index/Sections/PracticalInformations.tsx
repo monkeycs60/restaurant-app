@@ -139,8 +139,8 @@ const PracticalInformations = () => {
 							variants={BoxVariantsMap}
 							transition={{ duration: 1.1 }}
 							className={clsx(
-								'rounded-4xl flex h-72 justify-center overflow-hidden rounded-lg',
-								'lg:h-auto lg:w-[35%] lg:-translate-x-48',
+								'rounded-4xl z-10 flex h-72 justify-center overflow-hidden rounded-lg',
+								'lg:z-auto lg:h-auto lg:w-[35%] lg:-translate-x-48',
 							)}
 						>
 							<MapContainer

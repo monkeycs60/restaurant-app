@@ -125,3 +125,7 @@ background-repeat: no-repeat;
     opacity: 1;
   }
 }
+
+.indexZ {
+  z-index: 100;
+}

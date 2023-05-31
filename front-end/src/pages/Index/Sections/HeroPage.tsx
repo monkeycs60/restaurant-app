@@ -6,19 +6,22 @@ import { Link } from 'react-scroll';
 import { useRef } from 'react';
 import { useInView } from 'framer-motion';
 import { motion } from 'framer-motion';
+import { HiOutlineMenuAlt1 } from 'react-icons/hi';
+import useHamburgerMenu from '../../../hooks/useHamburgerMenu';
+import HamburgerMenu from '../../../components/HamburgerMenu';
+import { TfiClose } from 'react-icons/tfi';
 
 const HeroPage = () => {
 	const [isModalOpen, openModal, closeModal] = useModal();
-
+	const { isHamburgerOpen, toggleHamburgerMenu } = useHamburgerMenu();
 	const viewRef = useRef(null);
 	const isInView = useInView(viewRef, { once: true });
 	return (
-		<section className='relative h-screen w-full'>
+		<section id='heroPage' className='relative h-screen w-full'>
 			<nav>
 				<ul
 					className={clsx(
-						'font-classic fixed z-50 hidden h-[7vh] w-full items-center justify-around p-2 text-lg text-gray-200 backdrop-blur-sm',
-						'lg:flex',
+						'font-classic fixed z-50 flex h-[7vh] w-full items-center justify-around p-2 text-lg text-gray-200 backdrop-blur-sm',
 						'3xl:text-2xl',
 					)}
 				>
@@ -26,8 +29,9 @@ const HeroPage = () => {
 						to='conceptPage'
 						spy={true}
 						smooth={true}
+						offset={-80}
 						duration={800}
-						className='cursor-pointer'
+						className='hidden cursor-pointer lg:block'
 						href='#conceptPage'
 					>
 						Concept
@@ -36,8 +40,9 @@ const HeroPage = () => {
 						to='menuPage'
 						spy={true}
 						smooth={true}
+						offset={-80}
 						duration={800}
-						className='cursor-pointer'
+						className='hidden cursor-pointer lg:block'
 						href='#menuPage'
 					>
 						Menu
@@ -46,14 +51,15 @@ const HeroPage = () => {
 						to='commitmentPage'
 						spy={true}
 						smooth={true}
+						offset={-80}
 						duration={800}
-						className='cursor-pointer'
+						className='hidden cursor-pointer lg:block'
 						href='#commitmentPage'
 					>
 						Commitment
 					</Link>
 					<li
-						className='flex cursor-pointer items-center justify-center px-8 text-orange-500 '
+						className='hidden cursor-pointer items-center justify-center px-8 text-orange-500 lg:flex'
 						onClick={openModal}
 					>
 						Make a reservation
@@ -62,12 +68,34 @@ const HeroPage = () => {
 						to='findUsPage'
 						spy={true}
 						smooth={true}
+						offset={-80}
 						duration={800}
-						className='cursor-pointer'
+						className='hidden cursor-pointer lg:block'
 						href='#findUsPage'
 					>
 						Find Us
 					</Link>
+					{isHamburgerOpen ? (
+						<TfiClose
+							size={30}
+							color='black'
+							className={clsx(
+								'fixed right-4 cursor-pointer',
+								'lg:hidden',
+							)}
+							onClick={toggleHamburgerMenu}
+						/>
+					) : (
+						<HiOutlineMenuAlt1
+							size={30}
+							color='white'
+							className={clsx(
+								'fixed right-4 cursor-pointer',
+								'lg:hidden',
+							)}
+							onClick={toggleHamburgerMenu}
+						/>
+					)}
 				</ul>
 			</nav>
 			<ModalBooking
@@ -75,6 +103,12 @@ const HeroPage = () => {
 				closeModal={closeModal}
 				IdPrefix='instance2'
 			/>
+			{isHamburgerOpen && (
+				<HamburgerMenu
+					isHamburgerOpen={isHamburgerOpen}
+					toggleHamburgerMenu={toggleHamburgerMenu}
+				/>
+			)}
 			<div
 				className={clsx('hero-background relative h-[40vh]', 'lg:h-[50vh]')}
 			>
