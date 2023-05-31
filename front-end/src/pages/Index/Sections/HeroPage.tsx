@@ -22,6 +22,7 @@ const HeroPage = () => {
 						smooth={true}
 						duration={800}
 						className='cursor-pointer'
+						href='#conceptPage'
 					>
 						Concept
 					</Link>
@@ -31,6 +32,7 @@ const HeroPage = () => {
 						smooth={true}
 						duration={800}
 						className='cursor-pointer'
+						href='#menuPage'
 					>
 						Menu
 					</Link>
@@ -40,6 +42,7 @@ const HeroPage = () => {
 						smooth={true}
 						duration={800}
 						className='cursor-pointer'
+						href='#commitmentPage'
 					>
 						Commitment
 					</Link>
@@ -55,6 +58,7 @@ const HeroPage = () => {
 						smooth={true}
 						duration={800}
 						className='cursor-pointer'
+						href='#findUsPage'
 					>
 						Find Us
 					</Link>
