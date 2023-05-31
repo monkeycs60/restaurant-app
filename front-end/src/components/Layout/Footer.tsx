@@ -21,6 +21,7 @@ const Footer = () => {
 				https://www.instagram.com/chiaroscuro_restaurant/
 				'
 					target='_blank'
+					aria-label='visit our instagram'
 				>
 					<BsInstagram className='h-full lg:w-6' />
 				</a>
@@ -29,6 +30,7 @@ const Footer = () => {
 				https://www.facebook.com/chiaroscuro_restaurant/
 				'
 					target='_blank'
+					aria-label='visit our facebook'
 				>
 					<RiFacebookLine className='h-full lg:w-6' />
 				</a>
@@ -37,6 +39,7 @@ const Footer = () => {
 				https://www.linkedin.com/chiaroscuro_restaurant/
 				'
 					target='_blank'
+					aria-label='visit our linkedin'
 				>
 					<FiLinkedin className='h-full lg:w-6' />
 				</a>
@@ -45,6 +48,7 @@ const Footer = () => {
 				https://www.tripadvisor.com/chiaroscuro_restaurant/
 				'
 					target='_blank'
+					aria-label='visit our tripadvisor'
 				>
 					<SiTripadvisor className='h-full lg:w-6' />
 				</a>

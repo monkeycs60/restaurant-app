@@ -20,9 +20,9 @@ const MenuCard = () => {
 						menu
 					</span>
 				</h2>
-				<h4 className='3xl:pt-2 3xl:text-sm text-xs uppercase'>
+				<span className='3xl:pt-2 3xl:text-sm text-xs uppercase'>
 					£45 per guest
-				</h4>
+				</span>
 			</div>
 			<div className='flex flex-col items-center justify-between gap-0'>
 				<div className='flex flex-col items-center justify-between gap-4'>

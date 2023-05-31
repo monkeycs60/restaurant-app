@@ -72,7 +72,7 @@ const HeroPage = () => {
 					<h1 className='font-dancing text-5xl font-bold lg:text-6xl'>
 						Chiaroscuro
 					</h1>
-					<h3 className='font-playfair text-xl lg:text-2xl'>London</h3>
+					<h2 className='font-playfair text-xl lg:text-2xl'>London</h2>
 				</div>
 				<h2
 					className={clsx(

@@ -1,8 +1,8 @@
 import bio1 from '../assets/bio1.png';
-import bio2 from '../assets/bio2-PhotoRoom.png-PhotoRoom.png';
-import bio3 from '../assets/bio3-PhotoRoom.png-PhotoRoom.png';
-import bio4 from '../assets/bio4-PhotoRoom.png-PhotoRoom.png';
-import bio5 from '../assets/bio5-PhotoRoom.png-PhotoRoom.png';
+import bio2 from '../assets/bio2.png';
+import bio3 from '../assets/bio3.png';
+import bio4 from '../assets/bio4.png';
+import bio5 from '../assets/bio5.png';
 import bio6 from '../assets/bio6.png';
 
 export interface logosPhotosProps {

@@ -16,7 +16,7 @@ import clsx from 'clsx';
 
 const ICON = icon({
 	iconUrl: markerLeaflet,
-	iconSize: [28, 33],
+	iconSize: [23, 38],
 });
 const PracticalInformations = () => {
 	return (
