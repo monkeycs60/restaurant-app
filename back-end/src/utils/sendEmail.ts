@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const transporter = nodemailer.createTransport({
-	service: 'gmail',
+	service: 'hotmail',
 	auth: {
 		user: process.env.RESTAURANT_OWNER_EMAIL_ADDRESS,
 		pass: process.env.RESTAURANT_OWNER_EMAIL_ADDRESS_PASSWORD,
@@ -17,7 +17,7 @@ export async function sendEmail(to: string, subject: string, bookingData: any) {
 		bookingData.experience = 'Pitch Black';
 	}
 		const mailOptions = {
-			from: process.env.RESTAURANT_OWNER_EMAIL_ADDRESS,
+			from: 'gregre_95@hotmail.fr',
 			to: to,
 			subject: subject,
 			html: `
