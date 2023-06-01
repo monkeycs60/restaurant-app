@@ -4,11 +4,21 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+// const transporter = nodemailer.createTransport({
+// 	service: 'hotmail',
+// 	auth: {
+// 		user: process.env.RESTAURANT_OWNER_EMAIL_ADDRESS,
+// 		pass: process.env.RESTAURANT_OWNER_EMAIL_ADDRESS_PASSWORD,
+// 	},
+// });
+
 const transporter = nodemailer.createTransport({
-	service: 'hotmail',
+	host: 'email-smtp.eu-north-1.amazonaws.com', // Replace this with your Amazon SES SMTP endpoint
+	port: 587,
+	secure: false, // true for 465, false for other ports
 	auth: {
-		user: process.env.RESTAURANT_OWNER_EMAIL_ADDRESS,
-		pass: process.env.RESTAURANT_OWNER_EMAIL_ADDRESS_PASSWORD,
+		user: process.env.AMAZON_SES_SMTP_USERNAME,
+		pass: process.env.AMAZON_SES_SMTP_PASSWORD,
 	},
 });
 
@@ -17,7 +27,7 @@ export async function sendEmail(to: string, subject: string, bookingData: any) {
 		bookingData.experience = 'Pitch Black';
 	}
 		const mailOptions = {
-			from: 'gregre_95@hotmail.fr',
+			from: 'clement.serizay@gmail.com',
 			to: to,
 			subject: subject,
 			html: `
