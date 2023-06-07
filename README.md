@@ -64,7 +64,7 @@ Note that you can't receive the confirmation email with this account as it is no
 - Run the app:
 
   ```bash
-  npm run start
+  npm run dev
   ```
 
   Open your preferred web browser and navigate to
