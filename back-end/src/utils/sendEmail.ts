@@ -13,12 +13,12 @@ dotenv.config();
 // });
 
 const transporter = nodemailer.createTransport({
-	host: 'email-smtp.eu-north-1.amazonaws.com', // Replace this with your Amazon SES SMTP endpoint
+	host: 'smtp.sendgrid.net', // Replace this with your Amazon SES SMTP endpoint
 	port: 587,
 	secure: false, // true for 465, false for other ports
 	auth: {
-		user: process.env.AMAZON_SES_SMTP_USERNAME,
-		pass: process.env.AMAZON_SES_SMTP_PASSWORD,
+		user: process.env.EMAIL_SERVER_USER,
+		pass: process.env.EMAIL_SERVER_PASSWORD,
 	},
 });
 
@@ -26,11 +26,11 @@ export async function sendEmail(to: string, subject: string, bookingData: any) {
 	if (bookingData.experience === 'pitch_black') {
 		bookingData.experience = 'Pitch Black';
 	}
-		const mailOptions = {
-			from: 'clement.serizay@gmail.com',
-			to: to,
-			subject: subject,
-			html: `
+	const mailOptions = {
+		from: 'clement.serizay@gmail.com',
+		to: to,
+		subject: subject,
+		html: `
           <div style="text-align: center; background-color: lightgray; padding: 16px; border-radius: 10px;">
     <img src="https://i.postimg.cc/7YTk7m8y/blindfold-girl.png" alt="Logo" style="border-radius: 50%;" width="140" height="140">
     <h1 style="color: orange; font-size: 30px; text-shadow: 2px 2px #ff0000;">Restaurant Confirmation</h1>
@@ -45,7 +45,7 @@ export async function sendEmail(to: string, subject: string, bookingData: any) {
     <p style="font-size: 16px; color: gray; font-family: Arial, sans-serif; font-style: italic">The Chiaroscuro team</p>
 </div>
         `,
-		};
+	};
 
 	try {
 		let info = await transporter.sendMail(mailOptions);
