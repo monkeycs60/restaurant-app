@@ -27,7 +27,7 @@ export async function sendEmail(to: string, subject: string, bookingData: any) {
 		bookingData.experience = 'Pitch Black';
 	}
 	const mailOptions = {
-		from: 'clement.serizay@gmail.com',
+		from: 'noreply@coworkezmalin.com',
 		to: to,
 		subject: subject,
 		html: `
