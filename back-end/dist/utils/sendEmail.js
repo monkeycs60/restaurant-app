@@ -10,12 +10,12 @@ dotenv.config();
 // 	},
 // });
 const transporter = nodemailer.createTransport({
-    host: 'email-smtp.eu-north-1.amazonaws.com',
+    host: 'smtp.sendgrid.net',
     port: 587,
     secure: false,
     auth: {
-        user: process.env.AMAZON_SES_SMTP_USERNAME,
-        pass: process.env.AMAZON_SES_SMTP_PASSWORD,
+        user: process.env.EMAIL_SERVER_USER,
+        pass: process.env.EMAIL_SERVER_PASSWORD,
     },
 });
 export async function sendEmail(to, subject, bookingData) {
@@ -23,7 +23,7 @@ export async function sendEmail(to, subject, bookingData) {
         bookingData.experience = 'Pitch Black';
     }
     const mailOptions = {
-        from: 'clement.serizay@gmail.com',
+        from: 'noreply@coworkezmalin.com',
         to: to,
         subject: subject,
         html: `
