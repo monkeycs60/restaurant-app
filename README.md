@@ -24,7 +24,7 @@ You can use the following credentials to login in case you want to avoid the reg
 - Email: `random-user@mail.fr`
 - Password: `azerty123`
 
-Note that you can't receive the confirmation email with this account as it is not a real email address.
+Note that you can't receive the confirmation email with this account as it is not a real email address!
 
 
 ## Table of Contents
